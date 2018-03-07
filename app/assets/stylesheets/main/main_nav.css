@@ -1,0 +1,73 @@
+.main-nav {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-nav-left {
+
+}
+
+.main-nav-right {
+  display: flex;
+  padding-right: 145px;
+  width: 448px;
+  height: 87px;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column
+
+}
+
+.main-logo {
+  padding-left: 145px;
+  font-family: Helvetica;
+  font-size: 20px;
+  text-decoration: none;
+
+}
+
+.main-logo a:link, a:visited{
+  text-decoration: none;
+  color: #333;
+}
+
+.main-nav-session-buttons {
+  display: flex;
+  list-style: none;
+  padding:
+
+}
+
+.main-nav-right-top {
+
+}
+
+.main-nav-right-bottom {
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 15px;
+  font-weight: 700;
+}
+
+.main-nav-signup {
+ padding-left: 5px;
+ padding-right: 12px;
+
+}
+
+.main-nav-login {
+  padding-left: 5px;
+}
+
+.main-nav-logout {
+
+}
+
+.main-nav-right-bottom a:link, a:visited {
+    text-decoration: none;
+    color: #333;
+  }
+}

@@ -1,5 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
+import SessionNav from './session_nav.jsx';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -26,9 +27,11 @@ class SessionForm extends React.Component {
       password: '',
       email: ''
     });
+
   }
 
   renderErrors() {
+
     return(
       <ul>
         {this.props.errors.map((error, i) => (
@@ -42,44 +45,41 @@ class SessionForm extends React.Component {
 
   render() {
     return (
-      <div className="login-form-container">
-        <div className = 'login-form-title'>{this.props.formType}</div>
-        <div className="login-divider"></div>
-        <form onSubmit={this.handleSubmit} className="login-form-box">
-          <br/>
-          {this.renderErrors()}
-          <div className="login-form">
-            <br/>
-            <div className = "item">
-            <label>Band name</label>
-              <input type="text"
-                value={this.state.band_name}
-                onChange={this.update('band_name')}
-                className="login-input"
-              />
+      <div>
+        <SessionNav />
+        <div className="login-form-container">
+          <div className = 'login-form-title'>{this.props.formType}</div>
+          <div className="login-divider"></div>
+          <form onSubmit={this.handleSubmit} className="login-form-box">
+            {this.renderErrors()}
+            <div className="login-form">
+
+                <div className="label-container">
+                  <label>Band name</label>
+                  <label>Email</label>
+                  <label>Password</label>
+                </div>
+                <div className="input-container">
+                  <input type="text"
+                    value={this.state.band_name}
+                    onChange={this.update('band_name')}
+                    className="login-input"
+                  />
+                  <input type="text"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                    className="login-input"
+                  />
+                  <input type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                    className="login-input"
+                  />
+                </div>
             </div>
-            <br/>
-            <div className = "item">
-            <label>Email</label>
-              <input type="text"
-                value={this.state.email}
-                onChange={this.update('email')}
-                className="login-input"
-              />
-            </div>
-            <br/>
-            <div className = "item">
-            <label>Password</label>
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-                className="login-input"
-              />
-            </div>
-            <br/>
             <input className="session-submit" type="submit" value={this.props.formType} />
-          </div>
-        </form>
+          </form>
+        </div>
       </div>
     );
   }
