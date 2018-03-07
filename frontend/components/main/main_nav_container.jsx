@@ -11,7 +11,7 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-    logout: () => dispatch(logout)
+    logout: () => dispatch(logout())
   };
 };
 

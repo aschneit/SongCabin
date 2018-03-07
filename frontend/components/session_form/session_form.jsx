@@ -21,7 +21,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(Object.assign({}, this.state));
+    this.props.processForm(Object.assign({}, this.state)).then(() => this.props.history.push('/'));
     this.setState({
       band_name: '',
       password: '',
@@ -44,6 +44,23 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    const emailField  = () => {
+      if (this.props.formType === 'Sign Up')
+        return (
+          <input type="text"
+            value={this.state.email}
+            onChange={this.update('email')}
+            className="login-input email"
+          />
+        );
+    };
+    const emailLabel  = () => {
+      if (this.props.formType === 'Sign Up')
+        return (
+          <label className="email-label">Email</label>
+        );
+    };
+
     return (
       <div>
         <SessionNav />
@@ -56,7 +73,7 @@ class SessionForm extends React.Component {
 
                 <div className="label-container">
                   <label>Band name</label>
-                  <label>Email</label>
+                  {emailLabel()}
                   <label>Password</label>
                 </div>
                 <div className="input-container">
@@ -65,11 +82,7 @@ class SessionForm extends React.Component {
                     onChange={this.update('band_name')}
                     className="login-input"
                   />
-                  <input type="text"
-                    value={this.state.email}
-                    onChange={this.update('email')}
-                    className="login-input"
-                  />
+                {emailField()}
                   <input type="password"
                     value={this.state.password}
                     onChange={this.update('password')}

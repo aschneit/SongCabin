@@ -15,12 +15,15 @@ import { Link } from 'react-router-dom';
   const loggedInLinks = (logout) => {
     return (
       <ul className = "main-nav-session-buttons">
-        <li className = "main-nav-logout"><Link onClick={() => logout}>log out</Link></li>
+        <li className = "main-nav-logout"><button onClick={logout}>log out</button></li>
       </ul>
     );
   };
 
-  const MainNav = ({currentUser, logout}) => {
+  const MainNav = ({currentUser, logout, location}) => {
+    if (location.pathname === '/login' || location.pathname === '/signup') {
+      return null;
+    }
     let links;
     if (currentUser) {
       links = loggedInLinks(logout);

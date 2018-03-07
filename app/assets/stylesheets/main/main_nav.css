@@ -12,7 +12,7 @@
 
 .main-nav-right {
   display: flex;
-  padding-right: 145px;
+  padding-right: 197px;
   width: 448px;
   height: 87px;
   display: flex;
@@ -22,10 +22,11 @@
 }
 
 .main-logo {
-  padding-left: 145px;
+  padding-left: 195px;
   font-family: Helvetica;
-  font-size: 20px;
+  font-size: 25px;
   text-decoration: none;
+  padding-bottom: 30px;
 
 }
 
@@ -37,7 +38,7 @@
 .main-nav-session-buttons {
   display: flex;
   list-style: none;
-  padding:
+
 
 }
 
@@ -49,25 +50,41 @@
   display: flex;
   justify-content: flex-end;
   padding-bottom: 15px;
-  font-weight: 700;
+  font-weight: 550;
+  font-size: 15px;
 }
 
 .main-nav-signup {
- padding-left: 5px;
+ padding-left: 9px;
  padding-right: 12px;
-
+ border-left: 1px solid lightgray;
 }
 
 .main-nav-login {
-  padding-left: 5px;
+  padding-left: 9px;
+  border-left: 1px solid lightgray;
+}
+
+.main-nav-logout button {
+  font-weight: 550;
+  font-size: 15px;
+  padding-left: 9px;
+  border: none;
+  padding: 0;
+
 }
 
 .main-nav-logout {
-
+  padding-left: 9px;
+  border-left: 1px solid lightgray;
 }
 
 .main-nav-right-bottom a:link, a:visited {
     text-decoration: none;
     color: #333;
-  }
+}
+
+.main-nav-right-bottom a:hover{
+    text-decoration: underline;
+    color: #333;
 }

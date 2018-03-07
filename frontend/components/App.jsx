@@ -6,7 +6,7 @@ import MainNavContainer from './main/main_nav_container';
 
 const App = () => (
   <div className = 'main'>
-    <Route path="/" component={MainNavContainer} />
+    <Route path="/" component={MainNavContainer}/>
     <Route path="/login" component={LoginFormContainer} />
     <Route path="/signup" component={SignupFormContainer} />
   </div>
