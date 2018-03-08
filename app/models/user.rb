@@ -5,7 +5,14 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
-  has_many :albums
+  has_many :albums,
+  primary_key: :id,
+  class_name: 'Album',
+  foreign_key: :artist_id
+
+  has_many :tracks,
+  through: :albums,
+  source: :tracks
 
   attr_reader :password
 

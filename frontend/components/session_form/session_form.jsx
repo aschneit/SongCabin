@@ -56,7 +56,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    let classChange = ""
+    let classChange = "";
 
     const emailField  = () => {
       if (this.props.formType === 'Sign Up') {
