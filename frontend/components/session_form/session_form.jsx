@@ -1,6 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import SessionNav from './session_nav.jsx';
+import { Link } from 'react-router-dom';
 
 class SessionForm extends React.Component {
   constructor(props) {
@@ -12,6 +13,7 @@ class SessionForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
+
 
   update(field) {
     return e => this.setState({
@@ -45,20 +47,23 @@ class SessionForm extends React.Component {
 
   render() {
     const emailField  = () => {
-      if (this.props.formType === 'Sign Up')
+      if (this.props.formType === 'Sign Up') {
         return (
           <input type="text"
             value={this.state.email}
             onChange={this.update('email')}
             className="login-input email"
           />
-        );
+      );
+    }
     };
     const emailLabel  = () => {
-      if (this.props.formType === 'Sign Up')
+      if (this.props.formType === 'Sign Up') {
         return (
           <label className="email-label">Email</label>
         );
+
+      }
     };
 
     return (
@@ -70,7 +75,6 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.renderErrors()}
             <div className="login-form">
-
                 <div className="label-container">
                   <label>Band name</label>
                   {emailLabel()}
@@ -92,6 +96,16 @@ class SessionForm extends React.Component {
             </div>
             <input className="session-submit" type="submit" value={this.props.formType} />
           </form>
+          {this.props.formType === 'Sign Up' &&
+            <div className="other-page">
+              Already have an account? <Link to={'/login'}>Log in.</Link>
+            </div>
+          }
+          {this.props.formType === 'Log In' &&
+            <div className="other-page">
+              Don’t have an account? <Link to={'/signup'}>Sign Up.</Link>
+            </div>
+          }
         </div>
       </div>
     );

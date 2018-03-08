@@ -36,8 +36,8 @@
 }
 
 .login-form-title {
-  font-weight: 400;
-  font-size: 16px;
+  font-weight: 525;
+  font-size: 18px;
 }
 
 .login-divider {
@@ -84,7 +84,7 @@
   box-sizing: border-box;
   font-size: 16px;
   font-weight: 300;
-
+  outline: none;
 
 
 }
@@ -97,6 +97,7 @@
   font-size: 16px;
   font-weight: bold;
   margin-top: 20px;
+  outline: none;
 }
 
 .label-container {
@@ -115,4 +116,15 @@
   height: 225px;
   margin-right: 98px;
 
+}
+
+.other-page {
+  padding-top: 77px;
+  font-size: 12px;
+  color: #818285;
+}
+
+.other-page a {
+  color: #00A1C6;
+  text-decoration: none;
 }
