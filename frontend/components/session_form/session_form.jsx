@@ -12,13 +12,23 @@ class SessionForm extends React.Component {
       email: ''
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentWillUnmount() {
+     this.props.clearErrors(this.props.errors);
+  }
 
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
     });
+  }
+
+  handleDemo (e) {
+    this.props.processForm({band_name: 'ron davis', password: 'rondavis', email: 'rondavis'}).then(() => this.props.history.push('/'));
+
+
   }
 
   handleSubmit(e) {
@@ -46,6 +56,8 @@ class SessionForm extends React.Component {
   }
 
   render() {
+    let classChange = ""
+
     const emailField  = () => {
       if (this.props.formType === 'Sign Up') {
         return (
@@ -66,6 +78,10 @@ class SessionForm extends React.Component {
       }
     };
 
+    if (this.props.formType === 'Log In') {
+      classChange = "small";
+    }
+
     return (
       <div>
         <SessionNav />
@@ -75,16 +91,17 @@ class SessionForm extends React.Component {
           <form onSubmit={this.handleSubmit} className="login-form-box">
             {this.renderErrors()}
             <div className="login-form">
-                <div className="label-container">
+                <div className={`label-container ${classChange}`}>
                   <label>Band name</label>
                   {emailLabel()}
                   <label>Password</label>
                 </div>
-                <div className="input-container">
+                <div className={`input-container ${classChange}`}>
                   <input type="text"
                     value={this.state.band_name}
                     onChange={this.update('band_name')}
                     className="login-input"
+                    autoFocus="autoFocus"
                   />
                 {emailField()}
                   <input type="password"
@@ -96,6 +113,11 @@ class SessionForm extends React.Component {
             </div>
             <input className="session-submit" type="submit" value={this.props.formType} />
           </form>
+          {this.props.formType === 'Log In' &&
+            <div>
+              <button onClick={this.handleDemo} className="demo-user">Demo User</button>
+            </div>
+          }
           {this.props.formType === 'Sign Up' &&
             <div className="other-page">
               Already have an account? <Link to={'/login'}>Log in.</Link>

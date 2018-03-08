@@ -10,7 +10,7 @@
 .session-logo {
   padding-left: 145px;
   font-family: Helvetica;
-  font-size: 20px;
+  font-size: 22px;
   text-decoration: none;
 
 }
@@ -18,6 +18,11 @@
 .session-logo a:link, a:visited{
   text-decoration: none;
   color: #333;
+}
+
+.session-logo img {
+  height: 12%;
+  width: 12%;
 }
 
 .login-form-container {
@@ -31,7 +36,7 @@
   color: #333;
   font-family: Helvetica;
   background-color: #F3F3F3;
-  padding-top: 40px;
+  padding-top: 55px;
 
 }
 
@@ -45,7 +50,7 @@
   width: 650px;
   height: 2px;
   margin-top: 36px;
-  margin-bottom: 15px;
+  margin-bottom: 32px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -95,7 +100,7 @@
   background-color: #1390B9;
   color: white;
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 20px;
   outline: none;
 }
@@ -104,7 +109,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 225px;
+  height: 190px;
 
 }
 
@@ -113,9 +118,17 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 225px;
+  height: 190px;
   margin-right: 98px;
 
+}
+
+.input-container.small {
+  height: 120px;
+}
+
+.label-container.small {
+  height: 120px;
 }
 
 .other-page {
@@ -127,4 +140,15 @@
 .other-page a {
   color: #00A1C6;
   text-decoration: none;
+}
+
+.demo-user {
+  width: 300px;
+  height: 35px;
+  background-color: #1390B9;
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 20px;
+  outline: none;
 }

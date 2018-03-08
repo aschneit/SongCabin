@@ -4,9 +4,35 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
 }
 
 .main-nav-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-nav-left-bottom {
+  padding-bottom: 15px;
+  margin-top: 10px;
+  padding-left: 195px;
+}
+
+.main-nav-left-bottom li {
+  list-style: none;
+}
+
+.main-nav-greeting {
+  display: inline-block;
+  list-style: none;
+  font-weight: normal;
+  color: #777;
+  font-weight: normal;
+  border-right: 1px solid lightgray;
+  font-family: Helvetica;
+  font-size: 14px;
+  text-decoration: none;
+  padding-right: 10px;
 
 }
 
@@ -21,13 +47,24 @@
 
 }
 
+.main-nav-left-top {
+  height: 45px;
+}
+
 .main-logo {
+  padding-top: 10px;
   padding-left: 195px;
   font-family: Helvetica;
-  font-size: 25px;
+  font-size: 26px;
   text-decoration: none;
-  padding-bottom: 30px;
+  margin-bottom: 10px;
 
+
+}
+
+.main-logo img {
+  height: 14%;
+  width: 14%;
 }
 
 .main-logo a:link, a:visited{
@@ -51,7 +88,7 @@
   justify-content: flex-end;
   padding-bottom: 15px;
   font-weight: 550;
-  font-size: 15px;
+  font-size: 16px;
 }
 
 .main-nav-signup {
@@ -67,11 +104,15 @@
 
 .main-nav-logout button {
   font-weight: 550;
-  font-size: 15px;
+  font-size: 16px;
   padding-left: 9px;
   border: none;
   padding: 0;
 
+}
+
+.main-nav-logout button:hover {
+  text-decoration: underline;
 }
 
 .main-nav-logout {

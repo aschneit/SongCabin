@@ -25,17 +25,25 @@ import { Link } from 'react-router-dom';
       return null;
     }
     let links;
+    let greeting;
     if (currentUser) {
       links = loggedInLinks(logout);
+      greeting = <li className="main-nav-greeting">Hi {currentUser.band_name}</li>
     } else {
       links = loggedOutLinks();
+      greeting = <li></li>
     }
   return (
   <div className = "main-nav">
     <div className = "main-nav-left">
-      <div className = "main-logo">
-        <Link to={'/'}>songcabin</Link>
+      <div className= "main-nav-left-top">
+        <div className="main-logo">
+          <Link to={'/'}><img src={bc}/>songcabin</Link>
+        </div>
       </div>
+      <ul className="main-nav-left-bottom">
+        {greeting}
+      </ul>
     </div>
     <div className = "main-nav-right">
         <div className = "main-nav-right-top"></div>

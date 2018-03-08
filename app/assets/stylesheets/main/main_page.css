@@ -1,0 +1,51 @@
+.main-photo-block {
+  height: 540px;
+  width: 100%;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+}
+
+
+.main-large-photo {
+  width: 1070px;
+}
+
+.main-large-photo img {
+  width: 1070px;
+  height: 540px;
+}
+
+.main-large-photo img:hover {
+  filter: brightness(130%);
+  -webkit-filter: brightness(130%);
+  -moz-filter: brightness(130%);
+  -o-filter: brightness(130%);
+  -ms-filter: brightness(130%);
+
+}
+
+
+.main-small-photos {
+  width: 375px;
+}
+
+.main-small-photos li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+  height: 180px;
+}
+
+.main-small-photos img {
+  height: 180px;
+  width: 375px;
+}
+
+.main-small-photos img:hover {
+  filter: brightness(130%);
+  -webkit-filter: brightness(130%);
+  -moz-filter: brightness(130%);
+  -o-filter: brightness(130%);
+  -ms-filter: brightness(130%);
+}

@@ -5,7 +5,7 @@ const SessionNav = () => {
   return (
   <div className = "session-nav">
       <div className = "session-logo">
-        <Link to={'/'}>songcabin</Link>
+        <Link to={'/'}><img src={bc}/>songcabin</Link>
       </div>
   </div>
   );
