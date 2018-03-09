@@ -10,10 +10,8 @@ User.destroy_all
 Album.destroy_all
 Track.destroy_all
 
-User.create(band_name: 'RockTurtles', email: "rockturtles@gmail.com", password: "iamaturtle1")
-
+Track.create(title: 'yeah turtles', album_id: 1, order: 1)
 
 Album.create(title: 'Rocking like a turtle', description: 'this is the greatest', artist_id: 1)
 
-
-Track.create(title: 'yeah turtles', album_id: 1, order: 1)
+User.create(band_name: 'RockTurtles', email: "rockturtles@gmail.com", password: "iamaturtle1")
