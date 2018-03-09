@@ -15,3 +15,5 @@ Track.create(title: 'yeah turtles', album_id: 1, order: 1)
 Album.create(title: 'Rocking like a turtle', description: 'this is the greatest', artist_id: 1)
 
 User.create(band_name: 'RockTurtles', email: "rockturtles@gmail.com", password: "iamaturtle1")
+
+User.create(band_name: 'ron davis', email: "rondavis", password: "rondavis")

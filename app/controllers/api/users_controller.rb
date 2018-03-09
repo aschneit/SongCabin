@@ -9,6 +9,15 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def show
+    @user = User.find(params[:id])
+    if @user
+      render "api/users/artist"
+    else
+      render json: 'No user'
+    end
+  end
+
   def user_params
     params.require(:user).permit(:band_name, :email, :password, :band_description, :band_location, :band_website)
   end

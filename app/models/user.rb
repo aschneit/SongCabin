@@ -42,4 +42,8 @@ class User < ApplicationRecord
     end
   end
 
+  def most_recent_album
+    self.albums.last
+  end
+
 end

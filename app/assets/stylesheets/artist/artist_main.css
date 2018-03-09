@@ -1,0 +1,12 @@
+.artist-background {
+  width: 975px;
+  height: 1000px;
+  background-color: lightgrey;
+  margin: auto;
+}
+
+.artist-banner {
+  height: 180px;
+  width: 100%;
+  background-color: darkblue;
+}
