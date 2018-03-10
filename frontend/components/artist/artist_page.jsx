@@ -4,11 +4,15 @@ import { Route, withRouter } from 'react-router-dom';
 
 
 class ArtistPage extends React.Component {
-
+  constructor(props) {
+    super(props);
+    this.state = this.props;
+  }
 
   componentDidMount () {
-    this.props.getArtist(this.props.artist.id);
+    this.props.getArtist(this.props.match.params.artistId);
   }
+
 
 
   render () {
@@ -17,7 +21,18 @@ class ArtistPage extends React.Component {
         <div className="artist-background">
           <div className="artist-banner">
           </div>
-          <Route path={`${this.props.match.path}/albums/:albumId/`} component={AlbumShowContainer}/>
+          <div className="artist-content">
+            <div className="album-component">
+              <Route path={`${this.props.match.path}/albums/:albumId/`} component={AlbumShowContainer}/>
+            </div>
+            <div className="artist-discog-components">
+              <div className="artist-component">
+                <ArtistShowContainer />
+              </div>
+              <div className="discog-component">
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

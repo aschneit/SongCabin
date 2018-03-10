@@ -1,6 +1,6 @@
 .artist-background {
   width: 975px;
-  height: 1000px;
+  height: auto;
   background-color: lightgrey;
   margin: auto;
 }
@@ -9,4 +9,138 @@
   height: 180px;
   width: 100%;
   background-color: darkblue;
+}
+
+.album-column {
+  width: 756px;
+  height: 1450px;
+  display: flex;
+  flex-direction: row;
+  margin-top: 45px;
+  margin-left: 30px;
+
+}
+
+.album-left-column {
+  margin-right: 30px;
+}
+
+.album-name {
+  font-size: 28px;
+  margin-bottom: 8px;
+  margin-right: 30px;
+  margin-top: -4px;
+}
+
+.artist-name {
+  width: 385px;
+  font-size: 14px;
+
+
+}
+
+.artist-name > a {
+  text-decoration-line: none;
+  color: #1c285e;
+}
+
+.artist-name > a:hover {
+  text-decoration: underline;
+  color: #1c285e;
+}
+
+.player {
+  width: 376px;
+  height: 52px;
+  background-color: white;
+  margin-top: 24px;
+  margin-bottom: 17px;
+}
+
+.digital-album {
+ font-size: 14px;
+ font-weight: bold;
+}
+
+.small-gray {
+  font-size: 12px;
+  color: #888888;
+}
+
+.streaming-download {
+
+ margin-top: 4px;
+ padding-bottom: 7px;
+}
+
+.album-description-text {
+  font-size: 12px;
+
+}
+
+.formats {
+  background-color: #BEC6CA;
+  margin-bottom: 4px;
+  width: 376px;
+  height: 30px;
+}
+
+.album-empty-content {
+  height: 300px;
+}
+
+.small-player-icon-td {
+  background-color: white;
+  height: 16px;
+  width: 17px;
+  padding: 1px;
+  border-radius: 2px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.small-player-icon-td:hover {
+  cursor: pointer;
+}
+
+.track-number-td {
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+}
+
+.track-number-td > span {
+  font-size: 13px;
+  color: #888888;
+}
+
+.track-title-time-td {
+  padding-bottom: 6px;
+  padding-top: 6px;
+}
+
+.track-title {
+  font-size: 13px;
+  color: #1c285e;
+}
+
+.track-time {
+  font-size: 13px;
+  color: #888888;
+  padding-left: 9px;
+}
+
+.track-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.album-image > img {
+  height: 350px;
+  width: 350px;
+}
+
+.description {
+  padding-top: 24px;
+  line-height: 16px;
 }
