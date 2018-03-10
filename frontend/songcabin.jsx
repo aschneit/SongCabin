@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-  window.store = store;
+  window.dispatch = store.dispatch;
   window.getArtist = getArtist;
   ReactDOM.render(<Root store={store} />, document.getElementById("root"));
 });
