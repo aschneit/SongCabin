@@ -45,12 +45,17 @@
 
 .artist-name > a {
   text-decoration-line: none;
-  color: #1c285e;
+  color: darkblue;
+}
+
+.artist-name > a:visited {
+
+  color: darkblue;
 }
 
 .artist-name > a:hover {
   text-decoration: underline;
-  color: #1c285e;
+  color: darkblue;
 }
 
 .player {
@@ -90,7 +95,7 @@
 }
 
 .album-empty-content {
-  height: 300px;
+  height: 200px;
 }
 
 .small-player-icon-td {
@@ -125,7 +130,7 @@
 
 .track-title {
   font-size: 13px;
-  color: #1c285e;
+  color: darkblue;
 }
 
 .track-time {
@@ -151,4 +156,50 @@
 
 .artist-discog-components {
   margin-right: 30;
+  margin-top: 45px;
+}
+
+.artist-image {
+  margin-bottom: 3px;
+  width: 120px;
+  height: auto;
+}
+
+.artist-image > img {
+  width: 120px;
+  height: auto;
+
+}
+
+.artist-show-name {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.artist-location {
+  font-size: 12px;
+  margin-bottom: 12px;
+  color: #666666;
+}
+
+.artist-description {
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.artist-website > a:link {
+  text-decoration-line: none;
+  font-size: 12px;
+  color: darkblue;
+}
+
+.artist-website > a:visited {
+  color: darkblue;
+}
+
+.artist-website > a:hover {
+  text-decoration: underline;
+  font-size: 12px;
+  color: darkblue;
 }
