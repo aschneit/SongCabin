@@ -2,6 +2,9 @@ class Album < ApplicationRecord
   validates :title, presence: true
   validates :artist, presence: true
 
+  has_attached_file :image, default_url: "charlie-haden.jpg"
+  validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
+
   belongs_to :artist,
   primary_key: :id,
   class_name: 'User',

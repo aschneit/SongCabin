@@ -13,11 +13,13 @@ json.albums do
     json.set! album.id do
       if album == @user.most_recent_album
         json.extract! album, :title, :description, :artist_id
+        json.image_url asset_path(album.image.url)
         json.track_ids do
           (json.array! (album.tracks.map { |track| track.id }))
         end
       else
         json.extract! album, :title, :description, :artist_id
+        json.image_url asset_path(album.image.url)
       end
     end
   end

@@ -27,7 +27,7 @@ class ArtistPage extends React.Component {
             </div>
             <div className="artist-discog-components">
               <div className="artist-component">
-                <ArtistShowContainer />
+                
               </div>
               <div className="discog-component">
               </div>

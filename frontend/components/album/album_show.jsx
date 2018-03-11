@@ -54,7 +54,7 @@ export default class AlbumShow extends React.Component {
         </div>
         <div className="album-right-column">
           <div className="album-image">
-            <img src={this.props.artist.image_url}/>
+            <img src={this.props.album.image_url}/>
           </div>
         </div>
       </div>
