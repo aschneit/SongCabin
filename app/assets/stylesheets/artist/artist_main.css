@@ -11,6 +11,10 @@
   background-color: darkblue;
 }
 
+.artist-content {
+  display: flex;
+}
+
 .album-column {
   width: 756px;
   height: 1450px;
@@ -18,7 +22,7 @@
   flex-direction: row;
   margin-top: 45px;
   margin-left: 30px;
-
+  margin-right: 40px;
 }
 
 .album-left-column {
@@ -143,4 +147,8 @@
 .description {
   padding-top: 24px;
   line-height: 16px;
+}
+
+.artist-discog-components {
+  margin-right: 30;
 }

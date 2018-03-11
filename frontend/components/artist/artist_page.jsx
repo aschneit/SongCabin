@@ -1,6 +1,7 @@
 import React from "react";
 import AlbumShowContainer from '../album/album_show_container';
 import { Route, withRouter } from 'react-router-dom';
+import ArtistShowContainer from './artist_show_container';
 
 
 class ArtistPage extends React.Component {
@@ -26,11 +27,7 @@ class ArtistPage extends React.Component {
               <Route path={`${this.props.match.path}/albums/:albumId/`} component={AlbumShowContainer}/>
             </div>
             <div className="artist-discog-components">
-              <div className="artist-component">
-                
-              </div>
-              <div className="discog-component">
-              </div>
+              <ArtistShowContainer />
             </div>
           </div>
         </div>
