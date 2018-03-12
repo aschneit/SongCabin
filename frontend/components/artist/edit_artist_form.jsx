@@ -9,6 +9,10 @@ class EditArtistForm extends React.Component {
     this.state = this.props.artist;
   }
 
+  componentDidMount () {
+
+  }
+
   render () {
     return (
       <div className="edit-artist-full-page">

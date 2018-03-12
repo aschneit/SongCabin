@@ -7,14 +7,16 @@ import { withRouter } from 'react-router-dom';
 const msp = (state, ownProps) => {
   return {
     errors: state.errors.artist,
-    artist: state.entities.artists[ownProps.match.params.artistId]
+    artist: state.entities.artists[ownProps.match.params.artistId],
+    currentUser: state.entities.users[state.session.id];
   };
 };
 
 const mdp = (dispatch) => {
   return {
     processForm: (user) => dispatch(updateArtist(user)),
-    clearErrors: (errors) => dispatch(clearErrors(errors))
+    clearErrors: (errors) => dispatch(clearErrors(errors)),
+
   };
 };
 

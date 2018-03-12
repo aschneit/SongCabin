@@ -9,7 +9,8 @@ export const receiveTracks = tracks => {
   };
 };
 
-export const getAlbumTracks = id => dispatch => {
+export const getAlbumTracks = id => (dispatch, getState) => {
+  // 
   return APIUtil.getAlbumTracks(id).then(tracks => {
     dispatch(receiveTracks(tracks));
   });
