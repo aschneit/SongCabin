@@ -2,10 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import EditArtistForm from './edit_artist_form';
 import { clearErrors, updateArtist } from '../../actions/artist_actions';
+import { withRouter } from 'react-router-dom';
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   return {
-    errors: state.errors.artist
+    errors: state.errors.artist,
+    artist: state.entities.artists[ownProps.match.params.artistId]
   };
 };
 

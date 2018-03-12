@@ -60,8 +60,21 @@
   color: darkblue;
 }
 
-.edit_button {
-  
+.edit-button > button {
+  background-color: lightyellow;
+  width: 50px;
+  height: 22px;
+  border: 1px solid silver;
+}
+
+.edit-button > button:focus {
+  outline:none;
+}
+
+
+
+.edit-button {
+  margin-top: 12px;
 }
 
 .player {

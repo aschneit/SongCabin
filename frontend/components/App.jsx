@@ -6,6 +6,7 @@ import MainNavContainer from './main/main_nav_container';
 import MainPage from './main/main_page';
 import { AuthRoute } from '../util/route_util';
 import ArtistPageContainer from './artist/artist_page_container';
+import EditArtistContainer from './artist/edit_artist_container';
 
 const App = () => (
   <div className = 'main'>
@@ -13,6 +14,7 @@ const App = () => (
     <Route exact path="/" component={MainPage}/>
     <Route path="/artists/:artistId" component={ArtistPageContainer}/>
     <AuthRoute path="/login" component={LoginFormContainer} />
+    <Route path="/artists/:artistId/edit" component={EditArtistContainer} />
     <AuthRoute path="/signup" component={SignupFormContainer} />
   </div>
 );
