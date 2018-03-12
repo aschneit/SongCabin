@@ -8,7 +8,7 @@ const msp = (state, ownProps) => {
   return {
     errors: state.errors.artist,
     artist: state.entities.artists[ownProps.match.params.artistId],
-    currentUser: state.entities.users[state.session.id];
+    currentUser: state.entities.users[state.session.id]
   };
 };
 
