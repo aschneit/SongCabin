@@ -5,6 +5,8 @@
   margin: auto;
 }
 
+
+
 .artist-banner {
   height: 180px;
   width: 100%;
@@ -56,6 +58,10 @@
 .artist-name > a:hover {
   text-decoration: underline;
   color: darkblue;
+}
+
+.edit_button {
+  
 }
 
 .player {
@@ -201,5 +207,54 @@
 .artist-website > a:hover {
   text-decoration: underline;
   font-size: 12px;
+  color: darkblue;
+}
+
+.disco-heading {
+  font-size: 14px;
+  margin-bottom: 17px;
+}
+
+.disco-title:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.discog-column {
+  margin-top: 30px;
+}
+
+.disco-image {
+  height: 120px;
+  width: 120px;
+}
+.disco-image img {
+  height: 120px;
+  width: 120px;
+}
+
+.disco-title {
+  margin-top: 6px;
+  font-size: 12px;
+}
+
+
+.disco-list li {
+  list-style: none;
+  margin-bottom: 30px;
+}
+
+.disco-title a {
+  text-decoration: none;
+  color: darkblue;
+}
+
+.disco-title > a:hover {
+  text-decoration: underline;
+  color: darkblue;
+}
+
+.disco-title > a:visited {
+
   color: darkblue;
 }

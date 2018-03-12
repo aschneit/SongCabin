@@ -1,21 +1,36 @@
 import React from "react";
 import { connect } from "react-redux";
 import AlbumShow from "./album_show";
+import { getAlbumTracks } from "../../actions/album_actions";
+import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
+  const currentUser = state.entities.users[state.session.id];
   const artist = state.entities.users[ownProps.match.params.artistId] || {};
   const album = state.entities.albums[ownProps.match.params.albumId] || {};
 
-  if (!album.track_ids) {
-   album.track_ids = [];
-  }
-  const tracks = album.track_ids.map(id => {
-    return state.entities.tracks[id];
-  });
+  // if (!album.track_ids) {
+  //  album.track_ids = [];
+  // }
+  // const tracks = album.track_ids.map(id => {
+  //   return state.entities.tracks[id];
+  // });
+
+  const tracks = Object.values(state.entities.tracks).filter(track => {
+    return track.album_id === album.id;
+  }) || {};
+
+
 
   return {
-    artist, album, tracks
+    artist, album, tracks, currentUser
   };
 } ;
 
-export default connect(msp)(AlbumShow);
+const mdp = (dispatch) => {
+  return {
+    getAlbumTracks: id => dispatch(getAlbumTracks(id))
+  };
+};
+
+export default withRouter(connect(msp, mdp)(AlbumShow));

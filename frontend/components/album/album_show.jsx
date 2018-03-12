@@ -1,15 +1,30 @@
 import React from "react";
 import { Route, Link } from 'react-router-dom';
 
-
 export default class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props;
   }
 
+  componentDidMount() {
+    this.props.getAlbumTracks(this.props.match.params.albumId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.albumId !== nextProps.match.params.albumId) {
+     this.props.getAlbumTracks(nextProps.match.params.albumId);
+    }
+  }
+
+
 
   render () {
+    const editButton = () => {
+      if (this.props.currentUser.id === this.props.artist.id) {
+        return <div className="edit-button"><button>Edit</button></div>;
+      }
+    };
     return (
       <div className='album-column'>
         <div className="album-left-column">
@@ -19,6 +34,7 @@ export default class AlbumShow extends React.Component {
           <div className="artist-name">
             by <Link to={`/artists/${this.props.artist.id}/albums/${this.props.artist.most_recent_album}`}>{this.props.artist.band_name}</Link>
           </div>
+          {editButton()}
           <div className="player">
 
           </div>

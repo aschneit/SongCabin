@@ -2,6 +2,7 @@ import React from "react";
 import AlbumShowContainer from '../album/album_show_container';
 import { Route, withRouter } from 'react-router-dom';
 import ArtistShowContainer from './artist_show_container';
+import DiscogContainer from '../discog/discog_container';
 
 
 class ArtistPage extends React.Component {
@@ -28,6 +29,7 @@ class ArtistPage extends React.Component {
             </div>
             <div className="artist-discog-components">
               <ArtistShowContainer />
+              <DiscogContainer />
             </div>
           </div>
         </div>
