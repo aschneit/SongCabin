@@ -12,14 +12,22 @@ export const receiveArtist = payload => {
   };
 };
 
+export const receivePlainArtist = artist => {
+  return {
+    type: RECEIVE_ARTIST,
+    artist
+  };
+};
+
 export const getArtist = id => dispatch => {
   return APIUtil.getArtist(id).then(payload => {
     dispatch(receiveArtist(payload));
   });
 };
 
+
 export const updateArtist = artist => dispatch => {
   return APIUtil.updateArtist(artist).then(artist => {
-    dispatch(receiveArtist(artist));
+    dispatch(receivePlainArtist(artist));
   });
 };

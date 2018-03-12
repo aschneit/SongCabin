@@ -9,6 +9,6 @@ export const updateArtist = artist => {
   return $.ajax({
     method: "PATCH",
     url: `/api/users/${artist.id}`,
-    data: {artist}
+    data: {user: artist}
   });
 };

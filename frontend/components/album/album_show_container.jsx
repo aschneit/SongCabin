@@ -9,6 +9,14 @@ const msp = (state, ownProps) => {
   const artist = state.entities.users[ownProps.match.params.artistId] || {};
   const album = state.entities.albums[ownProps.match.params.albumId] || {};
 
+  // let album;
+  // if (ownProps.match.params.albumId) {
+  //   album = state.entities.albums[ownProps.match.params.albumId] || {};
+  // } else {
+  //   album = state.entities.albums[artist.most_recent_album] || {};
+  // }
+
+
   // if (!album.track_ids) {
   //  album.track_ids = [];
   // }

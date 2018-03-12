@@ -17,9 +17,10 @@ class EditArtistForm extends React.Component {
   }
 
   handleSubmit(e) {
-    debugger
+
     e.preventDefault();
-    this.props.processForm(Object.assign({}, this.state)).then(() => this.props.history.push('/'));
+    this.props.processForm(Object.assign({}, this.state))
+    .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
   }
 
   render () {
@@ -30,7 +31,6 @@ class EditArtistForm extends React.Component {
           <div className="edit-artist-content">
             <h1 className="edit-artist-heading">Artist Profile for {this.props.currentUser.band_name}</h1>
               <form onSubmit={this.handleSubmit} className="edit-artist-form">
-                {/*this.renderErrors()*/}
                 <div className="edit-artist-label-inputs">
                     <div className="edit-artist-labels">
                       <label>Band name</label>
@@ -48,12 +48,16 @@ class EditArtistForm extends React.Component {
                         onChange={this.update('band_location')}
                         className="edit-artist-input"
                       />
-                      <input type="text"
+                    <input type="text"
                         value={this.state.band_description}
                         onChange={this.update('band_description')}
                         className="edit-artist-input"
                       />
                     </div>
+                </div>
+                <div className="update-artist-image">
+                  <span></span>
+                  <img src = {this.props.currentUser.image_url}/>
                 </div>
                 <input className="edit-artist-submit" type="submit" value="Save"/>
               </form>

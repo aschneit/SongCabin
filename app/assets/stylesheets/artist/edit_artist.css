@@ -55,6 +55,11 @@
   outline: none;
 }
 
+.textarea {
+  resize: none;
+
+}
+
 .edit-artist-submit {
   margin-top: 30px;
   border: 1px solid silver;
@@ -68,4 +73,9 @@
 .edit-artist-submit:hover {
   text-decoration: underline;
 
+}
+
+.update-artist-image > img {
+  width: 120px;
+  height: auto;
 }
