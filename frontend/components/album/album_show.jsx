@@ -21,7 +21,7 @@ export default class AlbumShow extends React.Component {
 
   render () {
     const editButton = () => {
-      if (this.props.currentUser.id === this.props.artist.id) {
+      if (this.props.currentUser && (this.props.currentUser.id === this.props.artist.id)) {
         return <div className="edit-button"><button>Edit</button></div>;
       }
     };
