@@ -166,6 +166,7 @@
 .album-image > img {
   height: 350px;
   width: 350px;
+
 }
 
 .description {
@@ -240,10 +241,12 @@
 .disco-image {
   height: 120px;
   width: 120px;
+
 }
 .disco-image img {
   height: 120px;
   width: 120px;
+
 }
 
 .disco-title {

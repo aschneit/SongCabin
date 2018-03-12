@@ -28,8 +28,8 @@ class ArtistPage extends React.Component {
               <Route path={`${this.props.match.path}/albums/:albumId/`} component={AlbumShowContainer}/>
             </div>
             <div className="artist-discog-components">
-              <ArtistShowContainer />
-              <DiscogContainer />
+              <Route path={`${this.props.match.path}/albums/:albumId/`} component={ArtistShowContainer}/>
+              <Route path={`${this.props.match.path}/albums/:albumId/`} component={DiscogContainer }/>
             </div>
           </div>
         </div>

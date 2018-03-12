@@ -4,3 +4,11 @@ export const getArtist = id => {
     url: `/api/users/${id}`
   });
 };
+
+export const updateArtist = artist => {
+  return $.ajax({
+    method: "PATCH",
+    url: `/api/users/${artist.id}`,
+    data: {artist}
+  });
+};
