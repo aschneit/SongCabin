@@ -11,10 +11,17 @@ class CreateAlbumForm extends React.Component {
       albumDescription: "",
       albumArtistId: this.props.currentUser.id,
       imageFile: null,
-      imageUrl: null
+      imageUrl: null,
+      trackFile: null,
+      trackTitle: "",
+      trackOrder: null,
+      trackAttributes: [],
+      showForm: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
+    this.updateAudio = this.updateAudio.bind(this);
+    this.addForm = this.addForm.bind(this);
   }
 
   update(field) {
@@ -30,6 +37,22 @@ class CreateAlbumForm extends React.Component {
     this.setState({ imageUrl: fileReader.result, imageFile: file});
     if (file) {
       fileReader.readAsDataURL(file);
+    }
+  }
+
+  updateAudio(e) {
+    const audioFile = e.currentTarget.files[0];
+    this.setState({ trackFile: audioFile, showForm: true });
+
+  }
+
+  addForm(e) {
+    if (this.state.showForm) {
+      return (
+        <li>Hello</li>
+      );
+    } else {
+      return null;
     }
   }
 
@@ -88,7 +111,8 @@ class CreateAlbumForm extends React.Component {
                   <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
                     <label htmlFor="file">Select file</label>
                   <div className="add-track">
-                    <h4>Add Album Tracks</h4>
+                    <input className="add-track-button" type="file" name="file" id="file1" onClick={this.addForm} onChange={this.updateAudio} />
+                    <label htmlFor="file1">add track</label>
                   </div>
                 </div>
                 <input className="create-album-submit" type="submit" value="Save"/>

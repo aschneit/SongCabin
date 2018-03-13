@@ -76,7 +76,7 @@ textarea {
   outline: none;
   font-size: 14px;
   padding-left: 3px;
-  
+
 }
 
 .create-album-submit {
@@ -95,16 +95,15 @@ textarea {
 }
 
 .update-album-image {
-  margin-top: 80px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 250px;
+  margin-top: 100px;
+  height: 275px;
+  margin
 }
 
 .update-album-image-box > img {
   width: 120px;
   height: auto;
+
 
 }
 
@@ -118,7 +117,7 @@ textarea {
   width: 120px;
   min-height: 120px;
   border: 2px dashed darkgray;
-
+  margin-bottom: 30px;
 }
 
 .inputfile {
@@ -140,4 +139,29 @@ textarea {
     border-radius: 5px;
     text-align: center;
     padding: 2px;
+}
+
+.add-track {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.add-track-button {
+  width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.add-track-button + label {
+  font-size: 22px;
+  color: #0687f5;
+
+}
+
+.add-track-button + label:hover {
+  text-decoration: underline;
+
 }
