@@ -3,6 +3,10 @@ class Track < ApplicationRecord
   validates :album, presence: true
   validates :order, presence: true
 
+  has_attached_file :audio
+
+  validates_attachment :audio, content_type: { content_type: "media/x-wav" }
+
   belongs_to :album,
   class_name: 'Album',
   primary_key: :id,

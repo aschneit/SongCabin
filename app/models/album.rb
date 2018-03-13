@@ -14,4 +14,6 @@ class Album < ApplicationRecord
   class_name: 'Track',
   primary_key: :id,
   foreign_key: :album_id
+
+  accepts_nested_attributes_for :tracks
 end

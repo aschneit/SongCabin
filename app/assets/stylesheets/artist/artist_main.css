@@ -172,6 +172,7 @@
 .description {
   padding-top: 24px;
   line-height: 16px;
+  white-space: pre-line;
 }
 
 .artist-discog-components {

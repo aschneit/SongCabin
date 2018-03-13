@@ -1,15 +1,13 @@
 import React from "react";
 import { Route, withRouter } from 'react-router-dom';
 
-
-
-class CreateAlbumForm extends React.Component {
+class CreateTrackForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      albumTitle: "",
-      albumDescription: "",
-      albumArtistId: this.props.currentUser.id,
+      trackTitle: "",
+      trackOrder: null,
+      albumArtistId: this.props.currentUser,
       imageFile: null,
       imageUrl: null
     };
@@ -87,9 +85,7 @@ class CreateAlbumForm extends React.Component {
                   </div>
                   <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
                     <label htmlFor="file">Select file</label>
-                  <div className="add-track">
-                    <h4>Add Album Tracks</h4>
-                  </div>
+
                 </div>
                 <input className="create-album-submit" type="submit" value="Save"/>
               </form>

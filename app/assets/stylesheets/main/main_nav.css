@@ -48,6 +48,7 @@
 
 .main-nav-yoursite > a {
   text-decoration: none;
+  color: black;
 }
 
 .main-nav-yoursite > a:hover {

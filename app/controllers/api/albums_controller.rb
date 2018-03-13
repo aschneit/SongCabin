@@ -1,6 +1,5 @@
 class Api::AlbumsController < ApplicationController
   def create
-    debugger
     @album = Album.new(album_params)
     if @album.save
       render "api/albums/show_all"
@@ -28,6 +27,6 @@ class Api::AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:title, :description, :artist_id, :image)
+    params.require(:album).permit(:title, :description, :artist_id, :image, :tracks_attributes[:title, :order, :audio])
   end
 end
