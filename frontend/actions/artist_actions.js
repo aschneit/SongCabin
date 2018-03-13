@@ -26,8 +26,8 @@ export const getArtist = id => dispatch => {
 };
 
 
-export const updateArtist = artist => dispatch => {
-  return APIUtil.updateArtist(artist).then(artist => {
+export const updateArtist = (artist, formData) => dispatch => {
+  return APIUtil.updateArtist(artist, formData).then(artist => {
     dispatch(receivePlainArtist(artist));
   });
 };

@@ -6,8 +6,15 @@ import { Route, withRouter } from 'react-router-dom';
 class EditArtistForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.currentUser;
+    this.state = {
+      bandName: this.props.currentUser.band_name,
+      bandLocation: this.props.currentUser.band_name,
+      bandDescription: this.props.currentUser.band_description,
+      imageFile: null,
+      imageUrl: this.props.currentUser.image_url
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.updateFile = this.updateFile.bind(this);
   }
 
   update(field) {
@@ -16,11 +23,26 @@ class EditArtistForm extends React.Component {
     });
   }
 
-  handleSubmit(e) {
+  updateFile(e) {
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () =>
+    this.setState({ imageUrl: fileReader.result, imageFile: file});
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
+  }
 
+  handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(Object.assign({}, this.state))
-    .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
+    const file = this.state.imageFile;
+    const formData = new FormData();
+    formData.append("user[band_name]", this.state.bandName);
+    formData.append("user[band_location]", this.state.bandLocation);
+    formData.append("user[band_description]", this.state.bandDescription);
+    if (file) formData.append("user[image]", file);
+    this.props.processForm(this.props.currentUser, formData)
+    .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}/albums/${this.props.currentUser.most_recent_album}`));
   }
 
   render () {
@@ -39,25 +61,25 @@ class EditArtistForm extends React.Component {
                     </div>
                     <div className="edit-artist-inputs">
                       <input type="text"
-                        value={this.state.band_name}
+                        value={this.state.bandName}
                         onChange={this.update('band_name')}
                         className="edit-artist-input"
                       />
                       <input type="text"
-                        value={this.state.band_location}
+                        value={this.state.bandLocation}
                         onChange={this.update('band_location')}
                         className="edit-artist-input"
                       />
                     <input type="text"
-                        value={this.state.band_description}
+                        value={this.state.bandDescription}
                         onChange={this.update('band_description')}
                         className="edit-artist-input"
                       />
                     </div>
                 </div>
                 <div className="update-artist-image">
-                  <span></span>
-                  <img src = {this.props.currentUser.image_url}/>
+                  <img src = {this.state.imageUrl}/>
+                  <input type="file" onChange={this.updateFile}/>
                 </div>
                 <input className="edit-artist-submit" type="submit" value="Save"/>
               </form>

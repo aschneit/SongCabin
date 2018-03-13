@@ -13,7 +13,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
-    processForm: (artist) => dispatch(updateArtist(artist)),
+    processForm: (artist, formData) => dispatch(updateArtist(artist, formData)),
     clearErrors: (errors) => dispatch(clearErrors(errors))
 
   };
