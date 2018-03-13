@@ -8,7 +8,7 @@ class EditArtistForm extends React.Component {
     super(props);
     this.state = {
       bandName: this.props.currentUser.band_name,
-      bandLocation: this.props.currentUser.band_name,
+      bandLocation: this.props.currentUser.band_location,
       bandDescription: this.props.currentUser.band_description,
       imageFile: null,
       imageUrl: this.props.currentUser.image_url
@@ -62,24 +62,27 @@ class EditArtistForm extends React.Component {
                     <div className="edit-artist-inputs">
                       <input type="text"
                         value={this.state.bandName}
-                        onChange={this.update('band_name')}
+                        onChange={this.update('bandName')}
                         className="edit-artist-input"
                       />
                       <input type="text"
                         value={this.state.bandLocation}
-                        onChange={this.update('band_location')}
+                        onChange={this.update('bandLocation')}
                         className="edit-artist-input"
                       />
                     <input type="text"
                         value={this.state.bandDescription}
-                        onChange={this.update('band_description')}
+                        onChange={this.update('bandDescription')}
                         className="edit-artist-input"
                       />
                     </div>
                 </div>
                 <div className="update-artist-image">
+                  <label>Band Profile Image</label>
                   <img src = {this.state.imageUrl}/>
-                  <input type="file" onChange={this.updateFile}/>
+                  <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
+                    <label htmlFor="file">Select file</label>
+
                 </div>
                 <input className="edit-artist-submit" type="submit" value="Save"/>
               </form>

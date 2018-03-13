@@ -6,16 +6,16 @@ export const RECEIVE_ARTIST = "RECEIVE_ARTIST";
 export const receiveArtist = payload => {
   return {
     type: RECEIVE_ARTIST,
-    artist: payload.user,
+    user: payload.user,
     albums: payload.albums,
     tracks: payload.tracks
   };
 };
 
-export const receivePlainArtist = artist => {
+export const receivePlainArtist = user => {
   return {
     type: RECEIVE_ARTIST,
-    artist
+    user
   };
 };
 
@@ -26,8 +26,8 @@ export const getArtist = id => dispatch => {
 };
 
 
-export const updateArtist = (artist, formData) => dispatch => {
-  return APIUtil.updateArtist(artist, formData).then(artist => {
-    dispatch(receivePlainArtist(artist));
+export const updateArtist = (user, formData) => dispatch => {
+  return APIUtil.updateArtist(user, formData).then(user => {
+    dispatch(receivePlainArtist(user));
   });
 };

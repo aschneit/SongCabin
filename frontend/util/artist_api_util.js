@@ -5,10 +5,10 @@ export const getArtist = id => {
   });
 };
 
-export const updateArtist = (artist, formData) => {
+export const updateArtist = (user, formData) => {
   return $.ajax({
     method: "PATCH",
-    url: `/api/users/${artist.id}`,
+    url: `/api/users/${user.id}`,
     processData: false,
     contentType: false,
     dataType: 'json',

@@ -8,6 +8,7 @@ import { AuthRoute } from '../util/auth_route_util';
 import { ProtectedRoute } from '../util/protected_route_util.jsx';
 import ArtistPageContainer from './artist/artist_page_container';
 import EditArtistContainer from './artist/edit_artist_container';
+import EditAlbumContainer from './album/edit_album_container';
 
 const App = () => (
   <div className = 'main'>

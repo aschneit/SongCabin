@@ -1,5 +1,6 @@
 .edit-artist-full-page {
   background-color: lightgrey;
+  border-top: 1px solid lightgrey;
 }
 
 .edit-artist-background {
@@ -75,7 +76,42 @@
 
 }
 
+.update-artist-image {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 180px;
+}
+
 .update-artist-image > img {
   width: 120px;
   height: auto;
+  border: 2px solid black;
+}
+
+.update-artist-image > label {
+  color: dimgray;
+  font-size: 13px;
+
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    background-color: lightgrey;
+    width: 76px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2px;
 }
