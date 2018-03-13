@@ -4,3 +4,14 @@ export const getAlbumTracks = id => {
     url: `/api/albums/${id}`
   });
 };
+
+export const createAlbum = formData => {
+  return $.ajax({
+    method: "POST",
+    url: "/api/albums/",
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
+  });
+};

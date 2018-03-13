@@ -15,6 +15,13 @@ class ArtistPage extends React.Component {
     this.props.getArtist(this.props.match.params.artistId);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.artistId !== nextProps.match.params.artistId) {
+     this.props.getArtist(nextProps.match.params.artistId);
+    }
+
+  }
+
 
 
   render () {

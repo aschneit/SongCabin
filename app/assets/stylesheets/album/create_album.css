@@ -1,0 +1,143 @@
+.create-album-full-page {
+  background-color: lightgrey;
+  border-top: 1px solid lightgrey;
+}
+
+.create-album-background {
+  width: 975px;
+  height: 1000px;
+  background-color: white;
+  margin: auto;
+}
+
+
+.create-album-content {
+  padding-top: 56px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 45px;
+}
+
+.create-album-heading {
+
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 26px;
+}
+
+.create-album-label-inputs {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-around;
+
+}
+
+.create-album-label {
+  text-align: right;
+  color: dimgray;
+  font-size: 13px;
+  margin-right: 10px;
+
+}
+
+.create-album-title {
+  display: flex;
+  align-items: center;
+}
+
+.create-album-credits {
+  display: flex;
+  align-items: center;
+}
+
+.create-album-desc {
+  margin-top: 35px;
+  height: 100px;
+  width: 394px;
+  padding-top: 5px;
+}
+
+.create-album-description {
+  margin-top: 65px;
+}
+
+.create-album-input {
+  width: 369px;
+  height: 23px;
+  font-size: 14px;
+  padding-left: 3px;
+  outline: none;
+}
+
+textarea {
+  resize: none;
+  border: 1px solid silver;
+  outline: none;
+  font-size: 14px;
+  padding-left: 3px;
+
+}
+
+.create-album-submit {
+  margin-top: 30px;
+  border: 1px solid silver;
+  width: 81px;
+  height: 31px;
+  font-size: 18px;
+  color: #0687f5;
+  outline: none;
+}
+
+.create-album-submit:hover {
+  text-decoration: underline;
+
+}
+
+.update-album-image {
+  margin-top: 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 250px;
+}
+
+.update-album-image-box > img {
+  width: 120px;
+  height: auto;
+
+}
+
+.update-album-image > label {
+  color: dimgray;
+  font-size: 13px;
+
+}
+
+.update-album-image-box {
+  width: 120px;
+  min-height: 120px;
+  border: 2px dashed darkgray;
+
+}
+
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+.inputfile + label {
+    font-size: 14px;
+    font-weight: 700;
+    color: black;
+    background-color: lightgrey;
+    width: 76px;
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: center;
+    padding: 2px;
+}

@@ -16,6 +16,7 @@
   padding-bottom: 15px;
   margin-top: 10px;
   padding-left: 195px;
+  display: flex;
 }
 
 .main-nav-left-bottom li {
@@ -33,7 +34,24 @@
   font-size: 14px;
   text-decoration: none;
   padding-right: 10px;
+  padding-top: 2px;
 
+
+}
+
+.main-nav-yoursite {
+  font-weight: 550;
+  font-size: 16px;
+  padding-left: 9px;
+
+}
+
+.main-nav-yoursite > a {
+  text-decoration: none;
+}
+
+.main-nav-yoursite > a:hover {
+  text-decoration: underline;
 }
 
 .main-nav-right {

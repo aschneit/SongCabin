@@ -30,11 +30,18 @@ const MainNav = ({ currentUser, logout, location }) => {
   }
   let links;
   let greeting;
+  let yourSite;
   if (currentUser) {
     links = loggedInLinks(logout);
     greeting = (
       <li className="main-nav-greeting">Hi {currentUser.band_name}</li>
     );
+    if (location.pathname === "/") {
+      yourSite = (
+      <li className="main-nav-yoursite">
+        <Link to={`/artists/${currentUser.id}/albums/${currentUser.most_recent_album}`}>your site</Link>
+      </li>
+    ) }
   } else {
     links = loggedOutLinks();
     greeting = <li />;
@@ -49,7 +56,7 @@ const MainNav = ({ currentUser, logout, location }) => {
             </Link>
           </div>
         </div>
-        <ul className="main-nav-left-bottom">{greeting}</ul>
+        <ul className="main-nav-left-bottom">{greeting}{yourSite}</ul>
       </div>
       <div className="main-nav-right">
         <div className="main-nav-right-top" />
