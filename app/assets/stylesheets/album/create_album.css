@@ -5,7 +5,7 @@
 
 .create-album-background {
   width: 975px;
-  height: 1000px;
+  height: auto;
   background-color: white;
   margin: auto;
 }
@@ -25,15 +25,13 @@
   margin-bottom: 26px;
 }
 
-.create-album-label-inputs {
+.create-album-title {
   display: flex;
-  flex-direction: column;
-  height: 100px;
-  justify-content: space-around;
-
+  margin-bottom: 30px;
+  align-items: center;
 }
 
-.create-album-label {
+.create-title-label {
   text-align: right;
   color: dimgray;
   font-size: 13px;
@@ -41,9 +39,12 @@
 
 }
 
-.create-album-title {
-  display: flex;
-  align-items: center;
+.create-title-input  {
+  width: 369px;
+  height: 25px;
+  font-size: 14px;
+  padding-left: 3px;
+  outline: none;
 }
 
 .create-album-credits {
@@ -51,36 +52,26 @@
   align-items: center;
 }
 
-.create-album-desc {
-  margin-top: 35px;
-  height: 100px;
-  width: 394px;
-  padding-top: 5px;
+.create-credits-label {
+  text-align: right;
+  color: dimgray;
+  font-size: 13px;
+  margin-right: 10px;
 }
 
-.create-album-description {
-  margin-top: 65px;
-}
-
-.create-album-input {
-  width: 369px;
-  height: 23px;
-  font-size: 14px;
-  padding-left: 3px;
-  outline: none;
-}
-
-textarea {
+.create-credits-input {
   resize: none;
-  border: 1px solid silver;
+  border: 1px solid lightgrey;
   outline: none;
   font-size: 14px;
   padding-left: 3px;
-
+  width: 400px;
+  height: 200px;
 }
+
 
 .create-album-submit {
-  margin-top: 30px;
+  margin-top: 50px;
   border: 1px solid silver;
   width: 81px;
   height: 31px;
@@ -95,7 +86,7 @@ textarea {
 }
 
 .update-album-image {
-  margin-top: 100px;
+  margin-top: 50px;
   height: 275px;
   margin
 }
@@ -118,18 +109,19 @@ textarea {
   min-height: 120px;
   border: 2px dashed darkgray;
   margin-bottom: 30px;
+
 }
 
-.inputfile {
+/* .inputfile-cover {
 	width: 0.1px;
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
 	position: absolute;
 	z-index: -1;
-}
+} */
 
-.inputfile + label {
+/* .inputfile-cover + label {
     font-size: 14px;
     font-weight: 700;
     color: black;
@@ -139,29 +131,70 @@ textarea {
     border-radius: 5px;
     text-align: center;
     padding: 2px;
+} */
+
+
+.track-upload-main {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: 2px dashed darkgray;
+  padding: 10px;
+  width: 500px;
+  display: inline-block;
 }
 
-.add-track {
-  margin-top: 30px;
-  margin-bottom: 30px;
+.track-title-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.add-track-button {
-  width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
+.track-order-info {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
-.add-track-button + label {
-  font-size: 22px;
-  color: #0687f5;
-
+.track-title-label {
+  text-align: right;
+  color: dimgray;
+  font-size: 13px;
+  margin-right: 10px;
 }
 
-.add-track-button + label:hover {
-  text-decoration: underline;
+.track-order-label {
+  text-align: right;
+  color: dimgray;
+  font-size: 13px;
+  margin-right: 10px;
+}
 
+.track-title-input > input {
+  width: 369px;
+  height: 25px;
+  font-size: 14px;
+  padding-left: 3px;
+  outline: none;
+}
+
+.track-order-input > input {
+  width: 20px;
+  height: 25px;
+  font-size: 14px;
+  padding-left: 3px;
+  outline: none;
+}
+
+.track-file-label {
+  margin-bottom: 10px;
+  color: dimgray;
+  font-size: 13px;
+  margin-right: 10px;
+}
+
+.append-track-plus {
+  font-size: 40px;
+  display: inline-block;
+  border: 2px solid darkgray;
+  padding: 5px;
 }

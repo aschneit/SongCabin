@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, withRouter } from 'react-router-dom';
+import TrackUpload from './track_upload';
 
 
 
@@ -12,16 +13,13 @@ class CreateAlbumForm extends React.Component {
       albumArtistId: this.props.currentUser.id,
       imageFile: null,
       imageUrl: null,
-      trackFile: null,
-      trackTitle: "",
-      trackOrder: null,
       trackAttributes: [],
       showForm: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    this.updateAudio = this.updateAudio.bind(this);
-    this.addForm = this.addForm.bind(this);
+    this.handleAppend = this.handleAppend.bind(this);
+    this.appendForm = this.appendForm.bind(this);
   }
 
   update(field) {
@@ -40,19 +38,27 @@ class CreateAlbumForm extends React.Component {
     }
   }
 
-  updateAudio(e) {
-    const audioFile = e.currentTarget.files[0];
-    this.setState({ trackFile: audioFile, showForm: true });
+  // updateAudio(e) {
+  //   const audioFile = e.currentTarget.files[0];
+  //   this.setState({ trackFile: audioFile, showForm: true });
+  //
+  // }
 
+  handleAppend (e) {
+    this.setState({showForm: true});
   }
 
-  addForm(e) {
-    if (this.state.showForm) {
+  appendForm () {
+    if (this.state.showForm === true) {
       return (
-        <li>Hello</li>
+        <ul>
+        <li><TrackUpload /></li>
+          <button onClick={this.handleAppend} type="button" className="append-track-plus">
+            +
+          </button>
+        </ul>
       );
-    } else {
-      return null;
+
     }
   }
 
@@ -77,43 +83,34 @@ class CreateAlbumForm extends React.Component {
           <div className="create-album-content">
             <h1 className="create-album-heading">Create New Album</h1>
               <form onSubmit={this.handleSubmit} className="create-album-form">
-                <div className="create-album-label-inputs">
                   <div className="create-album-title">
-                    <div className="create-album-label">
-                      <label>Album Title</label>
-                    </div>
-                    <div className="create-album-input">
-                      <input type="text"
-                        value={this.state.albumTitle}
-                        onChange={this.update('albumTitle')}
-                        className="create-album-input"
+                    <label className="create-title-label">Album Title</label>
+                    <input className="create-title-input" type="text"
+                      value={this.state.albumTitle}
+                      onChange={this.update('albumTitle')}
                       />
-                    </div>
                   </div>
                   <div className="create-album-credits">
-                    <div className="create-album-label">
-                      <label>Credits</label>
-                    </div>
-                    <div className="create-album-description">
-                      <textarea
-                          value={this.state.albumDescription}
-                          onChange={this.update('albumDescription')}
-                          className="create-album-desc"
-                        />
-                    </div>
+                    <label className="create-credits-label">Credits</label>
+                    <textarea className="create-credits-input"
+                        value={this.state.albumDescription}
+                        onChange={this.update('albumDescription')}
+                      />
                   </div>
-                </div>
                 <div className="update-album-image">
                   <label>Album Cover Image</label>
                   <div className="update-album-image-box">
                     <img src = {this.state.imageUrl}/>
                   </div>
-                  <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
+                  <input className="inputfile-cover" type="file" name="file" id="file" onChange={this.updateFile} />
                     <label htmlFor="file">Select file</label>
-                  <div className="add-track">
-                    <input className="add-track-button" type="file" name="file" id="file1" onClick={this.addForm} onChange={this.updateAudio} />
-                    <label htmlFor="file1">add track</label>
+                  <div>
+                    <TrackUpload />
+                    {this.appendForm() }
                   </div>
+                  <button onClick={this.handleAppend} type="button" className="append-track-plus">
+                    +
+                  </button>
                 </div>
                 <input className="create-album-submit" type="submit" value="Save"/>
               </form>
