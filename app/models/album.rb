@@ -13,7 +13,8 @@ class Album < ApplicationRecord
   has_many :tracks,
   class_name: 'Track',
   primary_key: :id,
-  foreign_key: :album_id
+  foreign_key: :album_id,
+  inverse_of: :album
 
   accepts_nested_attributes_for :tracks
 end

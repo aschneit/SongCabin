@@ -29,7 +29,6 @@ const msp = (state, ownProps) => {
   }) || {};
 
 
-
   return {
     artist, album, tracks, currentUser
   };

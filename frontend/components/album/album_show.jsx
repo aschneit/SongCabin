@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Link } from 'react-router-dom';
+import SongPlayer from './song_player'
 
 export default class AlbumShow extends React.Component {
   constructor(props) {
@@ -26,7 +27,11 @@ export default class AlbumShow extends React.Component {
         return <div className="edit-button"><button>Edit</button></div>;
       }
     };
+    const leadTrack = this.props.tracks.filter((track) => {
+      return track.order === 1;
+    });
     return (
+
       <div className='album-column'>
         <div className="album-left-column">
           <div className="album-name">
@@ -37,7 +42,7 @@ export default class AlbumShow extends React.Component {
           </div>
           {editButton()}
           <div className="player">
-
+            <SongPlayer leadTrack={leadTrack}/>
           </div>
           <div className="digital-album">
             Digital Album
@@ -60,10 +65,11 @@ export default class AlbumShow extends React.Component {
                   <td className="track-number-td"><span>{track.order}.</span></td>
                   <td className="track-title-time-td"><span className="track-title">{track.title}</span><span className="track-time">5:14</span></td>
                 </tr>
+
               );
             })}
             </tbody>
-            </table>
+          </table>
           </div>
           <div className="album-description-text description">
             {this.props.album.description}

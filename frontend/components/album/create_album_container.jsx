@@ -8,15 +8,15 @@ import { withRouter } from 'react-router-dom';
 const msp = (state, ownProps) => {
   return {
     currentUser: state.entities.users[state.session.id],
-    errors: state.errors.album
+    errors: state.errors.album,
+    tracks: Object.values(state.trackData)
   };
 };
 
 const mdp = (dispatch) => {
   return {
     processForm: (formData) => dispatch(createAlbum(formData)),
-    clearErrors: (errors) => dispatch(clearErrors(errors)),
-    createTrack: (formData) => dispatch(createTrack(formData))
+    clearErrors: (errors) => dispatch(clearErrors(errors))
 
   };
 };

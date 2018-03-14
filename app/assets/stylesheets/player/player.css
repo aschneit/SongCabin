@@ -1,0 +1,39 @@
+.native-player audio {
+  display: none;
+  z-index: 4;
+}
+
+.player-button {
+  background-color: white;
+  width: 56px;
+  height: 52px;
+  z-index: 3;
+}
+
+.play > img{
+  height: 20px;
+  width: 20px;
+  position: relative;
+  top: 16px;
+  left: 18px;
+  z-index: 2;
+
+}
+
+.pause > img {
+  height: 20px;
+  width: 20px;
+  position: relative;
+  bottom: 8px;
+  left: 18px;
+  z-index: 1;
+
+}
+
+.play.off > img {
+  display: none;
+}
+
+.pause.off > img {
+  display: none;
+}

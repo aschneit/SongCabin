@@ -2,14 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TrackUpload from './track_upload';
 import { withRouter } from 'react-router-dom';
-import { prepareTrackData } from '../../actions/track_actions';
+import { receiveTrackData } from '../../actions/track_actions';
 
 
 
 const mdp = (dispatch) => {
   return {
-    prepareTrackData: (track) => dispatch(prepareTrackData(track))
+    receiveTrackData: (track) => dispatch(receiveTrackData(track))
   };
 };
 
-export default connect(mdp)(TrackUpload);
+export default connect(null, mdp)(TrackUpload);
