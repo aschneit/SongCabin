@@ -18,8 +18,7 @@ class CreateAlbumForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.updateFile = this.updateFile.bind(this);
-    this.handleAppend = this.handleAppend.bind(this);
-    this.appendForm = this.appendForm.bind(this);
+
   }
 
   update(field) {
@@ -44,23 +43,7 @@ class CreateAlbumForm extends React.Component {
   //
   // }
 
-  handleAppend (e) {
-    this.setState({showForm: true});
-  }
 
-  appendForm () {
-    if (this.state.showForm === true) {
-      return (
-        <ul>
-        <li><TrackUpload /></li>
-          <button onClick={this.handleAppend} type="button" className="append-track-plus">
-            +
-          </button>
-        </ul>
-      );
-
-    }
-  }
 
   handleSubmit(e) {
     e.preventDefault();
@@ -106,11 +89,9 @@ class CreateAlbumForm extends React.Component {
                     <label htmlFor="file">Select file</label>
                   <div>
                     <TrackUpload />
-                    {this.appendForm() }
+
                   </div>
-                  <button onClick={this.handleAppend} type="button" className="append-track-plus">
-                    +
-                  </button>
+                  
                 </div>
                 <input className="create-album-submit" type="submit" value="Save"/>
               </form>
