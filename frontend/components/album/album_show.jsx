@@ -6,6 +6,8 @@ export default class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props;
+
+
   }
 
   componentDidMount() {
@@ -60,8 +62,10 @@ export default class AlbumShow extends React.Component {
             <tbody>
             {this.props.tracks.map((track, id) => {
               return (
-                <tr key={id}>
-                  <td className="small-player-icon-td">II</td>
+                <tr className = "track-list-format" key={id}>
+                  <td className="small-player-icon-td"></td>
+                    <li onClick={() => this.props.sendCurrentTrack({id: track.id, title: track.title, playing: true})} className="small-player-icon"></li>
+                    <li className="small-icon-play"><img src={play}/></li>
                   <td className="track-number-td"><span>{track.order}.</span></td>
                   <td className="track-title-time-td"><span className="track-title">{track.title}</span><span className="track-time">5:14</span></td>
                 </tr>

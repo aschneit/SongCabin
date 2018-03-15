@@ -10,29 +10,35 @@ class SongPlayer extends React.Component {
       slider: 0
     };
     this.handlePlay = this.handlePlay.bind(this);
+    this.moveSlider = this.moveSlider.bind(this);
+    this.handleDragSlider = this.handleDragSlider.bind(this);
   }
 
+  moveSlider() {
+    this.setState({slider: this.slider()});
+  }
 
   handlePlay(e) {
-    let value = (this.playerAudio.duration / 250);
-    const slide = setInterval(() => {
-        this.setState({slider: this.state.slider+1});
-      }, (value * 1000));
-      
+
     if (this.state.playing === false)
       {
         this.playerAudio.play();
         this.setState({playing: true});
-        return slide;
-
       } else {
         this.playerAudio.pause();
         this.setState({playing: false});
-        clearInterval(slide);
       }
   }
 
+  handleDragSlider (e) {
+    this.playerAudio.currentTime = e.currentTarget.value / 250 * this.playerAudio.duration;
+  }
 
+
+
+  slider () {
+    return (this.playerAudio.currentTime / this.playerAudio.duration * 250);
+  }
 
   render() {
     let icon;
@@ -46,7 +52,7 @@ class SongPlayer extends React.Component {
       <div>
         <div className="native-player">
         {this.props.leadTrack[0] &&
-        <audio ref={(audio) => { this.playerAudio = audio; }} controls src={leadTrack.audio_url}></audio>
+        <audio ref={(audio) => { this.playerAudio = audio; }} src={leadTrack.audio_url} onTimeUpdate={this.moveSlider}></audio>
         }
         </div>
         <div className="player-total">
@@ -60,7 +66,8 @@ class SongPlayer extends React.Component {
               {leadTrack.title}
             </div>
             <div className="slider-container">
-              <input ref={(input) => { this.playerSlider = input; }} type="range" value={this.state.slider} min="1" max="250" className="slider" id="myRange"/>
+              <input type="range" value={this.state.slider}
+                onChange={this.handleDragSlider} min="1" max="250" className="slider" id="myRange"/>
             </div>
           </div>
           <div className="player-advance">

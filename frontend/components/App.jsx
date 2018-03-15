@@ -10,16 +10,21 @@ import ArtistPageContainer from './artist/artist_page_container';
 import EditArtistContainer from './artist/edit_artist_container';
 import CreateAlbumContainer from './album/create_album_container';
 
-const App = () => (
-  <div className = 'main'>
-    <Route path="/" component={MainNavContainer}/>
-    <Route exact path="/" component={MainPage}/>
-    <Route path="/artists/:artistId" component={ArtistPageContainer}/>
-    <AuthRoute path="/login" component={LoginFormContainer} />
-    <ProtectedRoute path="/artist-edit" component={EditArtistContainer} />
-    <ProtectedRoute path="/albums/new" component={CreateAlbumContainer} />
-    <AuthRoute path="/signup" component={SignupFormContainer} />
-  </div>
-);
+class App extends React.Component {
+
+  render() {
+    return (
+      <div className = 'main'>
+        <Route path="/" component={MainNavContainer}/>
+        <Route exact path="/" component={MainPage}/>
+        <Route path="/artists/:artistId" component={ArtistPageContainer}/>
+        <AuthRoute path="/login" component={LoginFormContainer} />
+        <ProtectedRoute path="/artist-edit" component={EditArtistContainer} />
+        <ProtectedRoute path="/albums/new" component={CreateAlbumContainer} />
+        <AuthRoute path="/signup" component={SignupFormContainer} />
+      </div>
+    );
+  }
+}
 
 export default App;
