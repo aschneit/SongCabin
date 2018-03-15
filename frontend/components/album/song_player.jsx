@@ -12,6 +12,13 @@ class SongPlayer extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
   }
 
+  componentDidMount() {
+    if (this.state.playing === true) {
+
+    }
+
+  }
+
   handlePlay(e) {
     if (this.state.playing === false)
       {
@@ -22,6 +29,7 @@ class SongPlayer extends React.Component {
         this.setState({playing: false});
       }
   }
+
 
 
 
@@ -53,7 +61,7 @@ class SongPlayer extends React.Component {
               {leadTrack.title}
             </div>
             <div className="slider-container">
-              <input type="range" value={this.state.slider} min="1" max="250" className="slider" id="myRange"/>
+              <input ref={(input) => { this.playerSlider = input; }} type="range" value={this.state.slider} min="1" max="250" className="slider" id="myRange"/>
             </div>
           </div>
           <div className="player-advance">
