@@ -6,13 +6,14 @@ class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playing: false
+      playing: false,
+      slider: 0
     };
     this.handlePlay = this.handlePlay.bind(this);
   }
 
   handlePlay(e) {
-    if (this.state.playing == false)
+    if (this.state.playing === false)
       {
         this.playerAudio.play();
         this.setState({playing: true});
@@ -22,33 +23,38 @@ class SongPlayer extends React.Component {
       }
   }
 
+
+
+
+
   render() {
-    let playStatus;
-    let pauseStatus;
-    if (this.setState.playing === true) {
-      playStatus = 'off';
-      pauseStatus = 'on';
+    let icon;
+    if (this.state.playing === true) {
+      icon = pause;
     } else {
-      playStatus = 'on';
-      pauseStatus = 'on';
+      icon = play;
     }
+    const leadTrack = this.props.leadTrack[0] || {};
     return (
       <div>
         <div className="native-player">
         {this.props.leadTrack[0] &&
-        <audio ref={(audio) => { this.playerAudio = audio; }} controls src={this.props.leadTrack[0].audio_url}></audio>
+        <audio ref={(audio) => { this.playerAudio = audio; }} controls src={leadTrack.audio_url}></audio>
         }
         </div>
         <div className="player-total">
           <div className="player-button" onClick={this.handlePlay}>
-            <div className={`play ${playStatus}`}>
-              <img src={play}/>
-            </div>
-            <div className={`pause ${pauseStatus}`}>
-              <img src={pause}/>
+            <div className="play">
+              <img src={icon}/>
             </div>
           </div>
           <div className="player-mid-controls">
+            <div className="current-track-title">
+              {leadTrack.title}
+            </div>
+            <div className="slider-container">
+              <input type="range" value={this.state.slider} min="1" max="250" className="slider" id="myRange"/>
+            </div>
           </div>
           <div className="player-advance">
           </div>
