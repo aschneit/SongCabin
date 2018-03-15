@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import AlbumShow from "./album_show";
 import { getAlbumTracks } from "../../actions/album_actions";
 import { withRouter } from 'react-router-dom';
+import { sendCurrentTrack } from "../../actions/track_actions";
 
 const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
@@ -36,7 +37,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
-    getAlbumTracks: id => dispatch(getAlbumTracks(id))
+    getAlbumTracks: id => dispatch(getAlbumTracks(id)),
+    sendCurrentTrack: (track) => dispatch(sendCurrentTrack(track))
   };
 };
 

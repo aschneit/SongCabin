@@ -1,11 +1,13 @@
 import React from "react";
 import { Route, Link } from 'react-router-dom';
-import SongPlayer from './song_player'
+import SongPlayer from './song_player';
 
 export default class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = this.props;
+    this.handleTrackPlay = this.handleTrackPlay.bind(this);
+
   }
 
   componentDidMount() {
@@ -19,6 +21,11 @@ export default class AlbumShow extends React.Component {
 
   }
 
+  handleTrackPlay (e) { (track) => {
+     return this.props.sendCurrentTrack({id: track.id, title: track.title, playing: true});
+  };
+
+  }
 
 
   render () {
@@ -60,8 +67,10 @@ export default class AlbumShow extends React.Component {
             <tbody>
             {this.props.tracks.map((track, id) => {
               return (
-                <tr key={id}>
-                  <td className="small-player-icon-td">II</td>
+                <tr className = "track-list-format" key={id}>
+                  <td className="small-player-icon-td"></td>
+                    <li onClick={this.handleTrackPlay(track)} className="small-player-icon"></li>
+                    <li className="small-icon-play"><img src={play}/></li>
                   <td className="track-number-td"><span>{track.order}.</span></td>
                   <td className="track-title-time-td"><span className="track-title">{track.title}</span><span className="track-time">5:14</span></td>
                 </tr>
