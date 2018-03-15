@@ -12,26 +12,24 @@ class SongPlayer extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
   }
 
-  componentDidMount() {
-    if (this.state.playing === true) {
-
-    }
-
-  }
 
   handlePlay(e) {
+    let value = (this.playerAudio.duration / 250);
+    const slide = setInterval(() => {
+        this.setState({slider: this.state.slider+1});
+      }, (value * 1000));
     if (this.state.playing === false)
       {
         this.playerAudio.play();
         this.setState({playing: true});
+        return slide;
+
       } else {
         this.playerAudio.pause();
         this.setState({playing: false});
+        clearInterval(slide);
       }
   }
-
-
-
 
 
 
