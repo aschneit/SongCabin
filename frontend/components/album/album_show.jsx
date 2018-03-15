@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Link } from 'react-router-dom';
-import SongPlayer from './song_player'
+import SongPlayer from './song_player';
 
 export default class AlbumShow extends React.Component {
   constructor(props) {

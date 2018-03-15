@@ -18,6 +18,7 @@ class SongPlayer extends React.Component {
     const slide = setInterval(() => {
         this.setState({slider: this.state.slider+1});
       }, (value * 1000));
+      
     if (this.state.playing === false)
       {
         this.playerAudio.play();
