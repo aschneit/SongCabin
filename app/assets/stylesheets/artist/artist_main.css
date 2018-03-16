@@ -62,7 +62,7 @@
 
 .edit-button > button {
   background-color: lightyellow;
-  width: 50px;
+  width: 60px;
   height: 22px;
   border: 1px solid silver;
 
@@ -85,6 +85,36 @@
 .edit-button {
   margin-top: 12px;
 }
+
+.edit-artist-button > button{
+  background-color: lightyellow;
+  width: 60px;
+  height: 22px;
+  border: 1px solid silver;
+}
+
+.edit-artist-button > button > a {
+  text-decoration: none;
+}
+
+.edit-artist-button > button > a:hover {
+  text-decoration: underline;
+}
+
+.edit-artist-button > button:focus {
+  outline:none;
+}
+
+.edit-artist-button {
+  margin-top: 12px;
+  margin-left: 10px;
+}
+
+.add-edit-buttons {
+  display: flex;
+
+}
+
 
 .player {
   width: 376px;

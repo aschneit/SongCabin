@@ -1,4 +1,10 @@
 class Api::AlbumsController < ApplicationController
+  def index
+    @albums = Album.all
+    render "api/albums/index"
+  end 
+
+
   def create
     @album = Album.new(album_params)
     if @album.save

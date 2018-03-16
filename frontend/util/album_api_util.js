@@ -5,6 +5,13 @@ export const getAlbumTracks = id => {
   });
 };
 
+export const getAlbums = () => {
+  return $.ajax({
+    method: "GET",
+    url: "/api/albums/"
+  });
+};
+
 export const createAlbum = formData => {
   return $.ajax({
     method: "POST",

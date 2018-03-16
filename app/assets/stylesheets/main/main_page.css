@@ -49,3 +49,38 @@
   -o-filter: brightness(130%);
   -ms-filter: brightness(130%);
 }
+
+.featured-albums {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.album-pres {
+  text-align: center;
+
+}
+
+.album-pres > a {
+  text-decoration: none;
+}
+
+.main-albums-image {
+
+}
+
+.main-albums-image > img {
+
+}
+
+.main-albums-artist {
+
+  font-size: 12px;
+  color: gray;
+}
+
+.main-albums-title {
+
+font-size: 13px;
+}
