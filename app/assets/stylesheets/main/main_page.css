@@ -59,7 +59,7 @@
 
 .album-pres {
   text-align: center;
-
+  margin-bottom: 100px;
 }
 
 .album-pres > a {
@@ -67,11 +67,12 @@
 }
 
 .main-albums-image {
-
+  margin-bottom: 10px;
 }
 
 .main-albums-image > img {
-
+  width: 200px;
+  height: 200px;
 }
 
 .main-albums-artist {

@@ -154,7 +154,7 @@
 }
 
 .album-empty-content {
-  height: 200px;
+  height: 100px;
 }
 
 .small-player-icon-td{
@@ -334,4 +334,10 @@
 .disco-title > a:visited {
 
   color: darkblue;
+}
+
+.add-track-button {
+  border-radius: 1px;
+  padding: 5px;
+  outline: none;
 }

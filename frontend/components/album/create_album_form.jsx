@@ -103,9 +103,7 @@ class CreateAlbumForm extends React.Component {
                   onChange={this.update("albumDescription")}
                 />
               </div>
-              <button onClick={this.handleAppend}>
-                Add Track
-              </button>
+
               <div className="update-album-image">
                 <label>Album Cover Image</label>
                 <div className="update-album-image-box">
@@ -118,8 +116,11 @@ class CreateAlbumForm extends React.Component {
                   id="file"
                   onChange={this.updateFile}
                 />
-                <label htmlFor="file">Select file</label>
+                <label htmlFor="file"></label>
               </div>
+              <button className="add-track-button" onClick={this.handleAppend}>
+                Add Track
+              </button>
               <div>
                 {this.trackForms()}
               </div>
