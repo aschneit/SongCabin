@@ -39,6 +39,7 @@ export const receiveCurrentUser = currentUser => {
 };
 
 export const receiveSessionErrors = errors => {
+
   return {
     type: RECEIVE_SESSION_ERRORS,
     errors

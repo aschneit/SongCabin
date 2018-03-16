@@ -39,7 +39,7 @@ const MainNav = ({ currentUser, logout, location }) => {
     if (location.pathname === "/") {
       yourSite = (
       <li className="main-nav-yoursite">
-        <Link to={`/artists/${currentUser.id}/albums/${currentUser.most_recent_album}`}>your site</Link>
+        <Link to={`/artists/${currentUser.id}`}>your site</Link>
       </li>
     ) }
   } else {

@@ -74,9 +74,7 @@ class CreateAlbumForm extends React.Component {
       .processForm(formData)
       .then(() =>
         this.props.history.push(
-          `/artists/${this.props.currentUser.id}/albums/${
-            this.props.currentUser.most_recent_album
-          }`
+          `/artists/${this.props.currentUser.id}`
         )
       );
   }

@@ -4,7 +4,9 @@ json.user do
   json.album_ids do
     (json.array! (@user.albums.map { |album| album.id }))
   end
-  json.most_recent_album @user.most_recent_album.id
+  if @user.most_recent_album.present?
+    json.most_recent_album @user.most_recent_album.id
+  end
 end
 
 

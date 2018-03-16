@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Link } from 'react-router-dom';
-import SongPlayer from './song_player';
+import SongPlayerContainer from './song_player_container';
+
 
 export default class AlbumShow extends React.Component {
   constructor(props) {
@@ -26,7 +27,7 @@ export default class AlbumShow extends React.Component {
   render () {
     const editButton = () => {
       if (this.props.currentUser && (this.props.currentUser.id === this.props.artist.id)) {
-        return <div className="edit-button"><button>Edit</button></div>;
+        return <div className="edit-button"><button><Link to="/albums/new">Add</Link></button></div>;
       }
     };
     const leadTrack = this.props.tracks.filter((track) => {
@@ -44,7 +45,7 @@ export default class AlbumShow extends React.Component {
           </div>
           {editButton()}
           <div className="player">
-            <SongPlayer leadTrack={leadTrack}/>
+            <SongPlayerContainer leadTrack={leadTrack} tracks={this.props.tracks}/>
           </div>
           <div className="digital-album">
             Digital Album

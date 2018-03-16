@@ -8,14 +8,14 @@ import { sendCurrentTrack } from "../../actions/track_actions";
 const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
   const artist = state.entities.users[ownProps.match.params.artistId] || {};
-  const album = state.entities.albums[ownProps.match.params.albumId] || {};
+  // const album = state.entities.albums[ownProps.match.params.albumId] || {};
 
-  // let album;
-  // if (ownProps.match.params.albumId) {
-  //   album = state.entities.albums[ownProps.match.params.albumId] || {};
-  // } else {
-  //   album = state.entities.albums[artist.most_recent_album] || {};
-  // }
+  let album;
+  if (ownProps.match.params.albumId) {
+    album = state.entities.albums[ownProps.match.params.albumId] || {};
+  } else {
+    album = state.entities.albums[artist.most_recent_album] || {};
+  }
 
 
   // if (!album.track_ids) {

@@ -42,7 +42,7 @@ class EditArtistForm extends React.Component {
     formData.append("user[band_description]", this.state.bandDescription);
     if (file) formData.append("user[image]", file);
     this.props.processForm(this.props.currentUser, formData)
-    .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}/albums/${this.props.currentUser.most_recent_album}`));
+    .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
   }
 
   render () {

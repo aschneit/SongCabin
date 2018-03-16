@@ -10,13 +10,15 @@ User.destroy_all
 Album.destroy_all
 Track.destroy_all
 
-u1 = User.create!(band_name: 'Rock Turtles', email: "rockturtles@gmail.com", password: "iamaturtle1",
-  band_location: 'Idaho', band_description: 'we rock as turtles', band_website: 'www.turtles.com')
-u2 = User.create!(band_name: 'ron davis', email: "rondavis", password: "rondavis",
-  band_location: 'New York', band_description: 'This man has skills', band_website: 'www.rondavis.com')
+u1 = User.create!(band_name: 'Billie Holiday', email: "billie@billie.com", password: "billieholiday",
+  band_location: 'New York', band_description: 'An innovative stylist who influenced singers for generations', band_website: 'www.billieholiday.com')
+u2 = User.create!(band_name: 'Ben Webster', email: "ben@benwebster.com", password: "benwebster",
+  band_location: 'New York', band_description: 'King of tenor saxophonists with a warm but gruff sound', band_website: 'www.benwebster.com')
+u3 = User.create!(band_name: 'Sonny Rollins', email: "sonny@sonnyrollins.com", password: "sonnyrollins",
+  band_location: 'New York', band_description: 'Melodic, motivic tenor saxophonist, a master of spontaneous improvisation', band_website: 'www.sonnyrollins.com')
 
 
-a1 = Album.create!(title: 'Rocking like a turtle', description: 'this is the greatest', artist_id: u1.id)
+a1 = Album.create!(title: 'Good Morning Blues', description: 'this is the greatest', artist_id: u1.id)
 a2 = Album.create!(title: 'turtletime', description: 'good follow up', artist_id: u1.id)
 a3 = Album.create!(title: 'death to turtles', description: 'final hurrah', artist_id: u1.id)
 a4 = Album.create!(title: 'Rons Rules', description: 'everyone loves this one', artist_id: u2.id)

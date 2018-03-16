@@ -65,6 +65,15 @@
   width: 50px;
   height: 22px;
   border: 1px solid silver;
+
+}
+
+.edit-button > button > a {
+  text-decoration: none;
+}
+
+.edit-button > button > a:hover {
+  text-decoration: underline;
 }
 
 .edit-button > button:focus {
