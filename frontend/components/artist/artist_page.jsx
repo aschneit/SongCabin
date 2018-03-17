@@ -33,13 +33,13 @@ class ArtistPage extends React.Component {
           <div className="artist-content">
             <div className="album-component">
               <Route exact path='/artists/:artistId' component={AlbumShowContainer}/>
-              <Route path={`${this.props.match.path}/albums/:albumId/`} component={AlbumShowContainer}/>
+              <Route path={`/artists/:artistId/albums/:albumId/`} component={AlbumShowContainer}/>
             </div>
             <div className="artist-discog-components">
               <Route exact path='/artists/:artistId' component={ArtistShowContainer}/>
-              <Route path={`${this.props.match.path}/albums/:albumId/`} component={ArtistShowContainer}/>
+              <Route path={`/artists/:artistId/albums/:albumId/`} component={ArtistShowContainer}/>
               <Route exact path='/artists/:artistId' component={DiscogContainer}/>
-              <Route path={`${this.props.match.path}/albums/:albumId/`} component={DiscogContainer}/>
+              <Route path={`/artists/:artistId/albums/:albumId/`} component={DiscogContainer}/>
             </div>
           </div>
         </div>
