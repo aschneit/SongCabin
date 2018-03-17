@@ -13,8 +13,10 @@ const msp = (state, ownProps) => {
   let album;
   if (ownProps.match.params.albumId) {
     album = state.entities.albums[ownProps.match.params.albumId] || {};
-  } else {
+  } else if (artist.most_recent_album) {
     album = state.entities.albums[artist.most_recent_album] || {};
+  } else {
+    album = {};
   }
 
 
