@@ -46,9 +46,7 @@ componentDidMount () {
 
   render() {
     let playerTrack = this.props.leadTrack;
-    if (!this.props.currentTrack.id && playerTrack[0]) {
-      this.props.sendCurrentTrack({id: playerTrack[0].id, playing: false});
-    }
+
     if (this.props.currentTrack.id) {
        playerTrack = this.props.tracks.filter((track) => {
         return track.id === this.props.currentTrack.id;
