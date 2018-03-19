@@ -15,6 +15,7 @@ export default class AlbumShow extends React.Component {
     if (this.props.match.params.albumId) {
     this.props.getAlbumTracks(this.props.match.params.albumId);
   }
+  
   }
 
   componentWillReceiveProps(nextProps) {
