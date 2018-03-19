@@ -6,7 +6,6 @@ class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playing: false,
       slider: 0
     };
     this.handlePlay = this.handlePlay.bind(this);
@@ -14,20 +13,20 @@ class SongPlayer extends React.Component {
     this.handleDragSlider = this.handleDragSlider.bind(this);
   }
 
+
+
   moveSlider() {
     this.setState({slider: this.slider()});
   }
 
   handlePlay(e) {
-
-    if (this.state.playing === false)
-      {
-        this.playerAudio.play();
-        this.setState({playing: true});
-      } else {
-        this.playerAudio.pause();
-        this.setState({playing: false});
-      }
+    if (this.props.currentTrack.playing === false) {
+      this.playerAudio.play();
+      this.props.sendCurrentTrack({playing: true});
+    } else {
+      this.playerAudio.pause();
+      this.props.sendCurrentTrack({playing: false});
+    }
   }
 
   handleDragSlider (e) {
@@ -41,18 +40,29 @@ class SongPlayer extends React.Component {
   }
 
   render() {
+    let playerTrack = this.props.leadTrack;
+    if (this.props.currentTrack.id) {
+       playerTrack = this.props.tracks.filter((track) => {
+        return track.id === this.props.currentTrack.id;
+      });
+    }
+    if (this.props.currentTrack.playing === true) {
+      this.playerAudio.play();
+    }
+    if (this.props.currentTrack.playing === false) {
+      this.playerAudio.pause();
+    }
     let icon;
-    if (this.state.playing === true) {
+    if (this.props.currentTrack.playing === true) {
       icon = pause;
     } else {
       icon = play;
     }
-    const leadTrack = this.props.leadTrack[0] || {};
     return (
       <div>
         <div className="native-player">
         {this.props.leadTrack[0] &&
-        <audio ref={(audio) => { this.playerAudio = audio; }} src={leadTrack.audio_url} onTimeUpdate={this.moveSlider}></audio>
+        <audio ref={(audio) => { this.playerAudio = audio; }}  src={playerTrack[0].audio_url} onTimeUpdate={this.moveSlider}></audio>
         }
         </div>
         <div className="player-total">
@@ -63,7 +73,7 @@ class SongPlayer extends React.Component {
           </div>
           <div className="player-mid-controls">
             <div className="current-track-title">
-              {leadTrack.title}
+              {this.props.leadTrack[0] && playerTrack[0].title}
             </div>
             <div className="slider-container">
               <input type="range" value={this.state.slider}

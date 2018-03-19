@@ -6,8 +6,8 @@ import SongPlayerContainer from './song_player_container';
 export default class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props;
 
+    this.handleTrack = this.handleTrack.bind(this);
 
   }
 
@@ -23,6 +23,30 @@ export default class AlbumShow extends React.Component {
     }
 
   }
+
+  handleTrack (e) {
+    if (e.currentTarget.value !== this.props.currentTrack.id) {
+      this.props.sendCurrentTrack({id: e.currentTarget.value, playing: true});
+
+    } else if ((e.currentTarget.value === this.props.currentTrack.id) && (this.props.currentTrack.playing === true)) {
+      this.props.sendCurrentTrack({id: e.currentTarget.value, playing: false});
+
+    } else if ((e.currentTarget.value === this.props.currentTrack.id) && (this.props.currentTrack.playing === false)) {
+      this.props.sendCurrentTrack({id: e.currentTarget.value, playing: true});
+
+    }
+  }
+
+  togglePlay(id) {
+    if ((this.props.currentTrack.playing === true) && (this.props.currentTrack.id === id)) {
+    return pause;
+  } else if ((this.props.currentTrack.playing === false) && (this.props.currentTrack.id === id)) {
+    return play;
+  } else {
+    return play;
+  }
+}
+
 
 
 
@@ -52,7 +76,7 @@ export default class AlbumShow extends React.Component {
           </div>
           {editButton()}
           <div className="player">
-            <SongPlayerContainer leadTrack={leadTrack} tracks={this.props.tracks}/>
+            <SongPlayerContainer leadTrack={leadTrack} sendCurrentTrack={this.props.sendCurrentTrack} tracks={this.props.tracks}/>
           </div>
           <div className="digital-album">
             Digital Album
@@ -72,8 +96,8 @@ export default class AlbumShow extends React.Component {
               return (
                 <tr className = "track-list-format" key={id}>
                   <td className="small-player-icon-td"></td>
-                    <li onClick={() => this.props.sendCurrentTrack({id: track.id, title: track.title, playing: true})} className="small-player-icon"></li>
-                    <li className="small-icon-play"><img src={play}/></li>
+                    <li onClick={this.handleTrack} value={track.id} className="small-player-icon"></li>
+                    <li onClick={this.handleTrack} value={track.id} className="small-icon-play"><img src={this.togglePlay(track.id)}/></li>
                   <td className="track-number-td"><span>{track.order}.</span></td>
                   <td className="track-title-time-td"><span className="track-title">{track.title}</span><span className="track-time">5:14</span></td>
                 </tr>
