@@ -13,19 +13,16 @@ class SongPlayer extends React.Component {
     this.handleDragSlider = this.handleDragSlider.bind(this);
   }
 
-componentDidMount () {
-  if (this.props.leadTrack[0])
-  {
-  this.props.sendCurrentTrack({id: this.props.leadTrack[0].id, playing: true});
-}
-}
 
   moveSlider() {
     this.setState({slider: this.slider()});
   }
 
   handlePlay(e) {
-    if (this.props.currentTrack.playing === false) {
+    if (!this.props.currentTrack.id) {
+      this.playerAudio.play();
+      this.props.sendCurrentTrack({id: this.props.leadTrack[0].id, playing: true});
+    } else if (this.props.currentTrack.playing === false) {
       this.playerAudio.play();
       this.props.sendCurrentTrack({playing: true});
     } else {
@@ -45,12 +42,14 @@ componentDidMount () {
   }
 
   render() {
-    let playerTrack = this.props.leadTrack;
-
+    let playerTrack;
+    if (this.props.leadTrack[0]) {
+      playerTrack = this.props.leadTrack[0];
+    }
     if (this.props.currentTrack.id) {
        playerTrack = this.props.tracks.filter((track) => {
         return track.id === this.props.currentTrack.id;
-      });
+      })[0];
     }
     if (this.props.currentTrack.playing === true) {
       this.playerAudio.play();
@@ -68,7 +67,7 @@ componentDidMount () {
       <div>
         <div className="native-player">
         {this.props.leadTrack[0] &&
-        <audio ref={(audio) => { this.playerAudio = audio; }}  src={playerTrack[0].audio_url} onTimeUpdate={this.moveSlider}></audio>
+        <audio ref={(audio) => { this.playerAudio = audio; }}  src={playerTrack.audio_url} onTimeUpdate={this.moveSlider}></audio>
         }
         </div>
         <div className="player-total">
@@ -79,7 +78,7 @@ componentDidMount () {
           </div>
           <div className="player-mid-controls">
             <div className="current-track-title">
-              {this.props.leadTrack[0] && playerTrack[0].title}
+              {this.props.leadTrack[0] && playerTrack.title}
             </div>
             <div className="slider-container">
               <input type="range" value={this.state.slider}

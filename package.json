@@ -12,7 +12,6 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.11.0"
   },
@@ -42,6 +41,7 @@
   },
   "homepage": "https://github.com/aschneit/SongCabin#readme",
   "devDependencies": {
-    "webpack-cli": "^2.0.10"
+    "webpack-cli": "^2.0.10",
+    "redux-logger": "^3.0.6"
   }
 }

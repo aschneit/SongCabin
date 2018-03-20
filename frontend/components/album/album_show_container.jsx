@@ -31,8 +31,9 @@ const msp = (state, ownProps) => {
     return track.album_id === album.id;
   }) || {};
 
+
   const currentTrack = state.ui.currentTrack || {};
-  
+
   return {
     artist, album, tracks, currentUser, currentTrack
   };

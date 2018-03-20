@@ -15,7 +15,7 @@ export default class AlbumShow extends React.Component {
     if (this.props.match.params.albumId) {
     this.props.getAlbumTracks(this.props.match.params.albumId);
   }
-  
+
   }
 
   componentWillReceiveProps(nextProps) {
@@ -62,9 +62,7 @@ export default class AlbumShow extends React.Component {
     );
       }
     };
-    const leadTrack = this.props.tracks.filter((track) => {
-      return track.order === 1;
-    });
+
     return (
 
       <div className='album-column'>
@@ -77,7 +75,7 @@ export default class AlbumShow extends React.Component {
           </div>
           {editButton()}
           <div className="player">
-            <SongPlayerContainer leadTrack={leadTrack} sendCurrentTrack={this.props.sendCurrentTrack} tracks={this.props.tracks}/>
+            <SongPlayerContainer  sendCurrentTrack={this.props.sendCurrentTrack} tracks={this.props.tracks}/>
           </div>
           <div className="digital-album">
             Digital Album

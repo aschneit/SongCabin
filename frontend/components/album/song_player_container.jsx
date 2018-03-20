@@ -4,10 +4,13 @@ import SongPlayer from "./song_player";
 import { withRouter } from 'react-router-dom';
 
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
   const currentTrack = state.ui.currentTrack || {};
+  const leadTrack = ownProps.tracks.filter((track) => {
+    return track.order === 1;
+  }) || [];
   return {
-   currentTrack
+   currentTrack, leadTrack
   };
 };
 
