@@ -42,7 +42,7 @@ class SongPlayer extends React.Component {
   }
 
   render() {
-    let playerTrack;
+    let playerTrack = {};
     if (this.props.leadTrack[0]) {
       playerTrack = this.props.leadTrack[0];
     }
@@ -51,10 +51,10 @@ class SongPlayer extends React.Component {
         return track.id === this.props.currentTrack.id;
       })[0];
     }
-    if (this.props.currentTrack.playing === true) {
+    if (this.props.currentTrack.playing === true && this.playerAudio) {
       this.playerAudio.play();
     }
-    if (this.props.currentTrack.playing === false) {
+    if (this.props.currentTrack.playing === false && this.playerAudio) {
       this.playerAudio.pause();
     }
     let icon;
@@ -66,7 +66,7 @@ class SongPlayer extends React.Component {
     return (
       <div>
         <div className="native-player">
-        {this.props.leadTrack[0] &&
+        {playerTrack &&
         <audio ref={(audio) => { this.playerAudio = audio; }}  src={playerTrack.audio_url} onTimeUpdate={this.moveSlider}></audio>
         }
         </div>
@@ -78,7 +78,7 @@ class SongPlayer extends React.Component {
           </div>
           <div className="player-mid-controls">
             <div className="current-track-title">
-              {this.props.leadTrack[0] && playerTrack.title}
+              {playerTrack && playerTrack.title}
             </div>
             <div className="slider-container">
               <input type="range" value={this.state.slider}
