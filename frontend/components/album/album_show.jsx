@@ -12,23 +12,48 @@ export default class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
+
     if (this.props.match.params.albumId) {
-    this.props.getAlbumTracks(this.props.match.params.albumId);
+    this.props.getAlbumTracks(this.props.match.params.albumId).then(() => {
+      const leadTrack = this.props.tracks.filter((track) => {
+        return track.order === 1;
+      }) || [];
+      if (leadTrack[0]) {
+        this.props.sendCurrentTrack({id: leadTrack[0].id, playing: false});
+      }
+
+    });
 
   }
 
   }
 
   componentWillReceiveProps(nextProps) {
+
     if (this.props.match.params.albumId !== nextProps.match.params.albumId) {
      this.props.getAlbumTracks(nextProps.match.params.albumId);
-     const leadTrack = nextProps.tracks.filter((track) => {
-       return track.order === 1;
-     }) || [];
-     if (leadTrack[0]) {
-       this.props.sendCurrentTrack({id: leadTrack[0].id, playing: false});
-     }
     }
+    if (!this.arraysAreEqual(this.props.tracks, nextProps.tracks)) {
+      const leadTrack = nextProps.tracks.filter((track) => {
+        return track.order === 1;
+      }) || [];
+      if (leadTrack[0]) {
+        this.props.sendCurrentTrack({id: leadTrack[0].id, playing: false});
+      }
+
+    }
+  }
+
+  arraysAreEqual (arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    for (let i=0; i < arr1.length; i++) {
+      if (arr1[i] !== arr2[i]) {
+        return false;
+      }
+    }
+    return true;
   }
 
   handleTrack (e) {
@@ -44,7 +69,7 @@ export default class AlbumShow extends React.Component {
     }
   }
 
-  togglePlay(id) {
+  toggleIcon(id) {
     if ((this.props.currentTrack.playing === true) && (this.props.currentTrack.id === id)) {
     return pause;
   } else if ((this.props.currentTrack.playing === false) && (this.props.currentTrack.id === id)) {
@@ -102,7 +127,7 @@ export default class AlbumShow extends React.Component {
                 <tr className = "track-list-format" key={id}>
                   <td className="small-player-icon-td"></td>
                     <li onClick={this.handleTrack} value={track.id} className="small-player-icon"></li>
-                    <li onClick={this.handleTrack} value={track.id} className="small-icon-play"><img src={this.togglePlay(track.id)}/></li>
+                    <li onClick={this.handleTrack} value={track.id} className="small-icon-play"><img src={this.toggleIcon(track.id)}/></li>
                   <td className="track-number-td"><span>{track.order}.</span></td>
                   <td className="track-title-time-td"><span className="track-title">{track.title}</span><span className="track-time">5:14</span></td>
                 </tr>
