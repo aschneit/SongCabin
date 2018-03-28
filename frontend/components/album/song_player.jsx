@@ -15,6 +15,7 @@ class SongPlayer extends React.Component {
   }
 
 
+
   moveSlider() {
     this.setState({slider: this.slider()});
   }
@@ -39,7 +40,12 @@ class SongPlayer extends React.Component {
 
 
   slider () {
-    return (this.playerAudio.currentTime / this.playerAudio.duration * 250);
+    if (this.playerAudio.currentTime) {
+      return (this.playerAudio.currentTime / this.playerAudio.duration * 250);
+
+    } else {
+      return 0;
+    }
   }
 
   render() {
