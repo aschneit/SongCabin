@@ -11,6 +11,7 @@ class SongPlayer extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.moveSlider = this.moveSlider.bind(this);
     this.handleDragSlider = this.handleDragSlider.bind(this);
+
   }
 
 
@@ -20,8 +21,8 @@ class SongPlayer extends React.Component {
 
   handlePlay(e) {
     if (!this.props.currentTrack.id) {
-      this.playerAudio.play();
       this.props.sendCurrentTrack({id: this.props.leadTrack[0].id, playing: true});
+      this.playerAudio.play();
     } else if (this.props.currentTrack.playing === false) {
       this.playerAudio.play();
       this.props.sendCurrentTrack({playing: true});

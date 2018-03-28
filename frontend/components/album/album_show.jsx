@@ -14,6 +14,7 @@ export default class AlbumShow extends React.Component {
   componentDidMount() {
     if (this.props.match.params.albumId) {
     this.props.getAlbumTracks(this.props.match.params.albumId);
+
   }
 
   }
@@ -21,8 +22,13 @@ export default class AlbumShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.albumId !== nextProps.match.params.albumId) {
      this.props.getAlbumTracks(nextProps.match.params.albumId);
+     const leadTrack = nextProps.tracks.filter((track) => {
+       return track.order === 1;
+     }) || [];
+     if (leadTrack[0]) {
+       this.props.sendCurrentTrack({id: leadTrack[0].id, playing: false});
+     }
     }
-
   }
 
   handleTrack (e) {

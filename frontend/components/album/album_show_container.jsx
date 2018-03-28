@@ -19,14 +19,6 @@ const msp = (state, ownProps) => {
     album = {};
   }
 
-
-  // if (!album.track_ids) {
-  //  album.track_ids = [];
-  // }
-  // const tracks = album.track_ids.map(id => {
-  //   return state.entities.tracks[id];
-  // });
-
   const tracks = Object.values(state.entities.tracks).filter(track => {
     return track.album_id === album.id;
   }) || {};
