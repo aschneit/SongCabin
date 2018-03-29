@@ -40,7 +40,12 @@ export default class SearchBar extends React.Component {
                               <img src = {album.image_url} />
                             </div>
                             <div className="search-content-box">
-                              <span>{album.title}</span>
+                              <span className="search-album-title">{album.title}</span>
+                              <p></p>
+                              <span className="search-album-artist">by {album.artist}</span>
+                              <p></p>
+                              <span className="search-album-type">Album</span>
+                              <p></p>
                             </div>
                           </Link>
                         </li>

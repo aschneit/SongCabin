@@ -35,13 +35,22 @@
   border: 1px solid #bebebe;
 }
 
-.search-results-list-items a {
-  padding: 4px;
-}
-
-.search-results-list-items {
+.search-results-list-items  {
+  padding: 4px 6px 4px 6px;
+  display: flex;
 
 }
+
+.search-results-list-items:hover  {
+  background-color: #eef2f3;
+
+}
+
+.search-results-list-items > a {
+  display: flex;
+  text-decoration: none;
+}
+
 
 .search-image-box {
   height: 50px;
@@ -51,4 +60,26 @@
 .search-image-box img{
   height: 50px;
   width: 50px;
+}
+
+.search-content-box {
+  padding-left: 6px;
+}
+
+.search-album-title {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 14px;
+}
+
+.search-album-artist {
+  font-size: 11px;
+  line-height: 13px;
+
+}
+
+.search-album-type {
+  font-size: 11px;
+  line-height: 13px;
+
 }
