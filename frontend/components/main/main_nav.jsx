@@ -41,7 +41,7 @@ const MainNav = ({ currentUser, logout, location }) => {
       <li className="main-nav-yoursite">
         <Link to={`/artists/${currentUser.id}`}>your site</Link>
       </li>
-    ) }
+    ); }
   } else {
     links = loggedOutLinks();
     greeting = <li />;
@@ -59,7 +59,12 @@ const MainNav = ({ currentUser, logout, location }) => {
         <ul className="main-nav-left-bottom">{greeting}{yourSite}</ul>
       </div>
       <div className="main-nav-right">
-        <div className="main-nav-right-top" />
+        <div className="main-nav-right-top">
+          <form>
+            <input className="artist-search-bar" type="text" placeholder="Search for artist, track or album"></input>
+            <span><i className="fas fa-search"></i></span>
+          </form>
+        </div>
         <div className="main-nav-right-bottom">{links}</div>
       </div>
     </div>
