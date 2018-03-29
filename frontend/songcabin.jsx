@@ -6,6 +6,7 @@ import Root from "./components/root";
 import { getArtist } from "./actions/artist_actions";
 
 
+
 document.addEventListener("DOMContentLoaded", () => {
   let store;
   if (window.currentUser) {

@@ -62,7 +62,8 @@
   height: 87px;
   display: flex;
   justify-content: flex-end;
-  flex-direction: column
+  flex-direction: column;
+
 
 }
 
@@ -104,22 +105,7 @@
   margin-bottom: 13px;
 }
 
-.artist-search-bar {
-  width: 208px;
-  height: 26px;
-  border: 1px solid #bebebe;
-  border-radius: 3px;
-  outline: none;
-  padding-left: 10px;
-  padding-right: 28px;
-  color: #161113;
-  font-size: 13px;
-}
 
-.artist-search-bar:focus {
-  background: #eef2f3;
-  box-shadow: 0 0 5px #d7d7d7
-}
 
 .main-nav-right-bottom {
   display: flex;

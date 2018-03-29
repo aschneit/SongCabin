@@ -1,0 +1,36 @@
+.artist-search-bar {
+  width: 208px;
+  height: 26px;
+  border: 1px solid #bebebe;
+  border-radius: 3px;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 28px;
+  color: #161113;
+  font-size: 13px;
+}
+
+.artist-search-bar:focus {
+  background: #eef2f3;
+  box-shadow: 0 0 5px #d7d7d7
+}
+
+
+
+.search-icon {
+  right: 212px;
+  position: absolute;
+  top: 26px;
+  font-size: 16px;
+  color: #000000c2;
+
+}
+
+.search-results-list {
+  list-style: none;
+  position: absolute;
+  width: 246px;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+  background-color: white;
+  border: 1px solid #bebebe;
+}

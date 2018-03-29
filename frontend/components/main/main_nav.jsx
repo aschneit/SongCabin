@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/fontawesome-free-solid';
+import SearchBar from './search_bar.jsx';
 
 const loggedOutLinks = () => {
   return (
@@ -60,10 +63,7 @@ const MainNav = ({ currentUser, logout, location }) => {
       </div>
       <div className="main-nav-right">
         <div className="main-nav-right-top">
-          <form>
-            <input className="artist-search-bar" type="text" placeholder="Search for artist, track or album"></input>
-            <span><i className="fas fa-search"></i></span>
-          </form>
+          <SearchBar />
         </div>
         <div className="main-nav-right-bottom">{links}</div>
       </div>
