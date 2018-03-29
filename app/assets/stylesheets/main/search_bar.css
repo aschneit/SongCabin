@@ -34,3 +34,21 @@
   background-color: white;
   border: 1px solid #bebebe;
 }
+
+.search-results-list-items a {
+  padding: 4px;
+}
+
+.search-results-list-items {
+
+}
+
+.search-image-box {
+  height: 50px;
+  width: 50px;
+}
+
+.search-image-box img{
+  height: 50px;
+  width: 50px;
+}

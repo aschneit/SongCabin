@@ -1,6 +1,7 @@
 import React from "react";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
+import { Link } from 'react-router-dom';
 
 export default class SearchBar extends React.Component {
   constructor(props) {
@@ -33,7 +34,16 @@ export default class SearchBar extends React.Component {
                 if (this.state.inputVal.length > 0 &&
                   album.title.slice(0, this.state.inputVal.length) === this.state.inputVal) {
                     return (
-                      <li>{album.title}</li>
+                        <li className="search-results-list-items">
+                          <Link to={`/artists/${album.artist_id}/albums/${album.id}`}>
+                            <div className="search-image-box">
+                              <img src = {album.image_url} />
+                            </div>
+                            <div className="search-content-box">
+                              <span>{album.title}</span>
+                            </div>
+                          </Link>
+                        </li>
                     );
                   }
                 })
