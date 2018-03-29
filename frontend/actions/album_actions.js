@@ -25,8 +25,8 @@ export const receiveAlbums = albums => {
   };
 };
 
-export const fetchAlbums = () => (dispatch, getState) => {
-  return APIUtil.getAlbums().then(albums => {
+export const fetchAlbums = (query) => (dispatch, getState) => {
+  return APIUtil.getAlbums(query).then(albums => {
     dispatch(receiveAlbums(albums));
   });
 };

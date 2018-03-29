@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
-import SearchBar from './search_bar.jsx';
+import SearchBarContainer from './search_bar_container.jsx';
 
 const loggedOutLinks = () => {
   return (
@@ -63,7 +63,7 @@ const MainNav = ({ currentUser, logout, location }) => {
       </div>
       <div className="main-nav-right">
         <div className="main-nav-right-top">
-          <SearchBar />
+          <SearchBarContainer />
         </div>
         <div className="main-nav-right-bottom">{links}</div>
       </div>

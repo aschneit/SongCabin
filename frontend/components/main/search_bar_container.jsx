@@ -12,8 +12,8 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    fetchAlbums: () => dispatch(fetchAlbums())
+    fetchAlbums: (query) => dispatch(fetchAlbums(query))
   };
 };
 
-export default connect(msp, mdp)(MainPage);
+export default connect(msp, mdp)(SearchBar);

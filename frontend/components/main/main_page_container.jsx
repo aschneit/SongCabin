@@ -12,7 +12,7 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    fetchAlbums: () => dispatch(fetchAlbums())
+    fetchAlbums: (query) => dispatch(fetchAlbums(query))
   };
 };
 

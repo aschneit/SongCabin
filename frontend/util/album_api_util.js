@@ -5,10 +5,11 @@ export const getAlbumTracks = id => {
   });
 };
 
-export const getAlbums = () => {
+export const getAlbums = (query) => {
   return $.ajax({
     method: "GET",
-    url: "/api/albums/"
+    url: "/api/albums/",
+    data: {query}
   });
 };
 

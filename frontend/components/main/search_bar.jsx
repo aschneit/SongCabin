@@ -9,12 +9,14 @@ export default class SearchBar extends React.Component {
     this.handleInput = this.handleInput.bind(this);
   }
 
+
+
   handleInput(e) {
     this.setState({inputVal: e.currentTarget.value});
+    this.props.fetchAlbums(e.currentTarget.value);
   }
 
   render () {
-    const searchItems = ["Dave", "Donny", "Kurt", "Lion"];
     return (
     <div>
       <form>
@@ -22,16 +24,16 @@ export default class SearchBar extends React.Component {
           type="text" placeholder="Search for artist, track or album"></input>
         <span><FontAwesomeIcon className="search-icon" icon={faSearch} /></span>
       </form>
-      {searchItems.map(item =>{
+      {this.props.albums.map(album =>{
         if (this.state.inputVal.length > 0 &&
-        item.slice(0, this.state.inputVal.length) === this.state.inputVal) {
+        album.title.slice(0, this.state.inputVal.length) === this.state.inputVal) {
           return (
             <ul className="search-results-list">
-              {searchItems.map(item =>{
+              {this.props.albums.map(album =>{
                 if (this.state.inputVal.length > 0 &&
-                  item.slice(0, this.state.inputVal.length) === this.state.inputVal) {
+                  album.title.slice(0, this.state.inputVal.length) === this.state.inputVal) {
                     return (
-                      <li>{item}</li>
+                      <li>{album.title}</li>
                     );
                   }
                 })

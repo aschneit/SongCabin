@@ -1,8 +1,12 @@
 class Api::AlbumsController < ApplicationController
   def index
-    @albums = Album.all
+    if params[:query] == 'all'
+      @albums = Album.all
+    else
+      @albums = Album.where('title LIKE ?', "#{params[:query]}%")
+    end
     render "api/albums/index"
-  end 
+  end
 
 
   def create
@@ -33,6 +37,6 @@ class Api::AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:title, :description, :artist_id, :image, tracks_attributes: [:title, :order, :audio])
+    params.require(:album).permit(:title, :description, :artist_id, :query, :image, tracks_attributes: [:title, :order, :audio])
   end
 end
