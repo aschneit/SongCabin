@@ -14,11 +14,18 @@ class SongPlayer extends React.Component {
 
   }
 
-
+  componentWillReceiveProps (nextProps) {
+    if (this.props.currentTrack.id !== nextProps.currentTrack.id) {
+      this.setState({slider: 0});
+    }
+  }
 
   moveSlider() {
     this.setState({slider: this.slider()});
+
   }
+
+
 
   handlePlay(e) {
     if (!this.props.currentTrack.id) {
@@ -64,12 +71,44 @@ class SongPlayer extends React.Component {
     if (this.props.currentTrack.playing === false && this.playerAudio) {
       this.playerAudio.pause();
     }
+
     let icon;
     if (this.props.currentTrack.playing === true) {
       icon = pause;
     } else {
       icon = play;
     }
+    let durationMins;
+    let durationSecs;
+    let elapsedMins;
+    let elapsedSecs;
+ if (this.playerAudio) {
+    durationMins = Math.floor(this.playerAudio.duration / 60) || 0;
+    durationSecs = Math.floor(this.playerAudio.duration % 60) || 0;
+    if (durationSecs < 10) {
+      durationSecs = '0' + durationSecs;
+    } else {
+      durationSecs = durationSecs;
+    }
+    if (durationMins < 10) {
+      durationMins = '0' + durationMins;
+    } else {
+      durationMins = durationMins;
+    }
+
+    elapsedMins = Math.floor(this.playerAudio.currentTime / 60);
+    elapsedSecs = Math.floor(this.playerAudio.currentTime % 60);
+    if (elapsedSecs < 10) {
+      elapsedSecs = '0' + elapsedSecs;
+    }  else {
+      elapsedSecs = elapsedSecs;
+    }
+    if (elapsedMins < 10) {
+      elapsedMins = '0' + elapsedMins;
+    } else {
+      elapsedMins = elapsedMins;
+    }
+  }
     return (
       <div>
         <div className="native-player">
@@ -84,8 +123,13 @@ class SongPlayer extends React.Component {
             </div>
           </div>
           <div className="player-mid-controls">
-            <div className="current-track-title">
-              {playerTrack && playerTrack.title}
+            <div className="current-track-info">
+              <div className="current-track-title">
+                {playerTrack && playerTrack.title}
+              </div>
+              <div className="current-track-time">
+                {this.playerAudio && elapsedMins + ':' + elapsedSecs + ' / ' + durationMins + ':' + durationSecs}
+              </div>
             </div>
             <div className="slider-container">
               <input type="range" value={this.state.slider}

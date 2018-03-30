@@ -14,6 +14,7 @@
   width: 56px;
   height: 52px;
   z-index: 3;
+  border: 1px solid silver;
 }
 
 .play > img {
@@ -34,12 +35,22 @@
   width: 250px;
 }
 
-.current-track-title {
+.current-track-info {
   height: 20px;
-  font-size: 13px;
-  color: #363636;
-  font-weight: 500;
   margin-top: 10px;
+  display: flex;
+}
+
+.current-track-title {
+  font-size: 12px;
+  color: #363636;
+  font-weight: bold;
+  padding-right: 6px;
+}
+
+.current-track-time {
+  font-size: 12px;
+  color: #666666;
 }
 
 .current-track-title:hover {
