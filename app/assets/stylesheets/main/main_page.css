@@ -9,11 +9,12 @@
 
 .main-large-photo {
   width: 1070px;
+  border-right: 2px solid white;
 }
 
 .main-large-photo img {
   width: 1070px;
-  height: 540px;
+  height: 544px;
 }
 
 .main-large-photo img:hover {
@@ -28,6 +29,8 @@
 
 .main-small-photos {
   width: 375px;
+
+
 }
 
 .main-small-photos li {
@@ -35,9 +38,12 @@
   padding: 0px;
   margin: 0px;
   height: 180px;
+  border-bottom: 2px solid white;
+
 }
 
 .main-small-photos img {
+
   height: 180px;
   width: 375px;
 }

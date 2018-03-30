@@ -119,23 +119,21 @@ export default class AlbumShow extends React.Component {
           </div>
           <div className="album-empty-content">
           </div>
-          <div className="track-list">
-            <table>
-            <tbody>
+          <div>
+            <ul className="track-list">
             {this.props.tracks.map((track, id) => {
               return (
-                <tr className = "track-list-format" key={id}>
-                  <td className="small-player-icon-td"></td>
+                <ul className = "track-list-format" key={id}>
+                  <li className="small-player-icon-td"></li>
                     <li onClick={this.handleTrack} value={track.id} className="small-player-icon"></li>
                     <li onClick={this.handleTrack} value={track.id} className="small-icon-play"><img src={this.toggleIcon(track.id)}/></li>
-                  <td className="track-number-td"><span>{track.order}.</span></td>
-                  <td className="track-title-time-td"><span className="track-title">{track.title}</span><span className="track-time">5:14</span></td>
-                </tr>
+                  <li className="track-number-td"><span>{track.order}.</span></li>
+                  <li className="track-title-time-td"><span className="track-title">{track.title}</span></li>
+                </ul>
 
               );
             })}
-            </tbody>
-          </table>
+            </ul>
           </div>
           <div className="album-description-text description">
             {this.props.album.description}

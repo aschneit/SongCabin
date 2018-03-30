@@ -157,22 +157,33 @@
   height: 100px;
 }
 
+.track-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
 .small-player-icon-td{
 
+ padding-top: 6px;
+ padding-bottom: 6px;
 }
 
 .small-player-icon {
+  position: relative;
   list-style: none;
-  margin-top: 20px;
   background-color: white;
   height: 16px;
   width: 17px;
-  z-index: 3;
+  z-index: 1;
+  border: 1px solid silver;
+  top: 6px;
 
 }
 
 .track-list-format {
-
+  display: flex;
+  list-style: none;
 }
 
 .small-icon-play {
@@ -185,8 +196,9 @@
   width: 8px;
   z-index: 1;
   position: relative;
-  bottom: 19px;
-  left:  5px;
+  right: 12px;
+  top: 5px;
+
 }
 
 .small-player-icon-td:hover {
@@ -194,8 +206,9 @@
 }
 
 .track-number-td {
-
-
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-right: 4px;
 }
 
 .track-number-td > span {
@@ -204,7 +217,8 @@
 }
 
 .track-title-time-td {
-
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
 .track-title {
