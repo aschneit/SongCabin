@@ -7,6 +7,9 @@ import SearchBarContainer from './search_bar_container.jsx';
 const loggedOutLinks = () => {
   return (
     <ul className="main-nav-session-buttons">
+      <li className="main-nav-discover">
+        discover
+      </li>
       <li className="main-nav-signup">
         <Link to={"/signup"}>sign up</Link>
       </li>
@@ -20,6 +23,9 @@ const loggedOutLinks = () => {
 const loggedInLinks = logout => {
   return (
     <ul className="main-nav-session-buttons">
+      <li className="main-nav-discover">
+        discover
+      </li>
       <li className="main-nav-logout">
         <button onClick={logout}>log out</button>
       </li>
@@ -39,15 +45,16 @@ const MainNav = ({ currentUser, logout, location }) => {
     greeting = (
       <li className="main-nav-greeting">Hi {currentUser.band_name}</li>
     );
-    if (location.pathname === "/") {
       yourSite = (
       <li className="main-nav-yoursite">
         <Link to={`/artists/${currentUser.id}`}>your site</Link>
       </li>
-    ); }
+    );
   } else {
     links = loggedOutLinks();
-    greeting = <li />;
+    greeting = (
+      <li className="main-nav-greet-unlogged">Discover great music and support independent artists.</li>
+    );
   }
   return (
     <div className="main-nav">
@@ -55,7 +62,7 @@ const MainNav = ({ currentUser, logout, location }) => {
         <div className="main-nav-left-top">
           <div className="main-logo">
             <Link to={"/"}>
-              <img src={bc} />songcabin
+              <img src={bc}/>songcabin
             </Link>
           </div>
         </div>

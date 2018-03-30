@@ -35,8 +35,12 @@
   text-decoration: none;
   padding-right: 10px;
   padding-top: 2px;
+}
 
-
+.main-nav-greet-unlogged {
+  color: #408ea3;
+  font-size: 16px;
+  font-weight: 500px;
 }
 
 .main-nav-yoursite {
@@ -83,8 +87,11 @@
 }
 
 .main-logo img {
-  height: 14%;
-  width: 14%;
+  height: 20px;
+  width: 30px;
+  vertical-align: bottom;
+  padding-bottom: 4px;
+
 }
 
 .main-logo a:link, a:visited{
@@ -121,6 +128,7 @@
  border-left: 1px solid lightgray;
 }
 
+
 .main-nav-login {
   padding-left: 9px;
   border-left: 1px solid lightgray;
@@ -142,6 +150,16 @@
 .main-nav-logout {
   padding-left: 9px;
   border-left: 1px solid lightgray;
+}
+
+.main-nav-discover {
+ padding-left: 9px;
+ padding-right: 12px;
+
+}
+
+.main-nav-discover:hover {
+  text-decoration: underline;
 }
 
 .main-nav-right-bottom a:link, a:visited {

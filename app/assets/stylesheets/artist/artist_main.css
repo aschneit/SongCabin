@@ -19,7 +19,7 @@
 
 .album-column {
   width: 756px;
-  height: 1450px;
+  height: 1000px;
   display: flex;
   flex-direction: row;
   margin-top: 45px;
@@ -236,7 +236,7 @@
 }
 
 .artist-discog-components {
-  margin-right: 30;
+  margin-right: 30px;
   margin-top: 45px;
 }
 
