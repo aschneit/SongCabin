@@ -3,7 +3,7 @@ class Api::AlbumsController < ApplicationController
     if params[:query] == 'all'
       @albums = Album.all
     else
-      @albums = Album.where('title LIKE ?', "#{params[:query]}%")
+      @albums = Album.where('lower(title) LIKE ?', "#{params[:query].downcase}%")
     end
     render "api/albums/index"
   end
