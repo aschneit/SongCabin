@@ -226,6 +226,10 @@
   color: darkblue;
 }
 
+.track-title.bold {
+  font-weight: bold;
+}
+
 .track-time {
   font-size: 13px;
   color: #888888;

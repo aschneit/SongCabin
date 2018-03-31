@@ -70,6 +70,7 @@ export default class AlbumShow extends React.Component {
   }
 
   toggleIcon(id) {
+    let boldTrack;
     if ((this.props.currentTrack.playing === true) && (this.props.currentTrack.id === id)) {
     return pause;
   } else if ((this.props.currentTrack.playing === false) && (this.props.currentTrack.id === id)) {
@@ -79,7 +80,11 @@ export default class AlbumShow extends React.Component {
   }
 }
 
-
+  toggleBold(id) {
+    if ((this.props.currentTrack.playing === true) && (this.props.currentTrack.id === id)) {
+    return 'bold';
+  }
+  }
 
 
   render () {
@@ -128,7 +133,7 @@ export default class AlbumShow extends React.Component {
                     <li onClick={this.handleTrack} value={track.id} className="small-player-icon"></li>
                     <li onClick={this.handleTrack} value={track.id} className="small-icon-play"><img src={this.toggleIcon(track.id)}/></li>
                   <li className="track-number-td"><span>{track.order}.</span></li>
-                  <li className="track-title-time-td"><span className="track-title">{track.title}</span></li>
+                  <li className="track-title-time-td"><span className={`track-title ${this.toggleBold(track.id)}`}>{track.title}</span></li>
                 </ul>
 
               );

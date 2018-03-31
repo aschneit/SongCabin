@@ -1,0 +1,75 @@
+.artist-nav {
+  background-color: #ececec;
+  border-bottom: dotted #afafaf 1px;
+  height: 43px;
+  min-width: 975px;
+  border-top: solid 5px #848484;
+
+}
+
+.artist-nav-bar {
+  width: 975px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.artist-nav-logo {
+  font-family: Helvetica;
+  margin-top: 14px;
+  width: 85px;
+  height: 20px;
+  padding-right: 10px;
+}
+
+.artist-nav-logo img {
+  height: 12px;
+  width: 18px;
+  vertical-align: top;
+  padding-top: 2px;
+
+}
+
+.artist-nav-logo span {
+    font-size: 14px;
+    text-decoration: none;
+    font-weight: 500;
+    vertical-align: top;
+}
+
+.artist-nav-logo a {
+  text-decoration: none;
+
+}
+
+.artist-nav-discover {
+  height: 43px;
+  width: 51px;
+  padding-right: 10px;
+  padding-left: 10px;
+  color: #1DA0C3;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 43px;
+}
+
+.artist-nav-discover:hover {
+  background-color: #ded8d8;
+  color: #777272;
+}
+
+.artist-nav-search {
+  padding-right: 10px;
+  padding-left: 10px;
+  line-height: 43px;
+
+}
+
+.artist-nav-search input {
+  height: 19px;
+  width: 204px;
+  padding-left: 3px;
+  padding-right: 21px;
+  border: 1px solid #e0e0e0;
+  background-color: #e0e0e0;
+
+}

@@ -36,7 +36,7 @@ a2 = Album.create!(title: 'Billie Holiday & Lester Young',
    artist_id: u1.id)
 
 a3 = Album.create!(title: 'Alfie', description: 'Alfie is a 1966 album by jazz saxophonist Sonny Rollins of music from the film of the same name. The original British film soundtrack featured Rollins with local musicians, including pianist Stan Tracey, who are not heard on this album.
-\r\n\r\nIt features performances by Rollins, with Kenny Burrell, Jimmy Cleveland, J.J. Johnson and Roger Kellaway, arranged and conducted by Oliver Nelson.',
+It features performances by Rollins, with Kenny Burrell, Jimmy Cleveland, J.J. Johnson and Roger Kellaway, arranged and conducted by Oliver Nelson.',
 image: "http://s3.amazonaws.com/songcabin-dev/albums/images/000/000/011/original/Alfie.jpg", artist_id: u3.id)
 
 a4 = Album.create!(title: 'King of the Tenors', description: "King of the Tenors is an album by American jazz saxophonist Ben Webster featuring tracks recorded in 1953 for the Norgran label and originally released as The Consummate Artistry of Ben Webster (MGN 1001). The album was re-issued in 1957 on Verve Records as King of the Tenors (MGV 8020), and has been released with that title ever since. Webster is accompanied by The Oscar Peterson Trio, and, on several tracks, by Benny Carter and Harry \"Sweets\" Edison.", image: "http://s3.amazonaws.com/songcabin-dev/albums/images/000/000/009/original/kingofthetenors.jpg",

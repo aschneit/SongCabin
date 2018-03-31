@@ -9,13 +9,15 @@ import { ProtectedRoute } from '../util/protected_route_util.jsx';
 import ArtistPageContainer from './artist/artist_page_container';
 import EditArtistContainer from './artist/edit_artist_container';
 import CreateAlbumContainer from './album/create_album_container';
+import ArtistNavContainer from './artist/artist_nav_container';
 
 class App extends React.Component {
 
   render() {
     return (
       <div className = 'main'>
-        <Route path="/" component={MainNavContainer}/>
+        <Route exact path="/" component={MainNavContainer}/>
+        <Route path="/artists/:artistId" component={ArtistNavContainer}/>
         <Route exact path="/" component={MainPageContainer}/>
         <Route path="/artists/:artistId" component={ArtistPageContainer}/>
         <AuthRoute path="/login" component={LoginFormContainer} />

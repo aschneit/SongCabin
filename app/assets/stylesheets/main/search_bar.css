@@ -8,6 +8,7 @@
   padding-right: 28px;
   color: #161113;
   font-size: 13px;
+  margin-right: -16px;
 }
 
 .artist-search-bar:focus {
@@ -18,13 +19,14 @@
 
 
 .search-icon {
-  right: 212px;
-  position: absolute;
-  top: 26px;
+  right: 12px;
+  position: relative;
+  top: 2px;
   font-size: 16px;
   color: #000000c2;
 
 }
+
 
 .search-results-list {
   list-style: none;
@@ -63,6 +65,7 @@
 }
 
 .search-content-box {
+  line-height: 17px;
   padding-left: 6px;
   vertical-align: top;
 }
