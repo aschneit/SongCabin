@@ -6,14 +6,14 @@ import SearchBarContainer from '../main/search_bar_container.jsx';
 
 const loggedOutLinks = () => {
   return (
-    <ul className="main-nav-session-buttons">
-      <li className="main-nav-discover">
-        discover
+    <ul className="artist-nav-session-buttons">
+      <li className="artist-nav-right-link">
+        gift cards
       </li>
-      <li className="main-nav-signup">
+      <li className="artist-nav-right-link">
         <Link to={"/signup"}>sign up</Link>
       </li>
-      <li className="main-nav-login">
+      <li className="artist-nav-right-link">
         <Link to={"/login"}>log in</Link>
       </li>
     </ul>
@@ -22,11 +22,11 @@ const loggedOutLinks = () => {
 
 const loggedInLinks = logout => {
   return (
-    <ul className="main-nav-session-buttons">
-      <li className="main-nav-discover">
+    <ul className="artist-nav-session-buttons">
+      <li className="artist-nav-discover">
         discover
       </li>
-      <li className="main-nav-logout">
+      <li className="artist-nav-logout">
         <button onClick={logout}>log out</button>
       </li>
     </ul>
@@ -51,7 +51,7 @@ const ArtistNav = ({ currentUser, logout, location }) => {
   } else {
     links = loggedOutLinks();
     greeting = (
-      <li className="main-nav-greet-unlogged">Discover great music and support independent artists.</li>
+      <li className="artist-nav-greet-unlogged">Discover great music and support independent artists.</li>
     );
   }
   return (
@@ -67,6 +67,8 @@ const ArtistNav = ({ currentUser, logout, location }) => {
         </div>
         <div className= "artist-nav-search">
           <SearchBarContainer />
+        </div>
+        <div className="artist-nav-right">{links}
         </div>
       </div>
     </div>

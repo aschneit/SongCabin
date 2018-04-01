@@ -94,7 +94,12 @@
 
 }
 
-.main-logo a:link, a:visited{
+.main-logo a:link{
+  text-decoration: none;
+  color: #333;
+}
+
+.main-logo a:visited{
   text-decoration: none;
   color: #333;
 }
@@ -164,7 +169,12 @@
   text-decoration: underline;
 }
 
-.main-nav-right-bottom a:link, a:visited {
+.main-nav-right-bottom a:link {
+    text-decoration: none;
+    color: #333;
+}
+
+.main-nav-right-bottom a:visited{
     text-decoration: none;
     color: #333;
 }

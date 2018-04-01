@@ -17,6 +17,8 @@ class App extends React.Component {
     return (
       <div className = 'main'>
         <Route exact path="/" component={MainNavContainer}/>
+        <Route path="/artist-edit" component={ArtistNavContainer}/>
+        <Route path="/albums/new" component={ArtistNavContainer}/>
         <Route path="/artists/:artistId" component={ArtistNavContainer}/>
         <Route exact path="/" component={MainPageContainer}/>
         <Route path="/artists/:artistId" component={ArtistPageContainer}/>

@@ -21,6 +21,23 @@
 
 }
 
+a:link {
+  color: black;
+}
+
+a:hover {
+  color: black;
+}
+
+a:visited {
+    color: black;
+
+}
+
+a:active {
+  color: black;
+}
+
 .main {
   padding: 0px 0px;
   margin: 0px 0px;

@@ -15,7 +15,12 @@
 
 }
 
-.session-logo a:link, a:visited{
+.session-logo a:link {
+  text-decoration: none;
+  color: #333;
+}
+
+.session-logo a:visited {
   text-decoration: none;
   color: #333;
 }
@@ -137,7 +142,12 @@
   color: #818285;
 }
 
-.other-page a {
+.other-page a:link {
+  color: #00A1C6;
+  text-decoration: none;
+}
+
+.other-page a:visited {
   color: #00A1C6;
   text-decoration: none;
 }
