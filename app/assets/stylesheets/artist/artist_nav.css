@@ -152,34 +152,51 @@
 }
 
 .artist-nav-right-link:hover {
-  color: #777272 !important;
+  color: #777272;
   background-color: #ded8d8;
+  line-height: 43px;
 }
 
-.artist-nav-right-link a{
-  color: #1DA0C3 !important;
-  text-decoration: none;
+.artist-nav-right-link a {
+  line-height: 43px;
+  height: 43px;
+  display: block;
 }
 
 .artist-nav-right-link a:link {
-  color: #1DA0C3 !important;
+  color: #1DA0C3;
   text-decoration: none;
 }
 
 .artist-nav-right-link a:active {
-  color: white !important;
+  color: white;
   text-decoration: none;
+
 }
 
 .artist-nav-right-link a:hover {
   color: #777272 !important;
   text-decoration: none;
+}
 
+.artist-nav-right-link button {
+  border: none;
+  outline: none;
+  color: #1DA0C3;
+  background: none;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 43px;
+}
+
+.artist-nav-right-link button:hover {
+  cursor: pointer;
+  color: #777272;
 }
 
 
 .artist-nav-right-link a:visited {
-  color: #1DA0C3 !important;
+  color: #1DA0C3;
   text-decoration: none;
 
 }

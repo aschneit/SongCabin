@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/session_actions";
 import ArtistNav from "./artist_nav";
+import { openModal } from "../../actions/modal_actions";
 
 const msp = state => {
   return {
@@ -11,7 +12,8 @@ const msp = state => {
 
 const mdp = dispatch => {
   return {
-    logout: () => dispatch(logoutUser())
+    logout: () => dispatch(logoutUser()),
+    openModal: modal => dispatch(openModal(modal))
   };
 };
 

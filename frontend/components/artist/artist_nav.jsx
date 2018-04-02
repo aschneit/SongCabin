@@ -8,7 +8,7 @@ import ArtistDropDown from './artist_dropdown';
 
 
 
-const loggedOutLinks = () => {
+const loggedOutLinks = (openModal) => {
   return (
     <div className="artist-nav">
       <div className="artist-nav-bar">
@@ -29,7 +29,8 @@ const loggedOutLinks = () => {
               gift cards
             </li>
             <li className="artist-nav-right-link">
-              <Link to={"/signup"}>sign up</Link>
+              {/*<Link to={"/signup"}>sign up</Link>*/}
+              <button onClick={() => openModal('signup')}>sign up</button>
             </li>
             <li className="artist-nav-right-link">
               <Link to={"/login"}>log in</Link>
@@ -61,13 +62,13 @@ const loggedInLinks = (logout, currentUser) => {
   );
 };
 
-const ArtistNav = ({ currentUser, logout, location }) => {
+const ArtistNav = ({ currentUser, logout, location, openModal }) => {
 
   let links;
   if (currentUser) {
     links = loggedInLinks(logout, currentUser);
   } else {
-    links = loggedOutLinks();
+    links = loggedOutLinks(openModal);
   }
   return (
     <div>
