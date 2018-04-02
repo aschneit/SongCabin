@@ -50,8 +50,6 @@
 
 .artist-nav-addalbum {
   height: 43px;
-
-
 }
 
 .artist-nav-addalbum a {
@@ -127,7 +125,7 @@
 
 .artist-nav-search input:focus {
   background-color: #eef2f3;
-  border: 1px solid #bebebe
+  border: 1px solid #bebebe;
 
 }
 
@@ -141,8 +139,6 @@
   display: flex;
   list-style: none;
   width: 193px;
-
-
 }
 
 .artist-nav-right-link {
@@ -153,19 +149,18 @@
   font-size: 13px;
   font-weight: 500;
   line-height: 43px;
-
 }
 
 .artist-nav-right-link:hover {
   color: #777272 !important;
   background-color: #ded8d8;
-
 }
 
 .artist-nav-right-link a{
   color: #1DA0C3 !important;
   text-decoration: none;
 }
+
 .artist-nav-right-link a:link {
   color: #1DA0C3 !important;
   text-decoration: none;
@@ -182,7 +177,7 @@
 
 }
 
-}
+
 .artist-nav-right-link a:visited {
   color: #1DA0C3 !important;
   text-decoration: none;
@@ -216,7 +211,7 @@
 
 .artist-nav-dropdown a:link {
    text-decoration: none;
-   color: #1DA0C3
+   color: #1DA0C3;
 }
 
 .artist-nav-dropdown a:hover {
@@ -244,7 +239,7 @@
   border: 1px solid rgba(0,0,0,.2);
 }
 
-.artist-nav-dropdown-image img{
+.artist-nav-dropdown-image img {
   height: 25px;
   width: 25px;
 
@@ -301,7 +296,7 @@
   height: 35px;
   line-height: 35px;
   font-size: 13px;
-  font-weight: 500px;
+  font-weight: 500;
   color: #1DA0C3;
 }
 
@@ -313,7 +308,7 @@
   height: 35px;
   line-height: 35px;
   font-size: 13px;
-  font-weight: 500px;
+  font-weight: 500;
   color: #1DA0C3;
   border: none;
   background: none;
