@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSearch, faCaretDown } from '@fortawesome/fontawesome-free-solid';
 import SearchBarContainer from '../main/search_bar_container.jsx';
-
+import ArtistDropDown from './artist_dropdown';
 
 
 
@@ -55,28 +55,7 @@ const loggedInLinks = (logout, currentUser) => {
             add album
           </Link>
         </div>
-        <div className = "artist-nav-dropdown" >
-          <Link to={"#"} className = "artist-nav-dropdown-link">
-            <div className = "artist-nav-dropdown-image">
-              <img src = {currentUser.image_url}/>
-            </div>
-            <span className = "artist-nav-dropdown-name">
-              {currentUser.band_name}
-            </span>
-            <span className = "artist-nav-dropdown-caret">
-              <FontAwesomeIcon  className ="dropdown-caret" icon={faCaretDown} />
-            </span>
-          </Link>
-          <div className = "artist-nav-dropdown-clicked">
-
-          </div>
-          {/*<ul className="artist-nav-session-buttons">
-
-            <li className="artist-nav-logout">
-              <button onClick={logout}>log out</button>
-            </li>
-          </ul> */}
-        </div>
+        <ArtistDropDown logout={logout} currentUser={currentUser}/>
       </div>
     </div>
   );
@@ -85,14 +64,8 @@ const loggedInLinks = (logout, currentUser) => {
 const ArtistNav = ({ currentUser, logout, location }) => {
 
   let links;
-  let yourSite;
   if (currentUser) {
     links = loggedInLinks(logout, currentUser);
-      yourSite = (
-      <li className="main-nav-yoursite">
-        <Link to={`/artists/${currentUser.id}`}>your site</Link>
-      </li>
-    );
   } else {
     links = loggedOutLinks();
   }
@@ -104,20 +77,3 @@ const ArtistNav = ({ currentUser, logout, location }) => {
 };
 
 export default ArtistNav;
-
-{/*<div className="main-nav-left">
-  <div className="main-nav-left-top">
-    <div className="main-logo">
-      <Link to={"/"}>
-        <img src={bc}/>songcabin
-      </Link>
-    </div>
-  </div>
-  <ul className="main-nav-left-bottom">{greeting}{yourSite}</ul>
-</div>
-<div className="main-nav-right">
-  <div className="main-nav-right-top">
-    <SearchBarContainer />
-  </div>
-  <div className="main-nav-right-bottom">{links}</div>
-</div>*/}

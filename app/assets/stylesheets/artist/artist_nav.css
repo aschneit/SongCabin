@@ -194,6 +194,7 @@
   height: 43px;
   left: 735px;
   position: relative;
+
 }
 
 .artist-nav-dropdown:hover {
@@ -211,6 +212,8 @@
   display: flex;
 }
 
+
+
 .artist-nav-dropdown a:link {
    text-decoration: none;
    color: #1DA0C3
@@ -224,7 +227,7 @@
 
 .artist-nav-dropdown a:active {
   text-decoration: none;
-  color: white;
+
 }
 
 .artist-nav-dropdown a:visited {
@@ -268,4 +271,59 @@
   font-size: 11px;
   position: relative;
   bottom: 7px;
+}
+
+.artist-nav-dropdown-contents {
+  list-style: none;
+  position: absolute;
+  width: 157px;
+  box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  border-top:  dotted #afafaf 1px;
+}
+
+.artist-nav-dropdown-contents li {
+
+  height: 35px;
+
+}
+
+.artist-nav-dropdown-contents li:hover {
+  background-color: #ded8d8;
+}
+
+.artist-nav-dropdown-contents li a{
+
+  display: block;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 13px;
+  font-weight: 500px;
+  color: #1DA0C3;
+}
+
+.artist-nav-dropdown-contents li button{
+
+  display: block;
+  padding-right: 10px;
+  padding-left: 10px;
+  height: 35px;
+  line-height: 35px;
+  font-size: 13px;
+  font-weight: 500px;
+  color: #1DA0C3;
+  border: none;
+  background: none;
+  outline: none;
+}
+
+.artist-nav-dropdown-contents li a:active {
+  color: #777272;
+}
+
+.artist-nav-dropdown-contents li button:hover {
+  color: #777272;
 }

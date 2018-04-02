@@ -109,7 +109,7 @@ export default class AlbumShow extends React.Component {
           <div className="artist-name">
             by <Link to={`/artists/${this.props.artist.id}/albums/${this.props.artist.most_recent_album}`}>{this.props.artist.band_name}</Link>
           </div>
-          {editButton()}
+          {/*editButton()*/}
           <div className="player">
             <SongPlayerContainer  sendCurrentTrack={this.props.sendCurrentTrack} tracks={this.props.tracks}/>
           </div>
