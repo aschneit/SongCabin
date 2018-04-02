@@ -26,14 +26,14 @@ class SessionForm extends React.Component {
   }
 
   handleDemo (e) {
-    this.props.processForm({band_name: 'Billie Holiday', password: 'billieholiday'}).then(() => this.props.history.push('/'));
+    this.props.processForm({band_name: 'Billie Holiday', password: 'billieholiday'}).then(this.props.closeModal).then(() => this.props.history.push('/'));
 
 
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(Object.assign({}, this.state)).then(() => this.props.history.push('/'));
+    this.props.processForm(Object.assign({}, this.state)).then(this.props.closeModal).then(() => this.props.history.push('/'));
     this.setState({
       band_name: '',
       password: '',
@@ -84,7 +84,7 @@ class SessionForm extends React.Component {
 
     return (
       <div>
-        <SessionNav />
+        {!this.props.modal && <SessionNav />}
         <div className="login-form-container">
           <div className = 'login-form-title'>{this.props.formType}</div>
           <div className="login-divider"></div>
@@ -118,16 +118,29 @@ class SessionForm extends React.Component {
               <button onClick={this.handleDemo} className="demo-user">Demo User</button>
             </div>
           }
-          {this.props.formType === 'Sign Up' &&
-            <div className="other-page">
-              Already have an account? <Link to={'/login'}>Log in.</Link>
-            </div>
-          }
-          {this.props.formType === 'Log In' &&
-            <div className="other-page">
-              Don’t have an account? <Link to={'/signup'}>Sign Up.</Link>
-            </div>
-          }
+          {!this.props.modal &&
+            this.props.formType === 'Sign Up' &&
+              <div className="other-page">
+                Already have an account? <Link to={'/login'}>Log in.</Link>
+              </div>
+            }
+            {!this.props.modal && this.props.formType === 'Log In' &&
+              <div className="other-page">
+                Don’t have an account? <Link to={'/signup'}>Sign Up.</Link>
+              </div>
+            }
+            {this.props.modal &&
+              this.props.formType === 'Sign Up' &&
+                <div className="other-page">
+                  Already have an account? {this.props.otherForm}
+                </div>
+              }
+              {this.props.modal && this.props.formType === 'Log In' &&
+                <div className="other-page">
+                  Don’t have an account? {this.props.otherForm}
+                </div>
+              }
+
         </div>
       </div>
     );

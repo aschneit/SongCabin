@@ -4,14 +4,15 @@ import FontAwesomeIcon from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/fontawesome-free-solid';
 import SearchBarContainer from './search_bar_container.jsx';
 
-const loggedOutLinks = () => {
+const loggedOutLinks = (openModal) => {
   return (
     <ul className="main-nav-session-buttons">
       <li className="main-nav-discover">
         discover
       </li>
       <li className="main-nav-signup">
-        <Link to={"/signup"}>sign up</Link>
+        {/*<Link to={"/signup"}>sign up</Link>*/}
+        <button onClick={() => openModal('signup')}>sign up</button>
       </li>
       <li className="main-nav-login">
         <Link to={"/login"}>log in</Link>
@@ -33,7 +34,7 @@ const loggedInLinks = logout => {
   );
 };
 
-const MainNav = ({ currentUser, logout, location }) => {
+const MainNav = ({ currentUser, logout, openModal, location }) => {
   if (location.pathname === "/login" || location.pathname === "/signup") {
     return null;
   }
@@ -51,7 +52,7 @@ const MainNav = ({ currentUser, logout, location }) => {
       </li>
     );
   } else {
-    links = loggedOutLinks();
+    links = loggedOutLinks(openModal);
     greeting = (
       <li className="main-nav-greet-unlogged">Discover great music and support independent artists.</li>
     );

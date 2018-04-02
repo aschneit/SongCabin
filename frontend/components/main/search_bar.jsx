@@ -30,7 +30,7 @@ export default class SearchBar extends React.Component {
     <div>
       <form>
         <input value={this.state.inputVal} onChange={this.handleInput} onBlur={this.handleBlur} className="artist-search-bar"
-          type="text" placeholder="Search for artist, track or album"></input>
+          type="text" placeholder="Search for an album"></input>
         <span><FontAwesomeIcon className="search-icon" icon={faSearch} /></span>
       </form>
       {this.props.albums.map(album =>{

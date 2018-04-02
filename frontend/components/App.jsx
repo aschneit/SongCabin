@@ -10,12 +10,14 @@ import ArtistPageContainer from './artist/artist_page_container';
 import EditArtistContainer from './artist/edit_artist_container';
 import CreateAlbumContainer from './album/create_album_container';
 import ArtistNavContainer from './artist/artist_nav_container';
+import Modal from './session_form/modal';
 
 class App extends React.Component {
 
   render() {
     return (
       <div className = 'main'>
+        <Modal />
         <Route exact path="/" component={MainNavContainer}/>
         <Route path="/artist-edit" component={ArtistNavContainer}/>
         <Route path="/albums/new" component={ArtistNavContainer}/>

@@ -1,15 +1,9 @@
-import merge from "lodash/merge";
+import { combineReducers } from "redux";
+import modalReducer from "./modal_reducer";
+import currentTrackReducer from "./current_track_reducer";
 
-import { SEND_CURRENT_TRACK } from "../actions/track_actions";
+export default combineReducers({
+  currentTrack: currentTrackReducer,
+  modal: modalReducer,
 
-const uiReducer = (state = {}, action) => {
-  Object.freeze(state);
-  switch (action.type) {
-    case SEND_CURRENT_TRACK:
-      return merge({}, state, {['currentTrack']: action.track });
-    default:
-      return state;
-  }
-};
-
-export default uiReducer;
+});

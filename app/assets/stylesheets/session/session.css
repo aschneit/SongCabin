@@ -148,6 +148,15 @@
   text-decoration: none;
 }
 
+.other-page button {
+  border: none;
+  outline: none;
+  color: #00A1C6;
+  cursor: pointer;
+  background: none;
+  font-size: 12px;
+}
+
 .demo-user {
   width: 300px;
   height: 35px;
@@ -157,4 +166,21 @@
   font-weight: 400;
   margin-top: 20px;
   outline: none;
+}
+
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

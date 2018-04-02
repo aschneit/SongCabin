@@ -134,6 +134,20 @@
  border-left: 1px solid lightgray;
 }
 
+.main-nav-signup button {
+  font-weight: 550;
+  font-size: 16px;
+  padding-left: 9px;
+  border: none;
+  padding: 0;
+  outline: none;
+
+}
+
+.main-nav-signup button:hover {
+  text-decoration: underline;
+}
+
 
 .main-nav-login {
   padding-left: 9px;
