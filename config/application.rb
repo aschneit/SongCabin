@@ -10,6 +10,12 @@ module BandCamp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
+    
+    Paperclip.options[:content_type_mappings] = {
+     mp3: %w(application/octet-stream),
+     mpeg: %w(application/octet-stream)
+   }
+
     config.paperclip_defaults = {
     :storage => :s3,
     :s3_credentials => {

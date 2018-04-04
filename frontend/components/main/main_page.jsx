@@ -16,16 +16,16 @@ export default class MainPage extends React.Component {
     return (
   <div>
     <div className="main-photo-block">
-      <div className="main-large-photo"><img src={chris}/></div>
+      <div className="main-large-photo"><Link to="/artists/1/albums/1"><img src={billie}/></Link></div>
       <ul className="main-small-photos">
-        <li><img src={bill}/></li>
-        <li><img src={charlie}/></li>
-        <li><img src={dewey}/></li>
+        <li><Link to="/artists/2/albums/5"><img src={ben}/></Link></li>
+        <li><Link to="/artists/1/albums/2"><img src={lester}/></Link></li>
+        <li><Link to="/artists/3/albums/3"><img src={sonny}/></Link></li>
       </ul>
     </div>
 
     <div className="featured-albums">
-      {this.props.albums.map((album) => {
+      {this.props.albums.slice(0,5).map((album) => {
         return (
          <div className="album-pres"><Link to={`/artists/${album.artist_id}/albums/${album.id}`}>
            <li className="main-albums-image"><img src = {album.image_url}/></li>

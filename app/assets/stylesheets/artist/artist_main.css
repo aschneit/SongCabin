@@ -166,6 +166,7 @@
 
  padding-top: 6px;
  padding-bottom: 6px;
+
 }
 
 .small-player-icon {
@@ -178,6 +179,10 @@
   border: 1px solid silver;
   top: 6px;
 
+}
+
+.small-player-icon:hover {
+  cursor: pointer;
 }
 
 .track-list-format {
@@ -197,6 +202,11 @@
   position: relative;
   right: 13px;
   top: 5px;
+
+}
+
+.small-icon-play img:hover {
+  cursor: pointer;
 
 }
 

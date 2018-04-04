@@ -14,11 +14,14 @@ class SongPlayer extends React.Component {
 
   }
 
+
   componentWillReceiveProps (nextProps) {
     if (this.props.currentTrack.id !== nextProps.currentTrack.id) {
       this.setState({slider: 0});
     }
   }
+
+
 
   moveSlider() {
     this.setState({slider: this.slider()});

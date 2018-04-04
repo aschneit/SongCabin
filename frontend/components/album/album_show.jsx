@@ -44,6 +44,8 @@ export default class AlbumShow extends React.Component {
     }
   }
 
+
+
   arraysAreEqual (arr1, arr2) {
     if (arr1.length !== arr2.length) {
       return false;

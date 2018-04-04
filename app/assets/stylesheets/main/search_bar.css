@@ -35,6 +35,7 @@
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
   background-color: white;
   border: 1px solid #bebebe;
+  z-index: 1;
 }
 
 .search-results-list-items  {

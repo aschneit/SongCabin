@@ -146,6 +146,7 @@
 
 .main-nav-signup button:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 
@@ -166,6 +167,7 @@
 
 .main-nav-logout button:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .main-nav-logout {
@@ -181,6 +183,7 @@
 
 .main-nav-discover:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 
 .main-nav-right-bottom a:link {
