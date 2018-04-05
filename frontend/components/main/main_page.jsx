@@ -16,11 +16,11 @@ export default class MainPage extends React.Component {
     return (
   <div>
     <div className="main-photo-block">
-      <div className="main-large-photo"><Link to="/artists/1/albums/1"><img src={billie}/></Link></div>
+      <div className="main-large-photo"><img src={billie}/></div>
       <ul className="main-small-photos">
-        <li><Link to="/artists/2/albums/5"><img src={ben}/></Link></li>
-        <li><Link to="/artists/1/albums/2"><img src={lester}/></Link></li>
-        <li><Link to="/artists/3/albums/3"><img src={sonny}/></Link></li>
+        <li><img src={ben}/></li>
+        <li><img src={lester}/></li>
+        <li><img src={sonny}/></li>
       </ul>
     </div>
 
