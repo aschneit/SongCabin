@@ -6,7 +6,8 @@ class SongPlayer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      slider: 0
+      slider: 0,
+      duration: null
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.moveSlider = this.moveSlider.bind(this);
@@ -14,10 +15,23 @@ class SongPlayer extends React.Component {
 
   }
 
+  componentDidMount () {
+
+    if (this.playerAudio) {
+    this.playerAudio.onloadedmetadata = () => {
+			this.setState({duration: this.playerAudio.duration});
+		};
+  }
+  }
 
   componentWillReceiveProps (nextProps) {
     if (this.props.currentTrack.id !== nextProps.currentTrack.id) {
       this.setState({slider: 0});
+    }
+    if (this.playerAudio) {
+    this.playerAudio.onloadedmetadata = () => {
+      this.setState({duration: this.playerAudio.duration});
+    };
     }
   }
 
@@ -86,8 +100,8 @@ class SongPlayer extends React.Component {
     let elapsedMins;
     let elapsedSecs;
  if (this.playerAudio) {
-    durationMins = Math.floor(this.playerAudio.duration / 60) || 0;
-    durationSecs = Math.floor(this.playerAudio.duration % 60) || 0;
+    durationMins = Math.floor(this.state.duration / 60) || 0;
+    durationSecs = Math.floor(this.state.duration % 60) || 0;
     if (durationSecs < 10) {
       durationSecs = '0' + durationSecs;
     } else {
