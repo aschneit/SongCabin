@@ -95,7 +95,6 @@ class CreateAlbumForm extends React.Component {
       <div className="create-album-full-page">
         <div className="create-album-background">
           <div className="create-album-content">
-            <h1 className="create-album-heading">Create New Album</h1>
             <form onSubmit={this.handleSubmit} className="create-album-form">
               {this.renderErrors()}
               <div className="create-album-title">

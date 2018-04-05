@@ -34,26 +34,29 @@
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 175px;
+  height: 160px;
   text-align: right;
   color: dimgray;
-  font-size: 13px;
+  font-size: 12px;
   margin-right: 10px;
+  width: 155px;
 }
 
 .edit-artist-inputs {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  height: 175px;
+  height: 160px;
 }
 
 .edit-artist-input {
   width: 369px;
-  height: 23px;
-  font-size: 14px;
-  padding-left: 3px;
+  height: 14px;
+  font-size: 13px;
+  padding: 3.6px;
   outline: none;
+  border: 1px solid #9c9c9c;
+  border-color: #9c9c9c #9c9c9c #ccc #ccc;
 }
 
 .textarea {
@@ -62,7 +65,8 @@
 }
 
 .edit-artist-submit {
-  margin-top: 30px;
+  margin-top: 80px;
+  margin-left: 165px;
   border: 1px solid silver;
   width: 81px;
   height: 31px;
@@ -73,25 +77,32 @@
 
 .edit-artist-submit:hover {
   text-decoration: underline;
+  cursor: pointer;
 
 }
 
 .update-artist-image {
+  margin-top: 50px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  height: 180px;
+  align-items: center;
+
 }
 
-.update-artist-image > img {
+.update-artist-image-img img {
   width: 120px;
   height: auto;
   border: 2px solid black;
+  margin-right: 10px;
 }
 
-.update-artist-image > label {
+.update-artist-image-label{
+  width: 155px;
   color: dimgray;
-  font-size: 13px;
+  font-size: 12px;
+  text-align: right;
+  margin-right: 10px;
+
+
 
 }
 
@@ -105,13 +116,21 @@
 }
 
 .inputfile + label {
-    font-size: 14px;
-    font-weight: 700;
-    color: black;
-    background-color: lightgrey;
-    width: 76px;
-    border: 1px solid black;
-    border-radius: 5px;
-    text-align: center;
-    padding: 2px;
+
+  border: 1px solid silver;
+  width: 106px;
+  height: 31px;
+  font-size: 18px;
+  color: #0687f5;
+  outline: none;
+  padding-left: 9px;
+  padding-top: 9px;
+  padding-right: 9px;
+
+
+}
+
+.inputfile + label:hover {
+  text-decoration: underline;
+  cursor: pointer;
 }

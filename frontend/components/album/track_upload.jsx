@@ -58,10 +58,10 @@ class TrackUpload extends React.Component {
           </div>
           <div>
             <input
-              className="audio-file"
+              className="upload-audio-file"
               type="file"
               name="file"
-              id="file"
+              id="a-file"
               onChange={this.updateFile}
             />
           </div>

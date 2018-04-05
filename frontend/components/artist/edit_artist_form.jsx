@@ -10,6 +10,7 @@ class EditArtistForm extends React.Component {
       bandName: this.props.currentUser.band_name,
       bandLocation: this.props.currentUser.band_location,
       bandDescription: this.props.currentUser.band_description,
+      bandWebsite: this.props.currentUser.band_website,
       imageFile: null,
       imageUrl: this.props.currentUser.image_url
     };
@@ -57,6 +58,7 @@ class EditArtistForm extends React.Component {
     formData.append("user[band_name]", this.state.bandName);
     formData.append("user[band_location]", this.state.bandLocation);
     formData.append("user[band_description]", this.state.bandDescription);
+    formData.append("user[band_website]", this.state.bandWebsite);
     if (file) formData.append("user[image]", file);
     this.props.processForm(this.props.currentUser, formData)
     .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
@@ -76,6 +78,7 @@ class EditArtistForm extends React.Component {
                       <label>Band name</label>
                       <label>Location</label>
                       <label>Description</label>
+                      <label>Website</label>
                     </div>
                     <div className="edit-artist-inputs">
                       <input type="text"
@@ -93,13 +96,22 @@ class EditArtistForm extends React.Component {
                         onChange={this.update('bandDescription')}
                         className="edit-artist-input"
                       />
+                      <input type="text"
+                          value={this.state.bandWebsite}
+                          onChange={this.update('bandWebsite')}
+                          className="edit-artist-input"
+                        />
                     </div>
                 </div>
                 <div className="update-artist-image">
-                  <label>Band Profile Image</label>
-                  <img src = {this.state.imageUrl}/>
+                  <div className="update-artist-image-label">
+                    <label>Band Profile Image</label>
+                  </div>
+                  <div className="update-artist-image-img">
+                    <img src = {this.state.imageUrl}/>
+                  </div>
                   <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
-                    <label htmlFor="file">Select file</label>
+                    <label htmlFor="file">Select image</label>
 
                 </div>
                 <input className="edit-artist-submit" type="submit" value="Save"/>
