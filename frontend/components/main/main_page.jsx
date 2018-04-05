@@ -13,14 +13,17 @@ export default class MainPage extends React.Component {
   }
 
   render () {
+    if (!this.props.albums[1]) {
+      return null;
+    }
     return (
   <div>
     <div className="main-photo-block">
-      <div className="main-large-photo"><img src={billie}/></div>
+      <div className="main-large-photo"><Link to={`artists/${this.props.albums[1].artist_id}`}><img src={billie}/></Link></div>
       <ul className="main-small-photos">
-        <li><img src={ben}/></li>
-        <li><img src={lester}/></li>
-        <li><img src={sonny}/></li>
+        <li><Link to={`artists/${this.props.albums[3].artist_id}`}><img src={ben}/></Link></li>
+        <li><Link to={`artists/${this.props.albums[1].artist_id}`}><img src={lester}/></Link></li>
+        <li><Link to={`artists/${this.props.albums[2].artist_id}`}><img src={sonny}/></Link></li>
       </ul>
     </div>
 
