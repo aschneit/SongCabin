@@ -17,6 +17,10 @@ class EditArtistForm extends React.Component {
     this.updateFile = this.updateFile.bind(this);
   }
 
+  componentWillUnmount() {
+     this.props.clearErrors(this.props.errors);
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -31,6 +35,19 @@ class EditArtistForm extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+  }
+
+  renderErrors() {
+
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
   }
 
   handleSubmit(e) {
@@ -53,6 +70,7 @@ class EditArtistForm extends React.Component {
           <div className="edit-artist-content">
             <h1 className="edit-artist-heading">Artist Profile for {this.props.currentUser.band_name}</h1>
               <form onSubmit={this.handleSubmit} className="edit-artist-form">
+                {this.renderErrors()}
                 <div className="edit-artist-label-inputs">
                     <div className="edit-artist-labels">
                       <label>Band name</label>

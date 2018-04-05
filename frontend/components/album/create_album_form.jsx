@@ -19,6 +19,10 @@ class CreateAlbumForm extends React.Component {
     this.handleAppend = this.handleAppend.bind(this);
   }
 
+  componentWillUnmount() {
+     this.props.clearErrors(this.props.errors);
+  }
+
   update(field) {
     return e =>
       this.setState({
@@ -51,11 +55,18 @@ class CreateAlbumForm extends React.Component {
     return trackForms;
   }
 
-  // updateAudio(e) {
-  //   const audioFile = e.currentTarget.files[0];
-  //   this.setState({ trackFile: audioFile, showForm: true });
-  //
-  // }
+  renderErrors() {
+
+    return(
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={`error-${i}`}>
+            {error}
+          </li>
+        ))}
+      </ul>
+    );
+  }
 
   handleSubmit(e) {
     const formData = new FormData();
@@ -86,6 +97,7 @@ class CreateAlbumForm extends React.Component {
           <div className="create-album-content">
             <h1 className="create-album-heading">Create New Album</h1>
             <form onSubmit={this.handleSubmit} className="create-album-form">
+              {this.renderErrors()}
               <div className="create-album-title">
                 <label className="create-title-label">Album Title</label>
                 <input
