@@ -13,7 +13,7 @@ export default class MainPage extends React.Component {
   }
 
   render () {
-    if (!this.props.albums[1]) {
+    if (!this.props.albums[3]) {
       return null;
     }
     return (

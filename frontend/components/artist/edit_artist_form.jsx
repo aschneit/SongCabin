@@ -41,7 +41,7 @@ class EditArtistForm extends React.Component {
   renderErrors() {
 
     return(
-      <ul>
+      <ul className="artist-errors">
         {this.props.errors.map((error, i) => (
           <li key={`error-${i}`}>
             {error}

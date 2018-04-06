@@ -8,7 +8,7 @@ const loggedOutLinks = (openModal) => {
   return (
     <ul className="main-nav-session-buttons">
       <li className="main-nav-discover">
-        discover
+    
       </li>
       <li className="main-nav-signup">
         {/*<Link to={"/signup"}>sign up</Link>*/}
@@ -25,7 +25,7 @@ const loggedInLinks = logout => {
   return (
     <ul className="main-nav-session-buttons">
       <li className="main-nav-discover">
-        discover
+
       </li>
       <li className="main-nav-logout">
         <button onClick={logout}>log out</button>

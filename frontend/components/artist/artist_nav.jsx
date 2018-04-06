@@ -18,7 +18,6 @@ const loggedOutLinks = (openModal) => {
           </Link>
         </div>
         <div className = "artist-nav-discover">
-          discover
         </div>
         <div className= "artist-nav-search">
           <SearchBarContainer />
@@ -26,7 +25,6 @@ const loggedOutLinks = (openModal) => {
         <div className="artist-nav-right">
           <ul className="artist-nav-session-buttons">
             <li className="artist-nav-right-link">
-              gift cards
             </li>
             <li className="artist-nav-right-link">
               {/*<Link to={"/signup"}>sign up</Link>*/}

@@ -42,18 +42,7 @@ class SessionForm extends React.Component {
 
   }
 
-  renderErrors() {
 
-    return(
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
 
   render() {
     let classChange = "";
@@ -88,8 +77,14 @@ class SessionForm extends React.Component {
         <div className="login-form-container">
           <div className = 'login-form-title'>{this.props.formType}</div>
           <div className="login-divider"></div>
+            <ul className="session-errors">
+              {this.props.errors.map((error, i) => (
+                <li key={`error-${i}`}>
+                  {error}
+                </li>
+              ))}
+            </ul>
           <form onSubmit={this.handleSubmit} className="login-form-box">
-            {this.renderErrors()}
             <div className="login-form">
                 <div className={`label-container ${classChange}`}>
                   <label>Band name</label>

@@ -131,7 +131,7 @@
 
 .artist-nav-right {
 
-  left: 373px;
+  left: 426px;
   position: relative;
 }
 
@@ -202,7 +202,7 @@
 }
 
 .artist-nav-dropdown {
-  width: 159px;
+  width: 160px;
   height: 43px;
   left: 735px;
   position: relative;
@@ -288,7 +288,7 @@
 .artist-nav-dropdown-contents {
   list-style: none;
   position: absolute;
-  width: 157px;
+  width: 158px;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.05);
   background-color: #f1f1f1;
   border: 1px solid #ccc;

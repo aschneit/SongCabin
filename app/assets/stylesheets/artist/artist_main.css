@@ -245,10 +245,6 @@
   padding-left: 9px;
 }
 
-.track-title:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
 
 .album-image > img {
   height: 350px;

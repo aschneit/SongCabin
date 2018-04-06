@@ -58,9 +58,9 @@ class CreateAlbumForm extends React.Component {
   renderErrors() {
 
     return(
-      <ul>
+      <ul className="album-errors">
         {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
+          <li className="errors" key={`error-${i}`}>
             {error}
           </li>
         ))}
@@ -147,5 +147,4 @@ class CreateAlbumForm extends React.Component {
     );
   }
 }
-
 export default withRouter(CreateAlbumForm);

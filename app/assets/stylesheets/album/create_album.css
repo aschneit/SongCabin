@@ -1,6 +1,17 @@
 .create-album-full-page {
   background-color: lightgrey;
   border-top: 1px solid lightgrey;
+
+}
+
+.album-errors {
+  list-style: none;
+
+    font-size: 13px;
+    height: 13px;
+    color: red;
+    margin-bottom: 8px;
+
 }
 
 .create-album-background {
@@ -111,27 +122,6 @@
   margin-bottom: 30px;
 
 }
-
-/* .inputfile-cover {
-	width: 0.1px;
-	height: 0.1px;
-	opacity: 0;
-	overflow: hidden;
-	position: absolute;
-	z-index: -1;
-} */
-
-/* .inputfile-cover + label {
-    font-size: 14px;
-    font-weight: 700;
-    color: black;
-    background-color: lightgrey;
-    width: 76px;
-    border: 1px solid black;
-    border-radius: 5px;
-    text-align: center;
-    padding: 2px;
-} */
 
 
 .track-upload-main {
