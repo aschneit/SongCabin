@@ -106,7 +106,7 @@
 }
 
 .create-album-title-input {
-  padding-bottom: 70px;
+  padding-bottom: 52px;
   border-bottom: 1px dotted lightgrey;
 }
 
@@ -139,25 +139,29 @@
 }
 
 .create-album-credits {
-  display: flex;
-  align-items: center;
+  margin-top: 30px;
 }
 
 .create-credits-label {
-  text-align: right;
-  color: dimgray;
-  font-size: 13px;
-  margin-right: 10px;
+  font-size: 12px;
+  margin-bottom: 10px;
 }
 
 .create-credits-input {
-  resize: none;
-  border: 1px solid lightgrey;
+
   outline: none;
-  font-size: 14px;
-  padding-left: 3px;
+  font-size: 12px;
+  border: 1px solid #9c9c9c;
+  border-color: #9c9c9c #9c9c9c #ccc #ccc;
   width: 400px;
-  height: 200px;
+  height: 100px;
+  padding: 3px;
+}
+
+.create-credits-input:focus {
+  border-color: #50a1e6;
+  box-shadow: 0 0 5px #b4d7f9;
+  outline: medium none;
 }
 
 
@@ -182,8 +186,8 @@
 	height: 0.1px;
 	opacity: 0;
 	overflow: hidden;
-	position: absolute;
-	z-index: -3;
+
+
 
 }
 
@@ -197,7 +201,12 @@
   outline: none;
   text-align: center;
   bottom: 140px;
-  z-index: 0;
+
+
+}
+
+.inputfile-cover.hide + label {
+  visibility: hidden;
 
 }
 
@@ -211,13 +220,35 @@
   bottom: 125px;
   color: #999;
   font-size: 12px;
-  z-index: 0;
+
+
+}
+
+
+.update-album-image-hint.hide {
+  visibility: hidden;
+}
+
+@-moz-document url-prefix() {
+  .update-album-image-hint {
+    bottom: 0;
+    top: 70px;
+  }
+}
+
+@-moz-document url-prefix() {
+  .inputfile-cover + label {
+    bottom: 0;
+    top: 60px;
+  }
 }
 
 .update-album-image {
-  margin-top: 50px;
+  margin-top: 30px;
   height: 212px;
   width: 448px;
+  border-bottom: 1px dotted lightgrey;
+  padding-bottom: 30px;
 
 }
 
@@ -226,8 +257,8 @@
 .update-album-image-box > img {
   width: 210px;
   height: 210px;
-  border: 0;
-  z-index: 6;
+
+
 
 }
 
@@ -240,7 +271,6 @@
   border: 1px dashed silver;
   margin-bottom: 30px;
   text-align: center;
-
 
 }
 

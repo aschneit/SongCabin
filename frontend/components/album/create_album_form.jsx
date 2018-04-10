@@ -11,7 +11,7 @@ class CreateAlbumForm extends React.Component {
       albumDescription: "",
       albumArtistId: this.props.currentUser.id,
       imageFile: null,
-      imageUrl: null,
+      imageUrl: white,
       showForm: false
     };
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -91,6 +91,10 @@ class CreateAlbumForm extends React.Component {
   }
 
   render() {
+    let textStatus;
+    if (this.state.imageUrl && this.state.imageUrl !== white) {
+      textStatus = "hide";
+    }
     return (
       <div className="create-album-full-page">
         <div className="create-album-background">
@@ -129,31 +133,32 @@ class CreateAlbumForm extends React.Component {
                     <div className="update-album-image-box">
                       <img src={this.state.imageUrl}/>
                         <input
-                          className="inputfile-cover"
+                          className={`inputfile-cover ${textStatus}`}
                           type="file"
                           name="file"
                           id="file"
                           onChange={this.updateFile}
                         />
                       <label htmlFor="file">Upload Album Art</label>
-                      <p className="update-album-image-hint">
+
+                      <p className={`update-album-image-hint ${textStatus}`}>
                         1400 x 1400 pixels minimum <br></br>
                         (bigger is better)
                       </p>
                     </div>
-
+                  </div>
+                  <div className="create-album-credits">
+                    <div className="create-credits-label">album credits:</div>
+                    <textarea
+                      className="create-credits-input"
+                      value={this.state.albumDescription}
+                      onChange={this.update("albumDescription")}
+                    />
                   </div>
                 </div>
 
               { /*
-              <div className="create-album-credits">
-                <label className="create-credits-label">Credits</label>
-                <textarea
-                  className="create-credits-input"
-                  value={this.state.albumDescription}
-                  onChange={this.update("albumDescription")}
-                />
-              </div>
+
 
 
               <button className="add-track-button" onClick={this.handleAppend}>

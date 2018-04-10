@@ -55,18 +55,20 @@
   width: 650px;
   height: 2px;
   margin-top: 36px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   margin-left: auto;
   margin-right: auto;
 }
 
 .session-errors {
   font-size: 13px;
-  height: 13px;
+  height: 39px;
   color: red;
-  margin-bottom: 8px;
   list-style: none;
+
 }
+
+
 
 .login-form-box {
   width: 100%;
