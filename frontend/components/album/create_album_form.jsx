@@ -94,18 +94,58 @@ class CreateAlbumForm extends React.Component {
     return (
       <div className="create-album-full-page">
         <div className="create-album-background">
-          <div className="create-album-content">
             <form onSubmit={this.handleSubmit} className="create-album-form">
-              {this.renderErrors()}
-              <div className="create-album-title">
-                <label className="create-title-label">Album Title</label>
-                <input
-                  className="create-title-input"
-                  type="text"
-                  value={this.state.albumTitle}
-                  onChange={this.update("albumTitle")}
-                />
-              </div>
+              <div className="create-album-form-content">
+                {this.renderErrors()}
+                <div className="create-album-left">
+                  <div className="create-album-info-box">
+                    <div className="create-album-small-img">
+                      <img src={this.state.imageUrl}/>
+                    </div>
+                    <div className="create-album-title-artist">
+                      <p className="create-album-title">
+                        {!this.state.albumTitle && "Untitled Album"}
+                        {this.state.albumTitle}
+                      </p>
+                      <p className="create-album-by">
+                          by <span className="create-album-artist">
+                          {this.props.currentUser.band_name}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="create-album-right">
+                  <div className="create-album-title-input">
+                    <input
+                      className="create-title-input"
+                      type="text"
+                      placeholder="album name"
+                      value={this.state.albumTitle}
+                      onChange={this.update("albumTitle")}
+                    />
+                  </div>
+                  <div className="update-album-image">
+                    <div className="update-album-image-box">
+                      <img src={this.state.imageUrl}/>
+                        <input
+                          className="inputfile-cover"
+                          type="file"
+                          name="file"
+                          id="file"
+                          onChange={this.updateFile}
+                        />
+                      <label htmlFor="file">Upload Album Art</label>
+                      <p className="update-album-image-hint">
+                        1400 x 1400 pixels minimum <br></br>
+                        (bigger is better)
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+              { /*
               <div className="create-album-credits">
                 <label className="create-credits-label">Credits</label>
                 <textarea
@@ -115,20 +155,7 @@ class CreateAlbumForm extends React.Component {
                 />
               </div>
 
-              <div className="update-album-image">
-                <label>Album Cover Image</label>
-                <div className="update-album-image-box">
-                  <img src={this.state.imageUrl} />
-                </div>
-                <input
-                  className="inputfile-cover"
-                  type="file"
-                  name="file"
-                  id="file"
-                  onChange={this.updateFile}
-                />
-                <label htmlFor="file"></label>
-              </div>
+
               <button className="add-track-button" onClick={this.handleAppend}>
                 Add Track
               </button>
@@ -139,9 +166,9 @@ class CreateAlbumForm extends React.Component {
                 className="create-album-submit"
                 type="submit"
                 value="Save"
-              />
-            </form>
-          </div>
+              /> */}
+            </div>
+          </form>
         </div>
       </div>
     );
