@@ -52,10 +52,6 @@ class TrackUpload extends React.Component {
               />
             </div>
           </div>
-
-          <div className="track-file-label">
-            <label>Track File</label>
-          </div>
           <div>
             <input
               className="upload-audio-file"

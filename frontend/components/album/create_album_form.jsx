@@ -6,7 +6,7 @@ class CreateAlbumForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      numTracks: 1,
+      numTracks: 0,
       albumTitle: "",
       albumDescription: "",
       albumArtistId: this.props.currentUser.id,
@@ -118,6 +118,25 @@ class CreateAlbumForm extends React.Component {
                       </p>
                     </div>
                   </div>
+                  <div className="create-album-add-tracks">
+                    <h3>TRACKS</h3>
+                    <div className="create-album-button-text">
+                      <button className="add-track-button" onClick={this.handleAppend}>
+                        add track
+                      </button>
+                      <span>
+                        600MB max per track, lossless .wav, .aif or .flac
+                      </span>
+                    </div>
+                    <div>
+                      {this.trackForms()}
+                    </div>
+                    <input
+                      className="create-album-submit"
+                      type="submit"
+                      value="Save"
+                    />
+                  </div>
                 </div>
                 <div className="create-album-right">
                   <div className="create-album-title-input">
@@ -148,7 +167,8 @@ class CreateAlbumForm extends React.Component {
                     </div>
                   </div>
                   <div className="create-album-credits">
-                    <div className="create-credits-label">album credits:</div>
+                    <div className="create-credits-label">album credits:
+                    </div>
                     <textarea
                       className="create-credits-input"
                       value={this.state.albumDescription}
@@ -156,22 +176,6 @@ class CreateAlbumForm extends React.Component {
                     />
                   </div>
                 </div>
-
-              { /*
-
-
-
-              <button className="add-track-button" onClick={this.handleAppend}>
-                Add Track
-              </button>
-              <div>
-                {this.trackForms()}
-              </div>
-              <input
-                className="create-album-submit"
-                type="submit"
-                value="Save"
-              /> */}
             </div>
           </form>
         </div>
@@ -180,3 +184,6 @@ class CreateAlbumForm extends React.Component {
   }
 }
 export default withRouter(CreateAlbumForm);
+
+{/*
+ */}

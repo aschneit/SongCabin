@@ -16,7 +16,7 @@
 
 .create-album-background {
   width: 955px;
-  height: 1300px;
+  min-height: 1000px;
   background-color: #f5f5f5;
   margin: auto;
   padding-left: 20px;
@@ -32,7 +32,7 @@
 .create-album-left {
   width: 467px;
 
-  height: 1300px;
+  min-height: 1000px;
 }
 
 .create-album-right {
@@ -90,13 +90,6 @@
   background-color: white;
 }
 
-/*
-.create-album-content {
-  padding-top: 56px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 45px;
-} */
 
 .create-album-heading {
 
@@ -167,12 +160,18 @@
 
 .create-album-submit {
   margin-top: 50px;
-  border: 1px solid silver;
-  width: 81px;
-  height: 31px;
-  font-size: 18px;
-  color: #0687f5;
+  border: 1px solid #2072b8;
+  width: 108px;
+  height: 32px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
   outline: none;
+  background-color: #0687f5;
+  text-align: center;
+  display: inline-block;
+  cursor: pointer;
+  line-height: 32px;
 }
 
 .create-album-submit:hover {
@@ -258,11 +257,7 @@
   width: 210px;
   height: 210px;
 
-
-
 }
-
-
 
 .update-album-image-box {
   color: #999;
@@ -274,13 +269,55 @@
 
 }
 
+.create-album-add-tracks {
+  width: 456px;
+  padding: 20px 0px 20px 10px;
+}
+
+.create-album-add-tracks h3 {
+  font-size: 11px;
+  color: #808080;
+  margin-bottom: 16px;
+}
+
+.create-album-button-text {
+  display: flex;
+  align-items: baseline;
+}
+
+.create-album-button-text span {
+  font-size: 12px;
+  color: #909090;
+  height: 31px;
+  line-height: 31px;
+
+}
+
+.add-track-button {
+  height: 31px;
+  font-size: 22px;
+  color: #0687f5;
+  outline: none;
+  border: none;
+  background: none;
+  padding: 0 !important;
+  margin-right: 45px;
+  cursor: pointer;
+}
+
+
+
+.add-track-button:hover {
+  text-decoration: underline;
+}
+
 
 .track-upload-main {
   margin-top: 20px;
   margin-bottom: 20px;
-  border: 2px dashed darkgray;
+  border: 1px solid silver;
   padding: 10px;
-  width: 500px;
+  width: 403px;
   display: inline-block;
 }
 
@@ -298,33 +335,27 @@
 
 .track-title-label {
   text-align: right;
-  color: dimgray;
-  font-size: 13px;
+  font-size: 12px;
   margin-right: 10px;
 }
 
-.track-order-label {
-  text-align: right;
-  color: dimgray;
-  font-size: 13px;
-  margin-right: 10px;
-}
 
 .track-title-input > input {
-  width: 369px;
-  height: 25px;
-  font-size: 14px;
-  padding-left: 3px;
-  outline: none;
+  width: 300px;
+  height: 20px;
+  font-size: 12px;
+  padding: 5px 10px 5px 10px;
+  border: 1px solid #9c9c9c;
+  border-color: #9c9c9c #9c9c9c #ccc #ccc;
 }
 
-.track-order-input > input {
-  width: 20px;
-  height: 25px;
-  font-size: 14px;
-  padding-left: 3px;
-  outline: none;
+.track-title-input > input:focus {
+  border-color: #50a1e6;
+  box-shadow: 0 0 5px #b4d7f9;
+  outline: medium none;
 }
+
+
 
 .track-file-label {
   margin-bottom: 10px;
