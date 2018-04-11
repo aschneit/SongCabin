@@ -4,15 +4,16 @@
 
 }
 
-.album-errors {
+.album-create-errors {
   list-style: none;
-
-    font-size: 13px;
-    height: 13px;
-    color: red;
-    margin-bottom: 8px;
+  height: 26px;
+  font-size: 13px;
+  color: red;
+  margin-top: 10px;
 
 }
+
+
 
 .create-album-background {
   width: 955px;
@@ -159,7 +160,7 @@
 
 
 .create-album-submit {
-  margin-top: 50px;
+  margin-top: 20px;
   border: 1px solid #2072b8;
   width: 108px;
   height: 32px;

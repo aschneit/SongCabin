@@ -55,18 +55,6 @@ class CreateAlbumForm extends React.Component {
     return trackForms;
   }
 
-  renderErrors() {
-
-    return(
-      <ul className="album-errors">
-        {this.props.errors.map((error, i) => (
-          <li className="errors" key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
-  }
 
   handleSubmit(e) {
     const formData = new FormData();
@@ -100,7 +88,6 @@ class CreateAlbumForm extends React.Component {
         <div className="create-album-background">
             <form onSubmit={this.handleSubmit} className="create-album-form">
               <div className="create-album-form-content">
-                {this.renderErrors()}
                 <div className="create-album-left">
                   <div className="create-album-info-box">
                     <div className="create-album-small-img">
@@ -131,6 +118,13 @@ class CreateAlbumForm extends React.Component {
                     <div>
                       {this.trackForms()}
                     </div>
+                    <ul className="album-create-errors">
+                      {this.props.errors.map((error, i) => (
+                        <li className="errors" key={`error-${i}`}>
+                          {error}
+                        </li>
+                      ))}
+                    </ul>
                     <input
                       className="create-album-submit"
                       type="submit"
