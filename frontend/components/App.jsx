@@ -11,10 +11,17 @@ import EditArtistContainer from './artist/edit_artist_container';
 import CreateAlbumContainer from './album/create_album_container';
 import ArtistNavContainer from './artist/artist_nav_container';
 import Modal from './session_form/modal';
+import Footer from './main/footer';
+import fontawesome from '@fortawesome/fontawesome';
+import FontAwesomeIcon from '@fortawesome/react-fontawesome';
+import brands from '@fortawesome/fontawesome-free-brands';
+
+fontawesome.library.add(brands);
 
 class App extends React.Component {
 
   render() {
+
     return (
       <div className = 'main'>
         <Modal />
@@ -28,6 +35,7 @@ class App extends React.Component {
         <ProtectedRoute path="/artist-edit" component={EditArtistContainer} />
         <ProtectedRoute path="/albums/new" component={CreateAlbumContainer} />
         <AuthRoute path="/signup" component={SignupFormContainer} />
+        <Route path="/" component={Footer}/>
       </div>
     );
   }

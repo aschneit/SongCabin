@@ -1,0 +1,89 @@
+.footer-main {
+  background-color: #848484;
+  height: 30px;
+  color: white;
+  font-family: Helvetica;
+}
+
+.footer-content {
+  width: 975px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-name {
+  font-size: 18px;
+  line-height: 30px;
+
+}
+
+.footer-links {
+  line-height: 30px;
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 18px;
+}
+
+.footer-links a:link {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+
+.footer-links a:active{
+  cursor: pointer;
+  text-decoration: none;
+
+}
+
+.footer-links a:visited {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-links a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: #477987;
+
+}
+
+.linkedin-icon:hover {
+  color: #477987;
+}
+
+.footer-name a:link {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+}
+
+.footer-name a:visited {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+
+}
+
+.footer-name a:active {
+  cursor: pointer;
+  text-decoration: none;
+
+
+}
+
+.footer-name a:hover {
+  cursor: pointer;
+  text-decoration: none;
+  color: white;
+  text-shadow: 3px 3px #477987;
+
+}
+
+.linkedin-icon {
+  color: white;
+}
