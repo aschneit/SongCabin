@@ -21,7 +21,6 @@ class TrackUpload extends React.Component {
     return e => {
       const newState = merge({}, this.state, {track: {[field]: e.currentTarget.value}});
       this.setState(newState, () => {
-
         this.props.receiveTrackData(this.state.track);
       });
     };
@@ -31,7 +30,6 @@ class TrackUpload extends React.Component {
     const file = e.currentTarget.files[0];
     const newState = merge({}, this.state, {track: {file: file}});
     this.setState(newState, () => {
-
       this.props.receiveTrackData(this.state.track);
     });
   }

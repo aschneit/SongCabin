@@ -47,12 +47,9 @@ class SongPlayer extends React.Component {
   handlePlay(e) {
     if (!this.props.currentTrack.id) {
       this.props.sendCurrentTrack({id: this.props.leadTrack[0].id, playing: true});
-      this.playerAudio.play();
     } else if (this.props.currentTrack.playing === false) {
-      this.playerAudio.play();
       this.props.sendCurrentTrack({playing: true});
     } else {
-      this.playerAudio.pause();
       this.props.sendCurrentTrack({playing: false});
     }
   }

@@ -175,16 +175,16 @@
   border-left: 1px solid lightgray;
 }
 
-.main-nav-discover {
+/* .main-nav-discover {
  padding-left: 9px;
  padding-right: 12px;
 
-}
+} */
 
-.main-nav-discover:hover {
+/* .main-nav-discover:hover {
   text-decoration: underline;
   cursor: pointer;
-}
+} */
 
 .main-nav-right-bottom a:link {
     text-decoration: none;
