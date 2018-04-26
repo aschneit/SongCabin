@@ -229,19 +229,7 @@
   visibility: hidden;
 }
 
-@-moz-document url-prefix() {
-  .update-album-image-hint {
-    bottom: 0;
-    top: 70px;
-  }
-}
 
-@-moz-document url-prefix() {
-  .inputfile-cover + label {
-    bottom: 0;
-    top: 60px;
-  }
-}
 
 .update-album-image {
   margin-top: 30px;
@@ -267,6 +255,7 @@
   border: 1px dashed silver;
   margin-bottom: 30px;
   text-align: center;
+  position: relative;
 
 }
 

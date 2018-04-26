@@ -72,19 +72,27 @@
 }
 
 .slider::-webkit-slider-thumb {
-    -webkit-appearance: none; /* Override default look */
+    -webkit-appearance: none;
     appearance: none;
-    width: 27px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
-    background-color: white; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 27px;
+    height: 15px;
+    background-color: white;
+    cursor: pointer;
     border: 1px solid darkgray;
 }
 
 .slider::-moz-range-thumb {
-    width: 27px; /* Set a specific slider handle width */
-    height: 15px; /* Slider handle height */
-    background-color: white; /* Green background */
-    cursor: pointer; /* Cursor on hover */
+    width: 27px;
+    height: 15px;
+    background-color: white;
+    cursor: pointer;
     border: 1px solid darkgray;
+      border-radius: 0;
+}
+
+
+.slider::-moz-range-track {
+  background:transparent;
+  border:0px;
+
 }
