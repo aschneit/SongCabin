@@ -6,7 +6,6 @@ import SongPlayerContainer from './song_player_container';
 export default class AlbumShow extends React.Component {
   constructor(props) {
     super(props);
-
     this.handleTrack = this.handleTrack.bind(this);
 
   }

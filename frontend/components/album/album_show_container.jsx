@@ -8,8 +8,6 @@ import { sendCurrentTrack } from "../../actions/track_actions";
 const msp = (state, ownProps) => {
   const currentUser = state.entities.users[state.session.id];
   const artist = state.entities.users[ownProps.match.params.artistId] || {};
-  // const album = state.entities.albums[ownProps.match.params.albumId] || {};
-
   let album;
   if (ownProps.match.params.albumId) {
     album = state.entities.albums[ownProps.match.params.albumId] || {};
