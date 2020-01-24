@@ -9,35 +9,25 @@ export default class AlbumShow extends React.Component {
     this.handleTrack = this.handleTrack.bind(this);
 
   }
-
+  
   componentDidMount() {
-
-    if (this.props.match.params.albumId) {
-    this.props.getAlbumTracks(this.props.match.params.albumId).then(() => {
-      const leadTrack = this.props.tracks.filter((track) => {
-        return track.order === 1;
-      }) || [];
-      if (leadTrack[0]) {
-        this.props.sendCurrentTrack({id: leadTrack[0].id, playing: false});
-      }
-
+    if (!this.props.tracks) return;
+    const leadTrack = this.props.tracks.find((track) => {
+      return track.order === 1;
     });
-
-  }
-
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-    if (this.props.match.params.albumId !== nextProps.match.params.albumId) {
-     this.props.getAlbumTracks(nextProps.match.params.albumId);
+    if (leadTrack) {
+      this.props.sendCurrentTrack({id: leadTrack.id, playing: false});
     }
+  }
+  
+  componentWillReceiveProps(nextProps) {
+    if (!this.props.tracks || !nextProps.tracks) return;
     if (!this.arraysAreEqual(this.props.tracks, nextProps.tracks)) {
-      const leadTrack = nextProps.tracks.filter((track) => {
+      const leadTrack = nextProps.tracks.find((track) => {
         return track.order === 1;
-      }) || [];
-      if (leadTrack[0]) {
-        this.props.sendCurrentTrack({id: leadTrack[0].id, playing: false});
+      });
+      if (leadTrack) {
+        this.props.sendCurrentTrack({id: leadTrack.id, playing: false});
       }
 
     }
@@ -89,6 +79,7 @@ export default class AlbumShow extends React.Component {
 
 
   render () {
+    if (!this.props.album || !this.props.tracks || (this.props.tracks && this.props.tracks.length < 1) ) return null;
     const editButton = () => {
       if (this.props.currentUser && (this.props.currentUser.id === this.props.artist.id)) {
         return (
@@ -101,7 +92,6 @@ export default class AlbumShow extends React.Component {
     };
 
     return (
-
       <div className='album-column'>
         <div className="album-left-column">
           <div className="album-name">

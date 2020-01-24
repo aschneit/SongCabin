@@ -46,7 +46,7 @@ class SongPlayer extends React.Component {
 
   handlePlay(e) {
     if (!this.props.currentTrack.id) {
-      this.props.sendCurrentTrack({id: this.props.leadTrack[0].id, playing: true});
+      this.props.sendCurrentTrack({id: this.props.leadTrack.id, playing: true});
     } else if (this.props.currentTrack.playing === false) {
       this.props.sendCurrentTrack({playing: true});
     } else {
@@ -71,13 +71,13 @@ class SongPlayer extends React.Component {
 
   render() {
     let playerTrack = {};
-    if (this.props.leadTrack[0]) {
-      playerTrack = this.props.leadTrack[0];
+    if (this.props.leadTrack) {
+      playerTrack = this.props.leadTrack;
     }
     if (this.props.currentTrack.id) {
-       playerTrack = this.props.tracks.filter((track) => {
+       playerTrack = this.props.tracks.find((track) => {
         return track.id === this.props.currentTrack.id;
-      })[0];
+      });
     }
     if (this.props.currentTrack.playing === true && this.playerAudio) {
       this.playerAudio.play();

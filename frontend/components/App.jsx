@@ -30,7 +30,8 @@ class App extends React.Component {
         <Route path="/albums/new" component={ArtistNavContainer}/>
         <Route path="/artists/:artistId" component={ArtistNavContainer}/>
         <Route exact path="/" component={MainPageContainer}/>
-        <Route path="/artists/:artistId" component={ArtistPageContainer}/>
+        <Route path="/artists/:artistId/albums/:albumId" component={ArtistPageContainer}/>
+        <Route exact path="/artists/:artistId" component={ArtistPageContainer}/>
         <AuthRoute path="/login" component={LoginFormContainer} />
         <ProtectedRoute path="/artist-edit" component={EditArtistContainer} />
         <ProtectedRoute path="/albums/new" component={CreateAlbumContainer} />
