@@ -6,13 +6,6 @@ export const RECEIVE_ALBUMS = "RECEIVE_ALBUMS";
 export const CLEAR_ALBUM_ERRORS = "CLEAR_ERRORS";
 export const RECEIVE_ALBUM_ERRORS = "RECEIVE_ALBUM_ERRORS";
 
-export const receiveTracks = tracks => {
-  return {
-    type: RECEIVE_TRACKS,
-    tracks
-  };
-};
-
 export const clearErrors = errors => dispatch => {
   return dispatch({ type: CLEAR_ALBUM_ERRORS, errors });
 };
@@ -42,12 +35,6 @@ export const receiveAlbumErrors = errors => {
 export const fetchAlbums = (query) => (dispatch, getState) => {
   return APIUtil.getAlbums(query).then(albums => {
     dispatch(receiveAlbums(albums));
-  });
-};
-
-export const getAlbumTracks = id => (dispatch, getState) => {
-  return APIUtil.getAlbumTracks(id).then(tracks => {
-    dispatch(receiveTracks(tracks));
   });
 };
 

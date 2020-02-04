@@ -47,17 +47,19 @@ export default class AlbumShow extends React.Component {
     return true;
   }
 
-  handleTrack (e) {
-    if (e.currentTarget.value !== this.props.currentTrack.id) {
-      this.props.sendCurrentTrack({id: e.currentTarget.value, playing: true});
+  handleTrack (id) {
+    return () => {
+      if (id !== this.props.currentTrack.id) {
+        this.props.sendCurrentTrack({id, playing: true});
 
-    } else if ((e.currentTarget.value === this.props.currentTrack.id) && (this.props.currentTrack.playing === true)) {
-      this.props.sendCurrentTrack({id: e.currentTarget.value, playing: false});
+      } else if ((id === this.props.currentTrack.id) && (this.props.currentTrack.playing === true)) {
+        this.props.sendCurrentTrack({id, playing: false});
 
-    } else if ((e.currentTarget.value === this.props.currentTrack.id) && (this.props.currentTrack.playing === false)) {
-      this.props.sendCurrentTrack({id: e.currentTarget.value, playing: true});
-
+      } else if ((id === this.props.currentTrack.id) && (this.props.currentTrack.playing === false)) {
+        this.props.sendCurrentTrack({id, playing: true});
+      }
     }
+
   }
 
   toggleIcon(id) {
@@ -79,9 +81,10 @@ export default class AlbumShow extends React.Component {
 
 
   render () {
-    if (!this.props.album || !this.props.tracks || (this.props.tracks && this.props.tracks.length < 1) ) return null;
+    const { album, tracks, currentUser, artist, sendCurrentTrack } = this.props;
+    if (!album || !tracks || (tracks && tracks.length < 1) ) return null;
     const editButton = () => {
-      if (this.props.currentUser && (this.props.currentUser.id === this.props.artist.id)) {
+      if (currentUser && (currentUser.id === artist.id)) {
         return (
           <div className = "add-edit-buttons">
               <div className="edit-button"><button><Link to="/albums/new">Add Album</Link></button></div>
@@ -98,11 +101,11 @@ export default class AlbumShow extends React.Component {
             {this.props.album.title}
           </div>
           <div className="artist-name">
-            by <Link to={`/artists/${this.props.artist.id}/albums/${this.props.artist.most_recent_album}`}>{this.props.artist.band_name}</Link>
+            by <Link to={`/artists/${artist.id}/albums/${artist.most_recent_album}`}>{artist.band_name}</Link>
           </div>
-          {/*editButton()*/}
+          {editButton()}
           <div className="player">
-            <SongPlayerContainer  sendCurrentTrack={this.props.sendCurrentTrack} tracks={this.props.tracks}/>
+            <SongPlayerContainer  sendCurrentTrack={sendCurrentTrack} tracks={tracks}/>
           </div>
           <div className="digital-album">
             Digital Album
@@ -117,27 +120,26 @@ export default class AlbumShow extends React.Component {
           </div>
           <div>
             <ul className="track-list">
-            {this.props.tracks.map((track, id) => {
+            {tracks.map((track, id) => {
               return (
-                <ul className = "track-list-format" key={id}>
-                  <li className="small-player-icon-td"></li>
-                    <li onClick={this.handleTrack} value={track.id} className="small-player-icon"></li>
-                    <li onClick={this.handleTrack} value={track.id} className="small-icon-play"><img src={this.toggleIcon(track.id)}/></li>
-                  <li className="track-number-td"><span>{track.order}.</span></li>
-                  <li className="track-title-time-td"><span className={`track-title ${this.toggleBold(track.id)}`}>{track.title}</span></li>
-                </ul>
-
+                  <li className="track-list-item" key={id}>
+                    <button onClick={this.handleTrack(track.id)} className="small-player-icon">
+                      <img className="small-icon-play" src={this.toggleIcon(track.id)}/>
+                    </button>
+                    <span className="track-number-td"><span>{track.order}.</span></span>
+                    <span className="track-title-time-td"><span className={`track-title ${this.toggleBold(track.id)}`}>{track.title}</span></span>  
+                  </li>
               );
             })}
             </ul>
           </div>
           <div className="album-description-text description">
-            {this.props.album.description}
+            {album.description}
           </div>
         </div>
         <div className="album-right-column">
           <div className="album-image">
-            <img src={this.props.album.image_url}/>
+            <img src={album.image_url}/>
           </div>
         </div>
       </div>

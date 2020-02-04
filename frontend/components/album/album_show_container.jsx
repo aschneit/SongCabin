@@ -1,7 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
 import AlbumShow from "./album_show";
-import { getAlbumTracks } from "../../actions/album_actions";
 import { withRouter } from 'react-router-dom';
 import { sendCurrentTrack } from "../../actions/track_actions";
 

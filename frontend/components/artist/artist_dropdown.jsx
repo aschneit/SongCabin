@@ -36,7 +36,6 @@ export default class ArtistDropDown extends React.Component {
 
 
   render () {
-
     return (
       <div className = "artist-nav-dropdown" onClick={this.handleDropDown} onBlur={this.handleBlur}>
         <Link to="#" className = "artist-nav-dropdown-link">

@@ -18,15 +18,6 @@ class Api::AlbumsController < ApplicationController
     end
   end
 
-  def show
-    @album = Album.find(params[:id])
-    if @album
-      render "api/albums/show"
-    else
-      render json: 'No user'
-    end
-  end
-
   def update
     @album = Album.find(params[:id])
     if @album.update(album_params)

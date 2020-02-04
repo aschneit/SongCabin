@@ -65,7 +65,7 @@ class EditArtistForm extends React.Component {
   }
 
   render () {
-
+    const { bandName, bandLocation, bandDescription, bandWebsite, imageUrl } = this.state;
     return (
       <div className="edit-artist-full-page">
         <div className="edit-artist-background">
@@ -82,22 +82,22 @@ class EditArtistForm extends React.Component {
                     </div>
                     <div className="edit-artist-inputs">
                       <input type="text"
-                        value={this.state.bandName}
+                        value={bandName}
                         onChange={this.update('bandName')}
                         className="edit-artist-input"
                       />
                       <input type="text"
-                        value={this.state.bandLocation}
+                        value={bandLocation}
                         onChange={this.update('bandLocation')}
                         className="edit-artist-input"
                       />
                     <input type="text"
-                        value={this.state.bandDescription}
+                        value={bandDescription}
                         onChange={this.update('bandDescription')}
                         className="edit-artist-input"
                       />
                       <input type="text"
-                          value={this.state.bandWebsite}
+                          value={bandWebsite}
                           onChange={this.update('bandWebsite')}
                           className="edit-artist-input"
                         />
@@ -108,7 +108,7 @@ class EditArtistForm extends React.Component {
                     <label>Band Profile Image</label>
                   </div>
                   <div className="update-artist-image-img">
-                    <img src = {this.state.imageUrl}/>
+                    <img src = {imageUrl}/>
                   </div>
                   <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
                     <label htmlFor="file">Select image</label>
