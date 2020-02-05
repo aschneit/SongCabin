@@ -9,7 +9,7 @@ export default class AlbumShow extends React.Component {
     this.handleTrack = this.handleTrack.bind(this);
 
   }
-  
+
   componentDidMount() {
     if (!this.props.tracks) return;
     const leadTrack = this.props.tracks.find((track) => {
@@ -19,7 +19,7 @@ export default class AlbumShow extends React.Component {
       this.props.sendCurrentTrack({id: leadTrack.id, playing: false});
     }
   }
-  
+
   componentWillReceiveProps(nextProps) {
     if (!this.props.tracks || !nextProps.tracks) return;
     if (!this.arraysAreEqual(this.props.tracks, nextProps.tracks)) {
@@ -32,8 +32,6 @@ export default class AlbumShow extends React.Component {
 
     }
   }
-
-
 
   arraysAreEqual (arr1, arr2) {
     if (arr1.length !== arr2.length) {
@@ -49,34 +47,27 @@ export default class AlbumShow extends React.Component {
 
   handleTrack (id) {
     return () => {
-      if (id !== this.props.currentTrack.id) {
-        this.props.sendCurrentTrack({id, playing: true});
-
-      } else if ((id === this.props.currentTrack.id) && (this.props.currentTrack.playing === true)) {
+      if ((id === this.props.currentTrack.id) && (this.props.currentTrack.playing === true)) {
         this.props.sendCurrentTrack({id, playing: false});
-
-      } else if ((id === this.props.currentTrack.id) && (this.props.currentTrack.playing === false)) {
+      } else {
         this.props.sendCurrentTrack({id, playing: true});
       }
-    }
+    };
 
   }
 
   toggleIcon(id) {
-    let boldTrack;
     if ((this.props.currentTrack.playing === true) && (this.props.currentTrack.id === id)) {
-    return pause;
-  } else if ((this.props.currentTrack.playing === false) && (this.props.currentTrack.id === id)) {
-    return play;
-  } else {
-    return play;
-  }
+      return pause;
+    } else  {
+      return play;
+    }
 }
 
   toggleBold(id) {
     if ((this.props.currentTrack.playing === true) && (this.props.currentTrack.id === id)) {
-    return 'bold';
-  }
+      return 'bold';
+    }
   }
 
 
@@ -127,7 +118,7 @@ export default class AlbumShow extends React.Component {
                       <img className="small-icon-play" src={this.toggleIcon(track.id)}/>
                     </button>
                     <span className="track-number-td"><span>{track.order}.</span></span>
-                    <span className="track-title-time-td"><span className={`track-title ${this.toggleBold(track.id)}`}>{track.title}</span></span>  
+                    <span className="track-title-time-td"><span className={`track-title ${this.toggleBold(track.id)}`}>{track.title}</span></span>
                   </li>
               );
             })}
@@ -143,9 +134,6 @@ export default class AlbumShow extends React.Component {
           </div>
         </div>
       </div>
-
     );
   }
-
-
 }

@@ -1,89 +1,65 @@
 .main-nav {
-  width: 100%;
-  height: 100px;
+  max-width: 1000px;
+  height: 60px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  margin: 20px auto;
+  font-size: 16px;
 }
 
-.main-nav-left {
-  display: flex;
-  flex-direction: column;
+.main-nav li {
+  list-style: none;
+}
+
+.main-nav button {
+  background: transparent;
+  font-weight: 600;
+  font-size: 16px;
+  border: none;
+  outline: none;
+}
+
+.main-nav button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.main-nav a:visited, .main-nav a:link {
+  text-decoration: none;
+}
+
+.main-nav a:hover {
+  text-decoration: underline;
 }
 
 .main-nav-left-bottom {
-  padding-bottom: 15px;
-  margin-top: 10px;
-  padding-left: 195px;
   display: flex;
-}
-
-.main-nav-left-bottom li {
-  list-style: none;
+  min-height: 19px;
 }
 
 .main-nav-greeting {
-  display: inline-block;
-  list-style: none;
-  font-weight: normal;
   color: #777;
-  font-weight: normal;
   border-right: 1px solid lightgray;
-  font-family: Helvetica;
   font-size: 14px;
-  text-decoration: none;
   padding-right: 10px;
   padding-top: 2px;
 }
 
 .main-nav-greet-unlogged {
   color: #408ea3;
-  font-size: 16px;
-  font-weight: 500px;
+  font-weight: 500;
 }
 
 .main-nav-yoursite {
-  font-weight: 550;
-  font-size: 16px;
+  font-weight: 600;
   padding-left: 9px;
-
-}
-
-.main-nav-yoursite > a {
-  text-decoration: none;
-  color: black;
-}
-
-.main-nav-yoursite > a:hover {
-  text-decoration: underline;
-}
-
-.main-nav-right {
-  display: flex;
-  padding-right: 197px;
-  width: 448px;
-  height: 87px;
-  display: flex;
-  justify-content: flex-end;
-  flex-direction: column;
-
-
-}
-
-.main-nav-left-top {
-  height: 45px;
 }
 
 .main-logo {
-  padding-top: 10px;
-  padding-left: 195px;
   font-family: Helvetica;
   font-size: 26px;
-  text-decoration: none;
   margin-bottom: 10px;
-
-
 }
 
 .main-logo img {
@@ -91,41 +67,24 @@
   width: 30px;
   vertical-align: bottom;
   padding-bottom: 4px;
-
 }
 
-.main-logo a:link{
+.main-logo a:hover {
   text-decoration: none;
-  color: #333;
-}
-
-.main-logo a:visited{
-  text-decoration: none;
-  color: #333;
 }
 
 .main-nav-session-buttons {
   display: flex;
-  list-style: none;
-
-
 }
 
 .main-nav-right-top {
-  display: flex;
-  justify-content: flex-end;
   margin-bottom: 13px;
-
 }
-
-
 
 .main-nav-right-bottom {
   display: flex;
   justify-content: flex-end;
-  padding-bottom: 15px;
-  font-weight: 550;
-  font-size: 16px;
+  font-weight: 600;
 }
 
 .main-nav-signup {
@@ -134,42 +93,9 @@
  border-left: 1px solid lightgray;
 }
 
-.main-nav-signup button {
-  background: transparent;
-  font-weight: 550;
-  font-size: 16px;
-  padding-left: 9px;
-  border: none;
-  padding: 0;
-  outline: none;
-
-}
-
-.main-nav-signup button:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
-
-
 .main-nav-login {
   padding-left: 9px;
   border-left: 1px solid lightgray;
-}
-
-.main-nav-logout button {
-  background: transparent;
-  font-weight: 550;
-  font-size: 16px;
-  padding-left: 9px;
-  border: none;
-  padding: 0;
-  outline: none;
-
-}
-
-.main-nav-logout button:hover {
-  text-decoration: underline;
-  cursor: pointer;
 }
 
 .main-nav-logout {
@@ -178,17 +104,29 @@
 }
 
 
-.main-nav-right-bottom a:link {
-    text-decoration: none;
-    color: #333;
+@media only screen and (max-width: 1024px) {
+  .main-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+    max-width: 100%;
+  }
 }
 
-.main-nav-right-bottom a:visited{
-    text-decoration: none;
-    color: #333;
-}
+@media only screen and (max-width: 680px) {
+  .main-nav-greet-unlogged {
+    display: none;
+  }
+  .main-logo {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .main-logo img {
+    height: 15px;
+    width: 23px;
+  }
+  .main-nav {
+    margin: 12px;
+  }
 
-.main-nav-right-bottom a:hover{
-    text-decoration: underline;
-    color: #333;
 }

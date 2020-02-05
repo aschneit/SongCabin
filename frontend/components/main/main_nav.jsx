@@ -7,11 +7,7 @@ import SearchBarContainer from './search_bar_container.jsx';
 const loggedOutLinks = (openModal) => {
   return (
     <ul className="main-nav-session-buttons">
-      <li className="main-nav-discover">
-
-      </li>
       <li className="main-nav-signup">
-        {/*<Link to={"/signup"}>sign up</Link>*/}
         <button onClick={() => openModal('signup')}>sign up</button>
       </li>
       <li className="main-nav-login">
@@ -24,9 +20,6 @@ const loggedOutLinks = (openModal) => {
 const loggedInLinks = logout => {
   return (
     <ul className="main-nav-session-buttons">
-      <li className="main-nav-discover">
-
-      </li>
       <li className="main-nav-logout">
         <button onClick={logout}>log out</button>
       </li>

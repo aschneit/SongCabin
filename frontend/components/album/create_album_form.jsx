@@ -81,7 +81,7 @@ class CreateAlbumForm extends React.Component {
   render() {
     const { imageUrl, albumTitle, albumDescription } = this.state;
     const { currentUser, errors } = this.props;
-    
+
     let textStatus;
     if (imageUrl && imageUrl !== white) {
       textStatus = "hide";
@@ -181,6 +181,3 @@ class CreateAlbumForm extends React.Component {
   }
 }
 export default withRouter(CreateAlbumForm);
-
-{/*
- */}
