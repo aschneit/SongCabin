@@ -1,5 +1,5 @@
 .main-nav {
-  max-width: 1000px;
+  max-width: 984px;
   height: 60px;
   display: flex;
   justify-content: space-between;
@@ -8,28 +8,33 @@
   font-size: 16px;
 }
 
-.main-nav li {
+.main-nav-mobile {
+  display: none;
+}
+
+.main-nav li, .main-nav-mobile li {
   list-style: none;
 }
 
-.main-nav button {
+.main-nav button, .main-nav-mobile button {
   background: transparent;
   font-weight: 600;
   font-size: 16px;
   border: none;
   outline: none;
+  color: black;
 }
 
-.main-nav button:hover {
+.main-nav button:hover, .main-nav-mobile button:hover {
   text-decoration: underline;
   cursor: pointer;
 }
 
-.main-nav a:visited, .main-nav a:link {
+.main-nav a:visited, .main-nav a:link, .main-nav-mobile a:visited, .main-nav-mobile a:link {
   text-decoration: none;
 }
 
-.main-nav a:hover {
+.main-nav a:hover, .main-nav-mobile a:hover {
   text-decoration: underline;
 }
 
@@ -58,15 +63,15 @@
 
 .main-logo {
   font-family: Helvetica;
-  font-size: 26px;
-  margin-bottom: 10px;
+  font-size: 22px;
+  margin-bottom: 14px;
 }
 
 .main-logo img {
-  height: 20px;
-  width: 30px;
+  height: auto;
+  width: 23px;
   vertical-align: bottom;
-  padding-bottom: 4px;
+  padding-bottom: 5px;
 }
 
 .main-logo a:hover {
@@ -106,8 +111,6 @@
 
 @media only screen and (max-width: 1024px) {
   .main-nav {
-    display: flex;
-    justify-content: space-between;
     margin: 20px;
     max-width: 100%;
   }
@@ -117,16 +120,40 @@
   .main-nav-greet-unlogged {
     display: none;
   }
-  .main-logo {
-    font-size: 20px;
-    margin-bottom: 16px;
-  }
-  .main-logo img {
-    height: 15px;
-    width: 23px;
+}
+
+@media only screen and (max-width: 480px) {
+  .main-nav-mobile {
+    display: block;
+    max-width: 100%;
+    height: 70px;
+    margin: 16px;
+    font-size: 16px;
   }
   .main-nav {
-    margin: 12px;
+    display: none;
   }
-
+  .main-nav-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 26px;
+  }
+  .main-nav-yoursite {
+    padding-right: 9px;
+  }
+  .main-nav-login {
+    font-weight: 600;
+  }
+  .main-logo, .main-nav-right-top  {
+    margin-bottom: 0;
+  }
+  .main-nav-mobile button, .main-nav-mobile a {
+    font-size: 16px;
+  }
+  .main-logo img {
+    width: 15px;
+    padding-bottom: 3px;
+  }
 }

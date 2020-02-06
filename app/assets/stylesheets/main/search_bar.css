@@ -94,9 +94,11 @@
 
 @media only screen and (max-width: 480px) {
   .artist-search-bar {
-    width: 108px;
+    box-sizing: border-box;
+    width: 100%;
   }
   .search-results-list {
-    width: 146px;
+    width: calc(100% - 34px);
+
   }
 }
