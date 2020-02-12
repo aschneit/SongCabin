@@ -79,8 +79,11 @@ class CreateAlbumForm extends React.Component {
   }
 
   render() {
+    const { imageUrl, albumTitle, albumDescription } = this.state;
+    const { currentUser, errors } = this.props;
+
     let textStatus;
-    if (this.state.imageUrl && this.state.imageUrl !== white) {
+    if (imageUrl && imageUrl !== white) {
       textStatus = "hide";
     }
     return (
@@ -91,16 +94,16 @@ class CreateAlbumForm extends React.Component {
                 <div className="create-album-left">
                   <div className="create-album-info-box">
                     <div className="create-album-small-img">
-                      <img src={this.state.imageUrl}/>
+                      <img src={imageUrl}/>
                     </div>
                     <div className="create-album-title-artist">
                       <p className="create-album-title">
-                        {!this.state.albumTitle && "Untitled Album"}
-                        {this.state.albumTitle}
+                        {!albumTitle && "Untitled Album"}
+                        {albumTitle}
                       </p>
                       <p className="create-album-by">
                           by <span className="create-album-artist">
-                          {this.props.currentUser.band_name}
+                          {currentUser.band_name}
                         </span>
                       </p>
                     </div>
@@ -119,7 +122,7 @@ class CreateAlbumForm extends React.Component {
                       {this.trackForms()}
                     </div>
                     <ul className="album-create-errors">
-                      {this.props.errors.map((error, i) => (
+                      {errors.map((error, i) => (
                         <li className="errors" key={`error-${i}`}>
                           {error}
                         </li>
@@ -138,13 +141,13 @@ class CreateAlbumForm extends React.Component {
                       className="create-title-input"
                       type="text"
                       placeholder="album name"
-                      value={this.state.albumTitle}
+                      value={albumTitle}
                       onChange={this.update("albumTitle")}
                     />
                   </div>
                   <div className="update-album-image">
                     <div className="update-album-image-box">
-                      <img src={this.state.imageUrl}/>
+                      <img src={imageUrl}/>
                         <input
                           className={`inputfile-cover ${textStatus}`}
                           type="file"
@@ -165,7 +168,7 @@ class CreateAlbumForm extends React.Component {
                     </div>
                     <textarea
                       className="create-credits-input"
-                      value={this.state.albumDescription}
+                      value={albumDescription}
                       onChange={this.update("albumDescription")}
                     />
                   </div>
@@ -178,6 +181,3 @@ class CreateAlbumForm extends React.Component {
   }
 }
 export default withRouter(CreateAlbumForm);
-
-{/*
- */}

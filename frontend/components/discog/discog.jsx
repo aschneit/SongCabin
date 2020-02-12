@@ -41,21 +41,5 @@ export default class Discog extends React.Component {
       </div>
     );
   }
-
-
 }
 
-// {(albums.length > 0) &&
-//
-// <ul className='disco-list'>
-//   <li><Link to={`artists/${albums[albums.length-1].artist_id}/albums/${albums[albums.length-1].id}`}>
-//     <img src={albums[albums.length-1].image_url}/>
-//   </Link></li>
-// <li><Link to={`artists/${albums[albums.length-2].artist_id}/albums/${albums[albums.length-2].id}`}>
-//     <img src={albums[albums.length-2].image_url}/>
-//   </Link></li>
-// <li><Link to={`artists/${albums[albums.length-3].artist_id}/albums/${albums[albums.length-3].id}`}>
-//     <img src={albums[albums.length-3].image_url}/>
-//   </Link></li>
-// </ul>
-// }

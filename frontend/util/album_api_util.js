@@ -1,10 +1,3 @@
-export const getAlbumTracks = id => {
-  return $.ajax({
-    method: "GET",
-    url: `/api/albums/${id}`
-  });
-};
-
 export const getAlbums = (query) => {
   return $.ajax({
     method: "GET",

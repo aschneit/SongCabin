@@ -1,8 +1,8 @@
 import React from "react";
 import AlbumShowContainer from '../album/album_show_container';
 import { Route, withRouter } from 'react-router-dom';
-import ArtistShowContainer from './artist_show_container';
-import DiscogContainer from '../discog/discog_container';
+import ArtistShow from './artist_show';
+import Discog from '../discog/discog';
 
 
 class ArtistPage extends React.Component {
@@ -25,6 +25,17 @@ class ArtistPage extends React.Component {
 
 
   render () {
+    const { albums, artist, tracks } = this.props;
+    if (!artist && (!albums || !albums.length)) return null;
+    let album;
+    if (this.props.match.params.albumId) {
+      album = albums.find(a => a.id == this.props.match.params.albumId);
+    } else {
+      album = albums.find(a => a.id == artist.most_recent_album);
+    }
+    const filteredTracks = album && tracks.filter(track => {
+      return track.album_id === album.id;
+    })
     return (
       <div className="artist-full-page">
         <div className="artist-background">
@@ -32,14 +43,11 @@ class ArtistPage extends React.Component {
           </div>
           <div className="artist-content">
             <div className="album-component">
-              <Route exact path='/artists/:artistId' component={AlbumShowContainer}/>
-              <Route path={`/artists/:artistId/albums/:albumId/`} component={AlbumShowContainer}/>
+              <AlbumShowContainer artist={artist} album={album} tracks={filteredTracks} />
             </div>
             <div className="artist-discog-components">
-              <Route exact path='/artists/:artistId' component={ArtistShowContainer}/>
-              <Route path={`/artists/:artistId/albums/:albumId/`} component={ArtistShowContainer}/>
-              <Route exact path='/artists/:artistId' component={DiscogContainer}/>
-              <Route path={`/artists/:artistId/albums/:albumId/`} component={DiscogContainer}/>
+              <ArtistShow artist={artist} />
+              <Discog albums={albums} />
             </div>
           </div>
         </div>

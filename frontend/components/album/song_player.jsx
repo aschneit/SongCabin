@@ -46,7 +46,7 @@ class SongPlayer extends React.Component {
 
   handlePlay(e) {
     if (!this.props.currentTrack.id) {
-      this.props.sendCurrentTrack({id: this.props.leadTrack[0].id, playing: true});
+      this.props.sendCurrentTrack({id: this.props.leadTrack.id, playing: true});
     } else if (this.props.currentTrack.playing === false) {
       this.props.sendCurrentTrack({playing: true});
     } else {
@@ -70,24 +70,26 @@ class SongPlayer extends React.Component {
   }
 
   render() {
+    const { leadTrack, tracks, currentTrack } = this.props;
+    const { duration, slider } = this.state;
     let playerTrack = {};
-    if (this.props.leadTrack[0]) {
-      playerTrack = this.props.leadTrack[0];
+    if (this.props.leadTrack) {
+      playerTrack = this.props.leadTrack;
     }
-    if (this.props.currentTrack.id) {
-       playerTrack = this.props.tracks.filter((track) => {
-        return track.id === this.props.currentTrack.id;
-      })[0];
+    if (currentTrack.id) {
+       playerTrack = tracks.find((track) => {
+        return track.id === currentTrack.id;
+      });
     }
-    if (this.props.currentTrack.playing === true && this.playerAudio) {
+    if (currentTrack.playing === true && this.playerAudio) {
       this.playerAudio.play();
     }
-    if (this.props.currentTrack.playing === false && this.playerAudio) {
+    if (currentTrack.playing === false && this.playerAudio) {
       this.playerAudio.pause();
     }
 
     let icon;
-    if (this.props.currentTrack.playing === true) {
+    if (currentTrack.playing === true) {
       icon = pause;
     } else {
       icon = play;
@@ -97,8 +99,8 @@ class SongPlayer extends React.Component {
     let elapsedMins;
     let elapsedSecs;
  if (this.playerAudio) {
-    durationMins = Math.floor(this.state.duration / 60) || 0;
-    durationSecs = Math.floor(this.state.duration % 60) || 0;
+    durationMins = Math.floor(duration / 60) || 0;
+    durationSecs = Math.floor(duration % 60) || 0;
     if (durationSecs < 10) {
       durationSecs = '0' + durationSecs;
     } else {
@@ -146,7 +148,7 @@ class SongPlayer extends React.Component {
               </div>
             </div>
             <div className="slider-container">
-              <input type="range" value={this.state.slider}
+              <input type="range" value={slider}
                 onChange={this.handleDragSlider} min="1" max="250" className="slider" id="myRange"/>
             </div>
           </div>

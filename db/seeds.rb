@@ -47,9 +47,6 @@ a5 = Album.create!(title: 'Music for Loving', description: "Combining two string
 
 
 
-
-
-
 Track.create!(title: 'You Go to My Head', album_id: a1.id, order: 1, audio: "http://s3.amazonaws.com/songcabin-dev/tracks/audios/000/000/013/original/1-17_You_Go_To_My_Head.mp3?1521171544")
 Track.create!(title: 'Easy Living', album_id: a1.id, order: 2, audio: "http://s3.amazonaws.com/songcabin-dev/tracks/audios/000/000/014/original/1-13_Easy_Living.mp3?1521171544")
 Track.create!(title: 'Mean to Me', album_id: a1.id, order: 3, audio: "http://s3.amazonaws.com/songcabin-dev/tracks/audios/000/000/015/original/1-12_Mean_To_Me.mp3?1521171544")

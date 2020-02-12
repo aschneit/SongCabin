@@ -7,9 +7,19 @@ import { withRouter } from 'react-router-dom';
 
 
 const msp = (state, ownProps) => {
-  const artist = state.entities.users[ownProps.match.params.artistId] || {};
+  const artistId = ownProps.match.params.artistId;
+  const artist = state.entities.users[artistId] || {};
+  const albums = Object.values(state.entities.albums).filter(album => {
+    return album.artist_id == artistId;
+  })
+  const trackIds = albums.map(album => album.track_ids).flat();
+  const tracks = Object.values(state.entities.tracks).filter(track => {
+    return trackIds.includes(track.id);
+  })
   return {
-    artist
+    artist,
+    albums,
+    tracks
   };
 };
 

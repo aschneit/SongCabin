@@ -162,72 +162,44 @@
   list-style: none;
 }
 
-.small-player-icon-td{
-
+.track-list-item {
  padding-top: 6px;
  padding-bottom: 6px;
-
+ display: flex;
+ align-items: center;
 }
 
-.small-player-icon {
-  position: relative;
-  list-style: none;
+.track-list-item button {
+  -webkit-appearance: none;
+  outline: none;
+  box-sizing: content-box;
   background-color: white;
   height: 16px;
-  width: 17px;
-  z-index: 1;
+  width: 16px;
   border: 1px solid silver;
-  top: 6px;
-
+  margin-right: 4px;
 }
 
 .small-player-icon:hover {
   cursor: pointer;
 }
 
-.track-list-format {
-  display: flex;
-  list-style: none;
-}
-
 .small-icon-play {
-  list-style: none;
-
-}
-
-.small-icon-play img {
   height: 8px;
   width: 8px;
-  z-index: 1;
-  position: relative;
-  right: 13px;
-  top: 5px;
-
 }
 
-.small-icon-play img:hover {
-  cursor: pointer;
-
-}
-
-.small-player-icon-td:hover {
+.small-icon-play:hover {
   cursor: pointer;
 }
 
 .track-number-td {
-  padding-top: 6px;
-  padding-bottom: 6px;
   padding-right: 4px;
 }
 
 .track-number-td > span {
   font-size: 13px;
   color: #888888;
-}
-
-.track-title-time-td {
-  padding-top: 6px;
-  padding-bottom: 6px;
 }
 
 .track-title {
