@@ -89,7 +89,7 @@ export default class AlbumShow extends React.Component {
       <div className='album-column'>
         <div className="album-left-column">
           <div className="album-name">
-            {this.props.album.title}
+            {album.title}
           </div>
           <div className="artist-name">
             by <Link to={`/artists/${artist.id}/albums/${artist.most_recent_album}`}>{artist.band_name}</Link>

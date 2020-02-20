@@ -19,10 +19,7 @@ class ArtistPage extends React.Component {
     if (this.props.match.params.artistId !== nextProps.match.params.artistId) {
      this.props.getArtist(nextProps.match.params.artistId);
     }
-
   }
-
-
 
   render () {
     const { albums, artist, tracks } = this.props;
@@ -35,7 +32,7 @@ class ArtistPage extends React.Component {
     }
     const filteredTracks = album && tracks.filter(track => {
       return track.album_id === album.id;
-    })
+    });
     return (
       <div className="artist-full-page">
         <div className="artist-background">

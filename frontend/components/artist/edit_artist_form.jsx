@@ -32,7 +32,7 @@ class EditArtistForm extends React.Component {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
     fileReader.onloadend = () =>
-    this.setState({ imageUrl: fileReader.result, imageFile: file});
+      this.setState({ imageUrl: fileReader.result, imageFile: file });
     if (file) {
       fileReader.readAsDataURL(file);
     }
@@ -53,15 +53,17 @@ class EditArtistForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    const file = this.state.imageFile;
+    const { imageFile, bandName, bandLocation, bandDescription, bandWebsite } = this.state;
+    const { currentUser, processForm } = this.props;
+    const file = imageFile;
     const formData = new FormData();
-    formData.append("user[band_name]", this.state.bandName);
-    formData.append("user[band_location]", this.state.bandLocation);
-    formData.append("user[band_description]", this.state.bandDescription);
-    formData.append("user[band_website]", this.state.bandWebsite);
+    formData.append("user[band_name]", bandName);
+    formData.append("user[band_location]", bandLocation);
+    formData.append("user[band_description]", bandDescription);
+    formData.append("user[band_website]", bandWebsite);
     if (file) formData.append("user[image]", file);
-    this.props.processForm(this.props.currentUser, formData)
-    .then(() => this.props.history.push(`/artists/${this.props.currentUser.id}`));
+    processForm(currentUser, formData)
+    .then(() => this.props.history.push(`/artists/${currentUser.id}`));
   }
 
   render () {
@@ -112,7 +114,6 @@ class EditArtistForm extends React.Component {
                   </div>
                   <input className="inputfile" type="file" name="file" id="file" onChange={this.updateFile} />
                     <label htmlFor="file">Select image</label>
-
                 </div>
                 <input className="edit-artist-submit" type="submit" value="Save"/>
               </form>

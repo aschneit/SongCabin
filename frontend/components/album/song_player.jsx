@@ -12,130 +12,76 @@ class SongPlayer extends React.Component {
     this.handlePlay = this.handlePlay.bind(this);
     this.moveSlider = this.moveSlider.bind(this);
     this.handleDragSlider = this.handleDragSlider.bind(this);
-
+    this.handleMetaData = this.handleMetaData.bind(this);
   }
 
-  componentDidMount () {
-
-    if (this.playerAudio) {
-    this.playerAudio.onloadedmetadata = () => {
-			this.setState({duration: this.playerAudio.duration});
-		};
-  }
-  }
-
-  componentWillReceiveProps (nextProps) {
+  componentWillReceiveProps(nextProps) {
     if (this.props.currentTrack.id !== nextProps.currentTrack.id) {
       this.setState({slider: 0});
     }
-    if (this.playerAudio) {
-    this.playerAudio.onloadedmetadata = () => {
-      this.setState({duration: this.playerAudio.duration});
-    };
-    }
   }
-
-
 
   moveSlider() {
-    this.setState({slider: this.slider()});
-
+    const slider = this.playerAudio.currentTime ?
+      this.playerAudio.currentTime / this.playerAudio.duration * 250 : 0;
+    this.setState({ slider });
   }
 
-
-
-  handlePlay(e) {
+  handlePlay() {
     if (!this.props.currentTrack.id) {
-      this.props.sendCurrentTrack({id: this.props.leadTrack.id, playing: true});
-    } else if (this.props.currentTrack.playing === false) {
-      this.props.sendCurrentTrack({playing: true});
+      this.props.sendCurrentTrack({ id: this.props.leadTrack.id, playing: true });
     } else {
-      this.props.sendCurrentTrack({playing: false});
+      this.props.sendCurrentTrack({ playing: !this.props.currentTrack.playing });
     }
   }
 
-  handleDragSlider (e) {
+  handleDragSlider(e) {
     this.playerAudio.currentTime = e.currentTarget.value / 250 * this.playerAudio.duration;
   }
 
-
-
-  slider () {
-    if (this.playerAudio.currentTime) {
-      return (this.playerAudio.currentTime / this.playerAudio.duration * 250);
-
-    } else {
-      return 0;
-    }
+  handleMetaData() {
+    this.setState({ duration: this.playerAudio.duration });
   }
 
   render() {
     const { leadTrack, tracks, currentTrack } = this.props;
     const { duration, slider } = this.state;
-    let playerTrack = {};
-    if (this.props.leadTrack) {
-      playerTrack = this.props.leadTrack;
+    let playerTrack = currentTrack.id ?
+      tracks.find(track => track.id === currentTrack.id) : leadTrack ?
+      leadTrack : {};
+    let durationMins, durationSecs, elapsedMins, elapsedSecs, time;
+    if (this.playerAudio) {
+      if (currentTrack.playing) {
+        this.playerAudio.play();
+      } else {
+        this.playerAudio.pause();
+      }
+      durationMins = Math.floor(duration / 60);
+      durationSecs = Math.floor(duration % 60);
+      durationMins = durationMins < 10 ? '0' + durationMins : durationMins;
+      durationSecs = durationSecs < 10 ? '0' + durationSecs : durationSecs;
+      elapsedMins = Math.floor(this.playerAudio.currentTime / 60);
+      elapsedSecs = Math.floor(this.playerAudio.currentTime % 60);
+      elapsedMins = elapsedMins < 10 ? '0' + elapsedMins : elapsedMins;
+      elapsedSecs = elapsedSecs < 10 ? '0' + elapsedSecs : elapsedSecs;
+      time = elapsedMins + ':' + elapsedSecs + ' / ' + durationMins + ':' + durationSecs;
     }
-    if (currentTrack.id) {
-       playerTrack = tracks.find((track) => {
-        return track.id === currentTrack.id;
-      });
-    }
-    if (currentTrack.playing === true && this.playerAudio) {
-      this.playerAudio.play();
-    }
-    if (currentTrack.playing === false && this.playerAudio) {
-      this.playerAudio.pause();
-    }
-
-    let icon;
-    if (currentTrack.playing === true) {
-      icon = pause;
-    } else {
-      icon = play;
-    }
-    let durationMins;
-    let durationSecs;
-    let elapsedMins;
-    let elapsedSecs;
- if (this.playerAudio) {
-    durationMins = Math.floor(duration / 60) || 0;
-    durationSecs = Math.floor(duration % 60) || 0;
-    if (durationSecs < 10) {
-      durationSecs = '0' + durationSecs;
-    } else {
-      durationSecs = durationSecs;
-    }
-    if (durationMins < 10) {
-      durationMins = '0' + durationMins;
-    } else {
-      durationMins = durationMins;
-    }
-
-    elapsedMins = Math.floor(this.playerAudio.currentTime / 60);
-    elapsedSecs = Math.floor(this.playerAudio.currentTime % 60);
-    if (elapsedSecs < 10) {
-      elapsedSecs = '0' + elapsedSecs;
-    }  else {
-      elapsedSecs = elapsedSecs;
-    }
-    if (elapsedMins < 10) {
-      elapsedMins = '0' + elapsedMins;
-    } else {
-      elapsedMins = elapsedMins;
-    }
-  }
     return (
       <div>
         <div className="native-player">
         {playerTrack &&
-        <audio ref={(audio) => { this.playerAudio = audio; }}  src={playerTrack.audio_url} onTimeUpdate={this.moveSlider}></audio>
+        <audio
+          ref={(audio) => {this.playerAudio = audio;}}
+          src={playerTrack.audio_url}
+          onTimeUpdate={this.moveSlider}
+          onLoadedMetadata={this.handleMetaData}
+        />
         }
         </div>
         <div className="player-total">
           <div className="player-button" onClick={this.handlePlay}>
             <div className="play">
-              <img src={icon}/>
+              <img src={currentTrack.playing ? pause : play}/>
             </div>
           </div>
           <div className="player-mid-controls">
@@ -144,7 +90,7 @@ class SongPlayer extends React.Component {
                 {playerTrack && playerTrack.title}
               </div>
               <div className="current-track-time">
-                {this.playerAudio && elapsedMins + ':' + elapsedSecs + ' / ' + durationMins + ':' + durationSecs}
+                {this.playerAudio && time}
               </div>
             </div>
             <div className="slider-container">

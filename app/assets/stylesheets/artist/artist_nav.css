@@ -215,7 +215,6 @@
 }
 
 
-
 .artist-nav-dropdown-link {
   min-width: 139px;
   height: 43px;
@@ -234,7 +233,14 @@
 .artist-nav-dropdown a:hover {
    text-decoration: none;
    color: #777272;
+}
 
+.artist-nav-dropdown.open {
+  background-color: #ded8d8;
+}
+
+.artist-nav-dropdown.open a:link {
+  color: #777272;
 }
 
 .artist-nav-dropdown a:active {

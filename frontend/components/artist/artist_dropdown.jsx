@@ -8,23 +8,13 @@ export default class ArtistDropDown extends React.Component {
     super(props);
     this.handleDropDown = this.handleDropDown.bind(this);
     this.handleBlur = this.handleBlur.bind(this);
-    this.state = {dropDown: null};
+    this.state = {
+      dropDown: false
+    };
   }
 
   handleDropDown (e) {
-    this.setState({dropDown: (
-      <ul className ="artist-nav-dropdown-contents">
-        <li>
-          <Link to={`/artists/${this.props.currentUser.id}`}>home</Link>
-        </li>
-        <li>
-          <Link to={"/artist-edit"}>profile</Link>
-        </li>
-        <li>
-          <button className="artist-nav-dropdown-logout" onClick={this.props.logout}>log out</button>
-        </li>
-      </ul>
-    )});
+    this.setState({ dropDown: !this.state.dropDown });
   }
 
   handleBlur(e) {
@@ -36,21 +26,35 @@ export default class ArtistDropDown extends React.Component {
 
 
   render () {
+    const { currentUser, logout } = this.props;
+    const { dropDown } = this.state;
     return (
-      <div className = "artist-nav-dropdown" onClick={this.handleDropDown} onBlur={this.handleBlur}>
+      <div className = {`artist-nav-dropdown ${dropDown ? 'open' : ''}`} onClick={this.handleDropDown} onBlur={this.handleBlur}>
         <Link to="#" className = "artist-nav-dropdown-link">
           <div className = "artist-nav-dropdown-image">
-            <img src = {this.props.currentUser.image_url}/>
+            <img src = {currentUser.image_url}/>
           </div>
           <span className = "artist-nav-dropdown-name">
-            {this.props.currentUser.band_name}
+            {currentUser.band_name}
           </span>
           <span className = "artist-nav-dropdown-caret">
             <FontAwesomeIcon  className ="dropdown-caret" icon={faCaretDown} />
           </span>
         </Link>
         <div className = "artist-nav-dropdown-clicked">
-          {this.state.dropDown}
+          {dropDown &&
+            <ul className ="artist-nav-dropdown-contents">
+              <li>
+                <Link to={`/artists/${currentUser.id}`}>home</Link>
+              </li>
+              <li>
+                <Link to={"/artist-edit"}>profile</Link>
+              </li>
+              <li>
+                <button className="artist-nav-dropdown-logout" onClick={logout}>log out</button>
+              </li>
+            </ul>
+          }
         </div>
 
       </div>

@@ -25,7 +25,6 @@ const loggedOutLinks = (openModal) => {
         <div className="artist-nav-right">
           <ul className="artist-nav-session-buttons">
             <li className="artist-nav-right-link">
-              {/*<Link to={"/signup"}>sign up</Link>*/}
               <button onClick={() => openModal('signup')}>sign up</button>
             </li>
             <li className="artist-nav-right-link">
