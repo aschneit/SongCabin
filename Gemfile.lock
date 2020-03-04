@@ -136,7 +136,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.2)
-    puma (3.11.3)
+    puma (3.12.4)
     rack (2.0.4)
     rack-test (0.8.3)
       rack (>= 1.0, < 3)
@@ -232,7 +232,7 @@ DEPENDENCIES
   paperclip (~> 5.0.0)
   pg (>= 0.18, < 2.0)
   pry-rails
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.5)
   sass-rails (~> 5.0)
   selenium-webdriver
